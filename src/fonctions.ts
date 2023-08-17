@@ -57,7 +57,7 @@ export const suivreBdDeFonction = async <T>({
     id: string;
     fSuivreBd: schémaFonctionSuivi<T | undefined>;
   }) => Promise<schémaFonctionOublier>;
-}): Promise<schémaFonctionOublier> {
+}): Promise<schémaFonctionOublier> => {
   let oublierFSuivre: schémaFonctionOublier | undefined;
   let idBdCible: string | undefined;
   let premièreFois = true;
