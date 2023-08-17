@@ -44,6 +44,50 @@ class ÉmetteurUneFois<T> extends EventEmitter {
   }
 }
 
+export const suivreBdDeFonction = async <T>({
+  fRacine,
+  f,
+  fSuivre,
+}: {
+  fRacine: (args: {
+    fSuivreRacine: (nouvelIdBdCible?: string) => Promise<void>;
+  }) => Promise<schémaFonctionOublier>;
+  f: schémaFonctionSuivi<T | undefined>;
+  fSuivre: (args: {
+    id: string;
+    fSuivreBd: schémaFonctionSuivi<T | undefined>;
+  }) => Promise<schémaFonctionOublier>;
+}): Promise<schémaFonctionOublier> {
+  let oublierFSuivre: schémaFonctionOublier | undefined;
+  let idBdCible: string | undefined;
+  let premièreFois = true;
+
+  const oublierRacine = await fRacine({
+    fSuivreRacine: async (nouvelIdBdCible?: string) => {
+      if (nouvelIdBdCible === undefined && premièreFois) {
+        premièreFois = false;
+        await f(undefined);
+      }
+      if (nouvelIdBdCible !== idBdCible) {
+        idBdCible = nouvelIdBdCible;
+        if (oublierFSuivre) await oublierFSuivre();
+
+        if (idBdCible) {
+          oublierFSuivre = await fSuivre({ id: idBdCible, fSuivreBd: f });
+        } else {
+          await f(undefined);
+          oublierFSuivre = undefined;
+        }
+      }
+    },
+  });
+  return async () => {
+    await oublierRacine();
+    if (oublierFSuivre) await oublierFSuivre();
+  };
+}
+
+
 export const uneFois = async function <T>(
   f: (fSuivi: schémaFonctionSuivi<T>) => Promise<schémaFonctionOublier>,
   condition?: (x?: T) => boolean
