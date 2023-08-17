@@ -1,0 +1,97 @@
+{
+  "version": "0.1.0",
+  "license": "AGPL-3.0-or-later",
+  "name": "@constl/utils-ipa",
+  "author": "Julien Jean Malard-Adam",
+  "type": "module",
+  "types": "./dist/src/index.d.ts",
+  "exports": "./dist/src/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "nettoyer": "rimraf dist",
+    "compiler": "pnpm versioner && pnpm nettoyer && pnpm tspc -p tsconfig.build.json",
+    "test:node": "pnpm compiler && env MANDATAIRE=TOUS pnpm aegir test -t node --cov -- --exit",
+    "test:navig": "pnpm compiler && env MANDATAIRE=TOUS pnpm aegir test -t browser --cov",
+    "test:électron-principal": "pnpm compiler && env MANDATAIRE=TOUS pnpm aegir test -t electron-main --cov",
+    "test:électron-rendu": "pnpm compiler && env MANDATAIRE=TOUS pnpm aegir test -t electron-renderer --cov",
+    "test": "pnpm test:node && pnpm test:navig",
+    "formatter": "pnpm prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\" && pnpm eslint --ext .js,.ts src",
+    "publier": "pnpm versioner && pnpm compiler && (git commit -a -m 'version' || true) && pnpm publish",
+    "versioner": "pnpm genversion  --es6 --semi src/version.ts"
+  },
+  "watch": {
+    "build": {
+      "patterns": "./src/**/*",
+      "extensions": [
+        ".ts",
+        ".tsx"
+      ]
+    },
+    "postbuild": "./dist/**/*"
+  },
+  "devDependencies": {
+    "@constl/utils-tests": "^0.1.1",
+    "@types/crypto-js": "^4.1.1",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^18.17.0",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "aegir": "^40.0.11",
+    "browserify-fs": "^1.0.0",
+    "buffer": "^6.0.3",
+    "core-js": "^3.31.1",
+    "crypto-browserify": "^3.12.0",
+    "eslint": "^8.45.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "mocha": "^10.2.0",
+    "os-browserify": "^0.3.0",
+    "playwright": "^1.36.1",
+    "prettier": "^2.8.8",
+    "process": "^0.11.10",
+    "source-map-support": "^0.5.21",
+    "ts-patch": "^3.0.2",
+    "tsconfig-paths": "^4.2.0",
+    "tscpaths": "^0.0.9",
+    "typescript": "5.1.6",
+    "typescript-transform-paths": "^3.4.6"
+  },
+  "dependencies": {
+    "@achingbrain/nat-port-mapper": "1.0.8",
+    "@constl/orbit-db-types": "^1.1.0",
+    "browser-fs-access": "^0.34.1",
+    "events": "^3.3.0",
+    "genversion": "^3.1.1",
+    "jszip": "^3.10.1",
+    "multiformats": "9.9.0",
+    "orbit-db": "^0.29.0",
+    "rimraf": "^5.0.1",
+    "uint8arrays": "^4.0.6",
+    "wherearewe": "^2.0.1"
+  },
+  "resolutions": {
+    "iso-constants": "git+https://github.com/inverted-capital/iso-constants.git#patch-1",
+    "ipfs-pubsub-1on1": "git+https://github.com/ipfs-shipyard/ipfs-pubsub-1on1.git",
+    "@ca9io/electron-webrtc-relay": "git+https://github.com/julienmalard/electron-wrtc-relay.git"
+  },
+  "overrides": {
+    "iso-constants": {
+      ".": "git+https://github.com/inverted-capital/iso-constants.git#patch-1"
+    },
+    "ipfs-pubsub-1on1": {
+      ".": "git+https://github.com/ipfs-shipyard/ipfs-pubsub-1on1.git"
+    },
+    "@ca9io/electron-webrtc-relay": {
+      ".": "git+https://github.com/julienmalard/electron-wrtc-relay.git"
+    }
+  },
+  "peerDependencies": {
+    "wrtc": "^0.4.7"
+  }
+}
