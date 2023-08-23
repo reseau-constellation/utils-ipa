@@ -1,5 +1,5 @@
 {
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "AGPL-3.0-or-later",
   "name": "@constl/utils-ipa",
   "author": "Julien Jean Malard-Adam",
@@ -12,13 +12,13 @@
   "scripts": {
     "nettoyer": "rimraf dist",
     "compiler": "pnpm versioner && pnpm nettoyer && pnpm tspc -p tsconfig.build.json",
-    "test:node": "pnpm compiler && env MANDATAIRE=TOUS pnpm aegir test -t node --cov -- --exit",
-    "test:navig": "pnpm compiler && env MANDATAIRE=TOUS pnpm aegir test -t browser --cov",
-    "test:électron-principal": "pnpm compiler && env MANDATAIRE=TOUS pnpm aegir test -t electron-main --cov",
-    "test:électron-rendu": "pnpm compiler && env MANDATAIRE=TOUS pnpm aegir test -t electron-renderer --cov",
+    "test:node": "pnpm compiler && pnpm aegir test -t node --cov -- --exit",
+    "test:navig": "pnpm compiler && pnpm aegir test -t browser --cov",
+    "test:électron-principal": "pnpm compiler && pnpm aegir test -t electron-main --cov",
+    "test:électron-rendu": "pnpm compiler && pnpm aegir test -t electron-renderer --cov",
     "test": "pnpm test:node && pnpm test:navig",
     "formatter": "pnpm prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\" && pnpm eslint --ext .js,.ts src",
-    "publier": "pnpm versioner && pnpm compiler && (git commit -a -m 'version' || true) && pnpm publish",
+    "publier": "pnpm test && (git commit -a -m 'version' || true) && pnpm publish",
     "versioner": "pnpm genversion  --es6 --semi src/version.ts"
   },
   "watch": {
@@ -32,6 +32,7 @@
     "postbuild": "./dist/**/*"
   },
   "devDependencies": {
+    "@constl/orbit-db-types": "^1.1.0",
     "@constl/utils-tests": "^0.1.1",
     "@types/crypto-js": "^4.1.1",
     "@types/mocha": "^10.0.1",
@@ -64,13 +65,11 @@
   },
   "dependencies": {
     "@achingbrain/nat-port-mapper": "1.0.8",
-    "@constl/orbit-db-types": "^1.1.0",
     "browser-fs-access": "^0.34.1",
     "events": "^3.3.0",
     "genversion": "^3.1.1",
     "jszip": "^3.10.1",
     "multiformats": "9.9.0",
-    "orbit-db": "^0.29.0",
     "rimraf": "^5.0.1",
     "uint8arrays": "^4.0.6",
     "wherearewe": "^2.0.1"

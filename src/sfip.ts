@@ -1,4 +1,3 @@
-import OrbitDB from "orbit-db";
 import { CID } from "multiformats/cid";
 import { concat } from "uint8arrays/concat";
 
@@ -29,10 +28,46 @@ export async function toBuffer(
   return buffer;
 }
 
+// Copié d'orbit-db pour éviter d'avoir à importer orbit-db. Licence MIT
+const orbitdb_isValidAdresse = (address: any) => {
+  const notEmpty = (e: string) => e !== '' && e !== ' '
+
+  address = address.toString().replace(/\\/g, '/')
+
+  const containsProtocolPrefix = (e: string, i: number) => !((i === 0 || i === 1) && address.toString().indexOf('/orbit') === 0 && e === 'orbitdb')
+
+  const parts = address.toString()
+    .split('/')
+    .filter(containsProtocolPrefix)
+    .filter(notEmpty)
+
+  let accessControllerHash
+
+  const validateHash = (hash: string) => {
+    const prefixes = ['zd', 'Qm', 'ba', 'k5']
+    for (const p of prefixes) {
+      if (hash.indexOf(p) > -1) {
+        return true
+      }
+    }
+    return false
+  }
+
+  try {
+    accessControllerHash = validateHash(parts[0])
+      ? CID.parse(parts[0]).toString()
+      : null
+  } catch (e) {
+    return false
+  }
+
+  return accessControllerHash !== null
+}
+
 export function adresseOrbiteValide(adresse: unknown): boolean {
   return (
     typeof adresse === "string" &&
     adresse.startsWith("/orbitdb/") &&
-    OrbitDB.isValidAddress(adresse)
+    orbitdb_isValidAdresse(adresse)
   );
 }
