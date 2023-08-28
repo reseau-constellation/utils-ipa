@@ -6,6 +6,12 @@ on:
     paths-ignore:
       - '**.md'
       - 'docu/*'
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
+      - 'docu/*'
 
 jobs:
   test-ipa-nodejs:
