@@ -7,13 +7,19 @@
 <h3 align="center">Fonctions utilitaires pour Constellation</h3>
 
 <p align="center">
-  <a href="https://codecov.io/gh/reseau-constellation/utils-ipa" > 
- <img src="https://codecov.io/gh/reseau-constellation/utils-ipa/graph/badge.svg?token=9IIvgtrNl5"/> 
- </a>
-  <a href="https://github.com/reseau-constellation/utils-ipa/actions/workflows/tests.yml" > 
- <img src="https://github.com/reseau-constellation/utils-ipa/actions/workflows/tests.yml/badge.svg"/> 
+  <a href="https://github.com/reseau-constellation/utils-ipa/actions/workflows/tests.yml"><img src="https://github.com/reseau-constellation/utils-ipa/actions/workflows/tests.yml/badge.svg"></a>
+  <a href="https://codecov.io/gh/reseau-constellation/utils-ipa" >
+ <img src="https://codecov.io/gh/reseau-constellation/utils-ipa/branch/main/graph/badge.svg?token=àCopierPlusTard"/>
  </a>
   <br>
 </p>
 
-Fonctions utilitaires pour Constellation.
+
+## Installation
+Vous pouvez ajouter l'IPA Constellation à vos projets JavaScript ou TypeScript
+avec la commande suivante:
+
+```sh
+$ pnpm install @constl/utils-ipa
+```
+
