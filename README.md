@@ -16,8 +16,7 @@
 
 
 ## Installation
-Vous pouvez ajouter l'IPA Constellation à vos projets JavaScript ou TypeScript
-avec la commande suivante:
+Vous pouvez ajouter ce paquet à vos projets JavaScript ou TypeScript avec la commande suivante:
 
 ```sh
 $ pnpm install @constl/utils-ipa
