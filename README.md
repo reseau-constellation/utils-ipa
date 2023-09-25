@@ -8,16 +8,15 @@
 
 <p align="center">
   <a href="https://github.com/reseau-constellation/utils-ipa/actions/workflows/tests.yml"><img src="https://github.com/reseau-constellation/utils-ipa/actions/workflows/tests.yml/badge.svg"></a>
-  <a href="https://codecov.io/gh/reseau-constellation/utils-ipa" >
- <img src="https://codecov.io/gh/reseau-constellation/utils-ipa/branch/main/graph/badge.svg?token=àCopierPlusTard"/>
- </a>
+  <a href="https://codecov.io/gh/reseau-constellation/utils-ipa" > 
+    <img src="https://codecov.io/gh/reseau-constellation/utils-ipa/graph/badge.svg?token=9IIvgtrNl5"/> 
+  </a>
   <br>
 </p>
 
 
 ## Installation
-Vous pouvez ajouter l'IPA Constellation à vos projets JavaScript ou TypeScript
-avec la commande suivante:
+Vous pouvez ajouter ce paquet à vos projets JavaScript ou TypeScript avec la commande suivante:
 
 ```sh
 $ pnpm install @constl/utils-ipa
