@@ -38,7 +38,7 @@
     "@types/node": "^18.17.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
-    "aegir": "^40.0.11",
+    "aegir": "^41.0.0",
     "browserify-fs": "^1.0.0",
     "buffer": "^6.0.3",
     "core-js": "^3.31.1",
