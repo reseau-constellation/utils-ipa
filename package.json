@@ -35,7 +35,7 @@
     "@constl/utils-tests": "^0.2.0",
     "@types/crypto-js": "^4.1.1",
     "@types/mocha": "^10.0.1",
-    "@types/node": "^18.17.0",
+    "@types/node": "^20.0.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "aegir": "^41.0.0",
