@@ -27,11 +27,7 @@ dependencies:
     specifier: 9.9.0
     version: 9.9.0
   rimraf:
-<<<<<<< HEAD
-    specifier: ^5.0.1
-=======
     specifier: ^5.0.5
->>>>>>> 59ca079 (version)
     version: 5.0.5
   uint8arrays:
     specifier: ^4.0.6
@@ -42,15 +38,6 @@ dependencies:
 
 devDependencies:
   '@constl/utils-tests':
-<<<<<<< HEAD
-    specifier: ^0.2.0
-    version: 0.2.2
-  '@types/crypto-js':
-    specifier: ^4.1.1
-    version: 4.1.3
-  '@types/mocha':
-    specifier: ^10.0.1
-=======
     specifier: ^0.2.2
     version: 0.2.2
   '@types/crypto-js':
@@ -58,23 +45,15 @@ devDependencies:
     version: 4.1.3
   '@types/mocha':
     specifier: ^10.0.3
->>>>>>> 59ca079 (version)
     version: 10.0.3
   '@types/node':
     specifier: ^20.8.9
     version: 20.8.9
   '@typescript-eslint/eslint-plugin':
-<<<<<<< HEAD
-    specifier: ^6.0.0
-    version: 6.9.0(@typescript-eslint/parser@6.9.0)(eslint@8.52.0)(typescript@5.2.2)
-  '@typescript-eslint/parser':
-    specifier: ^6.0.0
-=======
     specifier: ^6.9.0
     version: 6.9.0(@typescript-eslint/parser@6.9.0)(eslint@8.52.0)(typescript@5.2.2)
   '@typescript-eslint/parser':
     specifier: ^6.9.0
->>>>>>> 59ca079 (version)
     version: 6.9.0(eslint@8.52.0)(typescript@5.2.2)
   aegir:
     specifier: ^41.0.14
@@ -86,21 +65,13 @@ devDependencies:
     specifier: ^6.0.3
     version: 6.0.3
   core-js:
-<<<<<<< HEAD
-    specifier: ^3.31.1
-=======
     specifier: ^3.33.1
->>>>>>> 59ca079 (version)
     version: 3.33.1
   crypto-browserify:
     specifier: ^3.12.0
     version: 3.12.0
   eslint:
-<<<<<<< HEAD
-    specifier: ^8.45.0
-=======
     specifier: ^8.52.0
->>>>>>> 59ca079 (version)
     version: 8.52.0
   eslint-config-airbnb-base:
     specifier: ^15.0.0
@@ -112,11 +83,7 @@ devDependencies:
     specifier: ^17.1.0
     version: 17.1.0(eslint-plugin-import@2.29.0)(eslint-plugin-n@16.2.0)(eslint-plugin-promise@6.1.1)(eslint@8.52.0)
   eslint-plugin-import:
-<<<<<<< HEAD
-    specifier: ^2.27.5
-=======
     specifier: ^2.29.0
->>>>>>> 59ca079 (version)
     version: 2.29.0(@typescript-eslint/parser@6.9.0)(eslint@8.52.0)
   eslint-plugin-node:
     specifier: ^11.1.0
@@ -131,11 +98,7 @@ devDependencies:
     specifier: ^0.3.0
     version: 0.3.0
   playwright:
-<<<<<<< HEAD
-    specifier: ^1.36.1
-=======
     specifier: ^1.39.0
->>>>>>> 59ca079 (version)
     version: 1.39.0
   prettier:
     specifier: ^3.0.3
@@ -5604,17 +5567,6 @@ packages:
       esutils: 2.0.3
     dev: true
 
-<<<<<<< HEAD
-  /domexception@1.0.1:
-    resolution: {integrity: sha512-raigMkn7CJNNo6Ihro1fzG7wr3fHuYVytzquZKX5n0yizGsTcYgzdIUwj1X9pK0VvjeihV+XiclP+DjwbsSKug==}
-    requiresBuild: true
-    dependencies:
-      webidl-conversions: 4.0.2
-    dev: false
-    optional: true
-
-=======
->>>>>>> 59ca079 (version)
   /dot-prop@5.3.0:
     resolution: {integrity: sha512-QM8q3zDe58hqUqjraQOmzZ1LIH9SWQJTlEKCH4kJ2oQvLZk7RbQXvtDM2XEq3fwkV9CCvvH4LA0AV+ogFsBM2Q==}
     engines: {node: '>=8'}
@@ -13650,15 +13602,6 @@ packages:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
     dev: true
 
-<<<<<<< HEAD
-  /webidl-conversions@4.0.2:
-    resolution: {integrity: sha512-YQ+BmxuTgd6UXZW3+ICGfyqRyHXVlD5GtQr5+qjiNW7bF0cqrzX500HVXPBOvgXb5YnzDd+h0zqyv61KUD7+Sg==}
-    requiresBuild: true
-    dev: false
-    optional: true
-
-=======
->>>>>>> 59ca079 (version)
   /whatwg-url@5.0.0:
     resolution: {integrity: sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw==}
     dependencies:
@@ -13795,19 +13738,6 @@ packages:
       typedarray-to-buffer: 3.1.5
     dev: true
 
-<<<<<<< HEAD
-  /wrtc@0.4.7:
-    resolution: {integrity: sha512-P6Hn7VT4lfSH49HxLHcHhDq+aFf/jd9dPY7lDHeFhZ22N3858EKuwm2jmnlPzpsRGEPaoF6XwkcxY5SYnt4f/g==}
-    engines: {node: ^8.11.2 || >=10.0.0}
-    requiresBuild: true
-    optionalDependencies:
-      domexception: 1.0.1
-    dev: false
-    bundledDependencies:
-      - node-pre-gyp
-
-=======
->>>>>>> 59ca079 (version)
   /ws@8.11.0:
     resolution: {integrity: sha512-HPG3wQd9sNQoT9xHyNCXoDUa+Xw/VevmY9FoHyQ+g+rrMn4j6FB4np7Z0OhdTgjx6MgQLK7jwSy1YecU1+4Asg==}
     engines: {node: '>=10.0.0'}
