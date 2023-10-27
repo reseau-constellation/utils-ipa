@@ -1,5 +1,5 @@
 {
-  "version": "0.2.0",
+  "version": "0.2.1",
   "license": "AGPL-3.0-or-later",
   "name": "@constl/utils-ipa",
   "author": "Julien Jean Malard-Adam",
@@ -32,28 +32,28 @@
     "postbuild": "./dist/**/*"
   },
   "devDependencies": {
-    "@constl/utils-tests": "^0.2.0",
-    "@types/crypto-js": "^4.1.1",
-    "@types/mocha": "^10.0.1",
+    "@constl/utils-tests": "^0.2.2",
+    "@types/crypto-js": "^4.1.3",
+    "@types/mocha": "^10.0.3",
     "@types/node": "^20.8.9",
-    "@typescript-eslint/eslint-plugin": "^6.0.0",
-    "@typescript-eslint/parser": "^6.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
+    "@typescript-eslint/parser": "^6.9.0",
     "aegir": "^41.0.14",
     "browserify-fs": "^1.0.0",
     "buffer": "^6.0.3",
-    "core-js": "^3.31.1",
+    "core-js": "^3.33.1",
     "crypto-browserify": "^3.12.0",
-    "eslint": "^8.45.0",
+    "eslint": "^8.52.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-import": "^2.29.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.1.1",
     "mocha": "^10.2.0",
     "os-browserify": "^0.3.0",
-    "playwright": "^1.36.1",
-    "prettier": "^3.0.0",
+    "playwright": "^1.39.0",
+    "prettier": "^3.0.3",
     "process": "^0.11.10",
     "source-map-support": "^0.5.21",
     "ts-patch": "^3.0.2",
@@ -70,27 +70,8 @@
     "genversion": "^3.1.1",
     "jszip": "^3.10.1",
     "multiformats": "9.9.0",
-    "rimraf": "^5.0.1",
+    "rimraf": "^5.0.5",
     "uint8arrays": "^4.0.6",
     "wherearewe": "^2.0.1"
-  },
-  "resolutions": {
-    "iso-constants": "git+https://github.com/inverted-capital/iso-constants.git#patch-1",
-    "ipfs-pubsub-1on1": "git+https://github.com/ipfs-shipyard/ipfs-pubsub-1on1.git",
-    "@ca9io/electron-webrtc-relay": "git+https://github.com/julienmalard/electron-wrtc-relay.git"
-  },
-  "overrides": {
-    "iso-constants": {
-      ".": "git+https://github.com/inverted-capital/iso-constants.git#patch-1"
-    },
-    "ipfs-pubsub-1on1": {
-      ".": "git+https://github.com/ipfs-shipyard/ipfs-pubsub-1on1.git"
-    },
-    "@ca9io/electron-webrtc-relay": {
-      ".": "git+https://github.com/julienmalard/electron-wrtc-relay.git"
-    }
-  },
-  "peerDependencies": {
-    "wrtc": "^0.4.7"
   }
 }
