@@ -110,3 +110,26 @@ export const ignorerNonDéfinis = <T>(
     }
   };
 };
+
+export const attendreStabilité = <T>(
+  n: number,
+): ((v: T) => Promise<boolean>) => {
+  let déjàAppellé = false;
+  let val: string | undefined = undefined;
+  let annulerRebours: () => void = faisRien;
+
+  return (v: T) =>
+    new Promise<boolean>((résoudre) => {
+      if (déjàAppellé && JSON.stringify(v) === val) return;
+
+      déjàAppellé = true;
+      annulerRebours();
+      val = JSON.stringify(v);
+
+      const crono = setTimeout(() => résoudre(true), n);
+      annulerRebours = () => {
+        clearTimeout(crono);
+        résoudre(false);
+      };
+    });
+};
