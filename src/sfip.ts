@@ -16,7 +16,7 @@ export function cidValide(cid: unknown): boolean {
 // Identique à it-to-buffer, mais avec option de maximum de taille
 export async function toBuffer(
   stream: AsyncIterable<Uint8Array> | Iterable<Uint8Array>,
-  max?: number
+  max?: number,
 ): Promise<Uint8Array | null> {
   let buffer = new Uint8Array(0);
 

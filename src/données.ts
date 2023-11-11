@@ -5,7 +5,7 @@ import { isNode, isElectronMain } from "wherearewe";
 
 export function traduire(
   trads: { [key: string]: string },
-  langues: string[]
+  langues: string[],
 ): string | undefined {
   const langueTrouvée = langues.find((l) => trads[l] !== undefined);
   const trad = langueTrouvée ? trads[langueTrouvée] : undefined;
@@ -15,7 +15,7 @@ export function traduire(
 export async function zipper(
   fichiersDocs: { nom: string; octets: Uint8Array }[],
   fichiersSFIP: { nom: string; octets: Uint8Array }[],
-  nomFichier: string
+  nomFichier: string,
 ): Promise<void> {
   if (!nomFichier.endsWith(".zip")) nomFichier = `${nomFichier}.zip`;
 
