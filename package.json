@@ -64,7 +64,7 @@
     "typescript-transform-paths": "^3.4.6"
   },
   "dependencies": {
-    "@achingbrain/nat-port-mapper": "1.0.8",
+    "@achingbrain/nat-port-mapper": "1.0.13",
     "@chriscdn/promise-semaphore": "^2.0.8",
     "@orbitdb/core": "^1.0.0",
     "browser-fs-access": "^0.35.0",
