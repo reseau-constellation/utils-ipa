@@ -1,4 +1,3 @@
-import fs from "fs";
 import path from "path";
 
 import { traduire, zipper } from "@/données.js";
@@ -63,14 +62,17 @@ describe("Utils : données", function () {
       });
 
       it("Le fichier zip est créé", async () => {
+        const fs = await import("fs");
         await attendreFichier.attendre();
 
         zip = await JSZip.loadAsync(fs.readFileSync(nomFichier));
       });
+
       it("Les documents de base existent", async () => {
         const contenu = await zip.files["fichier1.txt"].async("string");
         expect(contenu).to.equal("Je ne suis que du texte.");
       });
+
       it("Les fichiers SFIP sont inclus", async () => {
         expect(zip.files["sfip/"].dir).to.be.true();
         const contenuFichierSFIP1 =
