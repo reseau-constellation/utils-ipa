@@ -59,7 +59,6 @@
     "typescript-transform-paths": "^3.4.6"
   },
   "dependencies": {
-    "@achingbrain/nat-port-mapper": "1.0.8",
     "@chriscdn/promise-semaphore": "^2.0.9",
     "browser-fs-access": "^0.35.0",
     "deep-equal": "^2.2.3",
