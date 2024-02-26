@@ -67,7 +67,7 @@
     "jszip": "^3.10.1",
     "multiformats": "9.9.0",
     "rimraf": "^5.0.5",
-    "uint8arrays": "^4.0.10",
+    "uint8arrays": "^5.0.0",
     "wherearewe": "^2.0.1"
   }
 }
