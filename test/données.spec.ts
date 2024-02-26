@@ -33,7 +33,7 @@ describe("Utils : données", function () {
       let attendreFichier: attente.AttendreFichierExiste;
 
       before(async () => {
-        ({ dossier, fEffacer } = await dossiers.dossierTempoTests());
+        ({ dossier, fEffacer } = await dossiers.dossierTempo());
         nomFichier = path.join(dossier, "testZip.zip");
         attendreFichier = new attente.AttendreFichierExiste(nomFichier);
         const fichiersDocs = [

@@ -1,20 +1,3 @@
-// https://github.com/ipfs/aegir/blob/master/md/migration-to-v31.md
-const esbuild = {
-  external: ["fs", "path", "os", "chokidar", "url", "zlib", "rimraf"],
-};
+import { config } from "@constl/utils-tests"
 
-/** @type {import('aegir').PartialOptions} */
-const options = {
-  test: {
-    browser: {
-      config: {
-        buildConfig: esbuild,
-      },
-    },
-  },
-  build: {
-    config: esbuild,
-  },
-};
-
-export default options;
+export default config.générerConfigÆgir();
