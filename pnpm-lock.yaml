@@ -24,8 +24,8 @@ dependencies:
     specifier: ^3.10.1
     version: 3.10.1
   multiformats:
-    specifier: 9.9.0
-    version: 9.9.0
+    specifier: 13.1.0
+    version: 13.1.0
   rimraf:
     specifier: ^5.0.5
     version: 5.0.5
@@ -11596,10 +11596,10 @@ packages:
 
   /multiformats@13.1.0:
     resolution: {integrity: sha512-HzdtdBwxsIkzpeXzhQ5mAhhuxcHbjEHH+JQoxt7hG/2HGFjjwyolLo7hbaexcnhoEuV4e0TNJ8kkpMjiEYY4VQ==}
-    dev: true
 
   /multiformats@9.9.0:
     resolution: {integrity: sha512-HoMUjhH9T8DDBNT+6xzkrd9ga/XiBI4xLr58LJACwK6G3HTOPeMz4nB4KJs33L2BelrIJa7P0VuNaVF3hMYfjg==}
+    dev: true
 
   /multihashes@4.0.3:
     resolution: {integrity: sha512-0AhMH7Iu95XjDLxIeuCOOE4t9+vQZsACyKZ9Fxw2pcsRmlX4iCn1mby0hS0bb+nQOVpdQYWPpnyusw4da5RPhA==}
