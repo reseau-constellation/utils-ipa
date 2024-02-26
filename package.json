@@ -32,7 +32,7 @@
     "postbuild": "./dist/**/*"
   },
   "devDependencies": {
-    "@constl/utils-tests": "^0.2.3",
+    "@constl/utils-tests": "^1.0.0",
     "@types/crypto-js": "^4.2.1",
     "@types/deep-equal": "^1.0.4",
     "@types/mocha": "^10.0.6",
