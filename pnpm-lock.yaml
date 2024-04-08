@@ -51,7 +51,7 @@ devDependencies:
     version: 10.0.6
   '@types/node':
     specifier: ^20.11.20
-    version: 20.12.4
+    version: 20.12.5
   '@typescript-eslint/eslint-plugin':
     specifier: ^7.0.2
     version: 7.6.0(@typescript-eslint/parser@7.6.0)(eslint@9.0.0)(typescript@5.4.4)
@@ -4478,7 +4478,7 @@ packages:
     dependencies:
       '@types/http-cache-semantics': 4.0.4
       '@types/keyv': 3.1.4
-      '@types/node': 20.12.4
+      '@types/node': 20.12.5
       '@types/responselike': 1.0.3
     dev: true
 
@@ -4521,14 +4521,14 @@ packages:
   /@types/dns-packet@5.6.5:
     resolution: {integrity: sha512-qXOC7XLOEe43ehtWJCMnQXvgcIpv6rPmQ1jXT98Ad8A3TB1Ue50jsCbSSSyuazScEuZ/Q026vHbrOTVkmwA+7Q==}
     dependencies:
-      '@types/node': 20.12.4
+      '@types/node': 20.12.5
     dev: true
 
   /@types/glob@7.2.0:
     resolution: {integrity: sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==}
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 20.12.4
+      '@types/node': 20.12.5
     dev: true
 
   /@types/http-cache-semantics@4.0.4:
@@ -4562,7 +4562,7 @@ packages:
   /@types/keyv@3.1.4:
     resolution: {integrity: sha512-BQ5aZNSCpj7D6K2ksrRCTmKRLEpnPvWDiLPfoGyhZ++8YtiK9d/3DBKPJgry359X/P1PfruyYwvnvwFjuEiEIg==}
     dependencies:
-      '@types/node': 20.12.4
+      '@types/node': 20.12.5
     dev: true
 
   /@types/mdast@4.0.3:
@@ -4595,13 +4595,7 @@ packages:
     resolution: {integrity: sha512-ib5K4cIDR4Ro5SR3Sx/LROkMDa0BHz0OPaCBL/OSPDsAXEGZ3/KQeS6poBKYVN7BfjXDL9lWNwzyHVgt/wkyCw==}
     dependencies:
       '@types/dns-packet': 5.6.5
-      '@types/node': 20.12.4
-    dev: true
-
-  /@types/node@20.12.4:
-    resolution: {integrity: sha512-E+Fa9z3wSQpzgYQdYmme5X3OTuejnnTx88A6p6vkkJosR3KBz+HpE3kqNm98VE6cfLFcISx7zW7MsJkH6KwbTw==}
-    dependencies:
-      undici-types: 5.26.5
+      '@types/node': 20.12.5
     dev: true
 
   /@types/node@20.12.5:
@@ -4621,7 +4615,7 @@ packages:
   /@types/responselike@1.0.3:
     resolution: {integrity: sha512-H/+L+UkTV33uf49PH5pCAUBVPNj2nDBXTN+qS1dOwyyg24l3CcicicCA7ca+HMvJBZcFgl5r8e+RR6elsb4Lyw==}
     dependencies:
-      '@types/node': 20.12.4
+      '@types/node': 20.12.5
     dev: true
 
   /@types/retry@0.12.0:
@@ -4665,7 +4659,7 @@ packages:
   /@types/ws@8.5.10:
     resolution: {integrity: sha512-vmQSUcfalpIq0R9q7uTo2lXs6eGIpt9wtnLdMv9LVpIjCA/+ufZRozlVoVelIYixx1ugCBKDhn89vnsEGOCx9A==}
     dependencies:
-      '@types/node': 20.12.4
+      '@types/node': 20.12.5
     dev: true
 
   /@types/yargs-parser@21.0.3:
@@ -4688,7 +4682,7 @@ packages:
     resolution: {integrity: sha512-oJoftv0LSuaDZE3Le4DbKX+KS9G36NzOeSap90UIK0yMA/NhKJhqlSGtNDORNRaIbQfzjXDrQa0ytJ6mNRGz/Q==}
     requiresBuild: true
     dependencies:
-      '@types/node': 20.12.4
+      '@types/node': 20.12.5
     dev: true
     optional: true
 
@@ -5147,7 +5141,7 @@ packages:
       '@types/chai-string': 1.4.5
       '@types/chai-subset': 1.3.5
       '@types/mocha': 10.0.6
-      '@types/node': 20.12.4
+      '@types/node': 20.12.5
       '@typescript-eslint/eslint-plugin': 5.62.0(@typescript-eslint/parser@7.6.0)(eslint@8.57.0)(typescript@5.4.4)
       buffer: 6.0.3
       bytes: 3.1.2
@@ -5221,7 +5215,7 @@ packages:
       typedoc-plugin-mdn-links: 3.1.17(typedoc@0.25.9)
       typedoc-plugin-missing-exports: 2.2.0(typedoc@0.25.9)
       typescript: 5.4.4
-      typescript-docs-verifier: 2.5.0(@types/node@20.12.4)(typescript@5.4.4)
+      typescript-docs-verifier: 2.5.0(@types/node@20.12.5)(typescript@5.4.4)
       wherearewe: 2.0.1
       yargs: 17.7.2
       yargs-parser: 21.1.1
@@ -13687,7 +13681,7 @@ packages:
       '@protobufjs/path': 1.1.2
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
-      '@types/node': 20.12.4
+      '@types/node': 20.12.5
       long: 5.2.3
     dev: true
 
@@ -15436,7 +15430,7 @@ packages:
       typescript: 5.4.4
     dev: true
 
-  /ts-node@10.9.2(@types/node@20.12.4)(typescript@5.4.4):
+  /ts-node@10.9.2(@types/node@20.12.5)(typescript@5.4.4):
     resolution: {integrity: sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ==}
     hasBin: true
     peerDependencies:
@@ -15455,7 +15449,7 @@ packages:
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 20.12.4
+      '@types/node': 20.12.5
       acorn: 8.11.3
       acorn-walk: 8.3.2
       arg: 4.1.3
@@ -15715,7 +15709,7 @@ packages:
       typescript: 5.4.4
     dev: true
 
-  /typescript-docs-verifier@2.5.0(@types/node@20.12.4)(typescript@5.4.4):
+  /typescript-docs-verifier@2.5.0(@types/node@20.12.5)(typescript@5.4.4):
     resolution: {integrity: sha512-h+1fW9LEJi5Q8fMZxdpVoXjGQohx7CAYTylF5JWmmj6IM0J21HgII1vpLAX/Q5B+jlIg8V7v7sGfwBI7LIG4oA==}
     engines: {node: '>=12'}
     hasBin: true
@@ -15726,7 +15720,7 @@ packages:
       fs-extra: 10.1.0
       ora: 5.4.1
       strip-ansi: 7.1.0
-      ts-node: 10.9.2(@types/node@20.12.4)(typescript@5.4.4)
+      ts-node: 10.9.2(@types/node@20.12.5)(typescript@5.4.4)
       tsconfig: 7.0.0
       typescript: 5.4.4
       yargs: 17.7.2
