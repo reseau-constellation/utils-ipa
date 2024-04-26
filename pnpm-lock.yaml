@@ -62,7 +62,7 @@ importers:
         version: 7.7.1(eslint@9.1.1)(typescript@5.4.5)
       aegir:
         specifier: ^42.2.4
-        version: 42.2.8(@babel/core@7.24.4)(@typescript-eslint/parser@7.7.1(eslint@9.1.1)(typescript@5.4.5))(eslint-plugin-n@17.3.1(eslint@9.1.1))
+        version: 42.2.9(@babel/core@7.24.4)(@typescript-eslint/parser@7.7.1(eslint@9.1.1)(typescript@5.4.5))(eslint-plugin-n@17.3.1(eslint@9.1.1))
       core-js:
         specifier: ^3.36.0
         version: 3.37.0
@@ -2185,8 +2185,8 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
-  aegir@42.2.8:
-    resolution: {integrity: sha512-3WQaxohtRrVaRxApZ8rcIrEe6tmyhpsMRhl/kFbwidw1fNqZM43PxRpzGrNVlmwLuSQstYwdShH23pAgJUFA1w==}
+  aegir@42.2.9:
+    resolution: {integrity: sha512-vxPIcl+4RsNLw6kNjGS4ItWXLMKkHtqnROzszkTAxUyZ2yZz2OBOsk1/JpzFhp557EX920HNdTKDveZNVP08nA==}
     hasBin: true
 
   agent-base@7.1.1:
@@ -5188,8 +5188,8 @@ packages:
     resolution: {integrity: sha512-tqNXrS78oMOE73NMxK4EMLQsQowWf8jKooH9g7xPavRT706R6bkQJ6DY2Te7QukaZsulxa30wQ7bk0pm4XiHmA==}
     engines: {node: '>=8'}
 
-  lru-cache@10.2.0:
-    resolution: {integrity: sha512-2bIM8x+VAf6JT4bKAljS1qUWgMsqZRPGJS6FSahIMPVvctcNhyVp7AJu7quxOW9jwkryBReKZY5tY5JYv2n/7Q==}
+  lru-cache@10.2.1:
+    resolution: {integrity: sha512-tS24spDe/zXhWbNPErCHs/AGOzbKGHT+ybSBqmdLm8WZ1xXLWvH8Qn71QPAlqVhd0qUTWjy+Kl9JmISgDdEjsA==}
     engines: {node: 14 || >=16.14}
 
   lru-cache@5.1.1:
@@ -10978,7 +10978,7 @@ snapshots:
 
   acorn@8.11.3: {}
 
-  aegir@42.2.8(@babel/core@7.24.4)(@typescript-eslint/parser@7.7.1(eslint@9.1.1)(typescript@5.4.5))(eslint-plugin-n@17.3.1(eslint@9.1.1)):
+  aegir@42.2.9(@babel/core@7.24.4)(@typescript-eslint/parser@7.7.1(eslint@9.1.1)(typescript@5.4.5))(eslint-plugin-n@17.3.1(eslint@9.1.1)):
     dependencies:
       '@anolilab/multi-semantic-release': 1.0.3(semantic-release@23.0.8(typescript@5.4.5))(typescript@5.4.5)
       '@electron/get': 3.0.0
@@ -13862,7 +13862,7 @@ snapshots:
 
   hosted-git-info@7.0.1:
     dependencies:
-      lru-cache: 10.2.0
+      lru-cache: 10.2.1
 
   html-escaper@2.0.2: {}
 
@@ -14888,7 +14888,7 @@ snapshots:
 
   lowercase-keys@2.0.0: {}
 
-  lru-cache@10.2.0: {}
+  lru-cache@10.2.1: {}
 
   lru-cache@5.1.1:
     dependencies:
@@ -16262,7 +16262,7 @@ snapshots:
 
   path-scurry@1.10.1:
     dependencies:
-      lru-cache: 10.2.0
+      lru-cache: 10.2.1
       minipass: 7.0.4
 
   path-type@3.0.0:
