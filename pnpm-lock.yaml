@@ -27,8 +27,8 @@ importers:
         specifier: ^3.10.1
         version: 3.10.1
       multiformats:
-        specifier: 13.1.0
-        version: 13.1.0
+        specifier: 13.1.1
+        version: 13.1.1
       rimraf:
         specifier: ^5.0.5
         version: 5.0.7
@@ -5600,8 +5600,8 @@ packages:
     resolution: {integrity: sha512-eajQ/ZH7qXZQR2AgtfpmSMizQzmyYVmCql7pdhldPuYQi4atACekbJaQplk6dWyIi10jCaFnd6pqvcEFXjbaJw==}
     engines: {node: '>=16.0.0', npm: '>=7.0.0'}
 
-  multiformats@13.1.0:
-    resolution: {integrity: sha512-HzdtdBwxsIkzpeXzhQ5mAhhuxcHbjEHH+JQoxt7hG/2HGFjjwyolLo7hbaexcnhoEuV4e0TNJ8kkpMjiEYY4VQ==}
+  multiformats@13.1.1:
+    resolution: {integrity: sha512-JiptvwMmlxlzIlLLwhCi/srf/nk409UL0eUBr0kioRJq15hqqKyg68iftrBvhCRjR6Rw4fkNnSc4ZJXJDuta/Q==}
 
   multiformats@9.9.0:
     resolution: {integrity: sha512-HoMUjhH9T8DDBNT+6xzkrd9ga/XiBI4xLr58LJACwK6G3HTOPeMz4nB4KJs33L2BelrIJa7P0VuNaVF3hMYfjg==}
@@ -8872,7 +8872,7 @@ snapshots:
       it-length-prefixed: 9.0.4
       it-pipe: 3.0.1
       it-pushable: 3.2.3
-      multiformats: 13.1.0
+      multiformats: 13.1.1
       protobufjs: 7.2.6
       uint8arraylist: 2.4.8
       uint8arrays: 5.1.0
@@ -9205,7 +9205,7 @@ snapshots:
       ipfs-bitswap: 20.0.2
       it-filter: 3.0.4
       it-foreach: 2.0.6
-      multiformats: 13.1.0
+      multiformats: 13.1.1
       progress-events: 1.0.0
       uint8arrays: 5.1.0
     transitivePeerDependencies:
@@ -9217,7 +9217,7 @@ snapshots:
       '@libp2p/interface': 1.1.5
       interface-blockstore: 5.2.10
       ipfs-bitswap: 20.0.2
-      multiformats: 13.1.0
+      multiformats: 13.1.1
       progress-events: 1.0.0
     transitivePeerDependencies:
       - supports-color
@@ -9248,7 +9248,7 @@ snapshots:
       interface-datastore: 8.2.11
       interface-store: 5.1.8
       ipfs-bitswap: 20.0.2
-      multiformats: 13.1.0
+      multiformats: 13.1.1
       progress-events: 1.0.0
     transitivePeerDependencies:
       - supports-color
@@ -9260,7 +9260,7 @@ snapshots:
       interface-blockstore: 5.2.10
       interface-datastore: 8.2.11
       interface-store: 5.1.8
-      multiformats: 13.1.0
+      multiformats: 13.1.1
       progress-events: 1.0.0
 
   '@humanwhocodes/config-array@0.11.14':
@@ -9280,16 +9280,16 @@ snapshots:
   '@ipld/dag-cbor@9.2.0':
     dependencies:
       cborg: 4.1.4
-      multiformats: 13.1.0
+      multiformats: 13.1.1
 
   '@ipld/dag-json@10.2.0':
     dependencies:
       cborg: 4.1.4
-      multiformats: 13.1.0
+      multiformats: 13.1.1
 
   '@ipld/dag-pb@4.1.0':
     dependencies:
-      multiformats: 13.1.0
+      multiformats: 13.1.1
 
   '@isaacs/cliui@8.0.2':
     dependencies:
@@ -9420,7 +9420,7 @@ snapshots:
       any-signal: 4.1.1
       it-protobuf-stream: 1.1.2
       it-stream-types: 2.0.1
-      multiformats: 13.1.0
+      multiformats: 13.1.1
       p-defer: 4.0.1
       p-retry: 6.2.0
       protons-runtime: 5.4.0
@@ -9445,7 +9445,7 @@ snapshots:
       '@libp2p/interface': 1.1.5
       '@noble/curves': 1.4.0
       '@noble/hashes': 1.4.0
-      multiformats: 13.1.0
+      multiformats: 13.1.1
       node-forge: 1.3.1
       protons-runtime: 5.4.0
       uint8arraylist: 2.4.8
@@ -9457,7 +9457,7 @@ snapshots:
       '@noble/curves': 1.4.0
       '@noble/hashes': 1.4.0
       asn1js: 3.0.5
-      multiformats: 13.1.0
+      multiformats: 13.1.1
       protons-runtime: 5.4.0
       uint8arraylist: 2.4.8
       uint8arrays: 5.1.0
@@ -9515,7 +9515,7 @@ snapshots:
       '@multiformats/multiaddr': 12.2.1
       it-pushable: 3.2.3
       it-stream-types: 2.0.1
-      multiformats: 13.1.0
+      multiformats: 13.1.1
       progress-events: 1.0.0
       uint8arraylist: 2.4.8
 
@@ -9542,7 +9542,7 @@ snapshots:
       it-protobuf-stream: 1.1.2
       it-pushable: 3.2.3
       it-take: 3.0.4
-      multiformats: 13.1.0
+      multiformats: 13.1.1
       p-defer: 4.0.1
       p-event: 6.0.1
       p-queue: 8.0.1
@@ -9562,7 +9562,7 @@ snapshots:
       '@libp2p/peer-id': 4.0.8
       interface-datastore: 8.2.11
       merge-options: 3.0.4
-      multiformats: 13.1.0
+      multiformats: 13.1.1
       sanitize-filename: 1.6.3
       uint8arrays: 5.1.0
 
@@ -9582,7 +9582,7 @@ snapshots:
       '@multiformats/multiaddr': 12.2.1
       debug: 4.3.5
       interface-datastore: 8.2.11
-      multiformats: 13.1.0
+      multiformats: 13.1.1
     transitivePeerDependencies:
       - supports-color
 
@@ -9647,7 +9647,7 @@ snapshots:
   '@libp2p/peer-id@4.0.8':
     dependencies:
       '@libp2p/interface': 1.1.5
-      multiformats: 13.1.0
+      multiformats: 13.1.1
       uint8arrays: 5.1.0
 
   '@libp2p/peer-record@7.0.11':
@@ -9674,7 +9674,7 @@ snapshots:
       interface-datastore: 8.2.11
       it-all: 3.0.4
       mortice: 3.0.4
-      multiformats: 13.1.0
+      multiformats: 13.1.1
       protons-runtime: 5.4.0
       uint8arraylist: 2.4.8
       uint8arrays: 5.1.0
@@ -9702,7 +9702,7 @@ snapshots:
       it-length-prefixed: 9.0.4
       it-pipe: 3.0.1
       it-pushable: 3.2.3
-      multiformats: 13.1.0
+      multiformats: 13.1.1
       p-queue: 8.0.1
       uint8arraylist: 2.4.8
       uint8arrays: 5.1.0
@@ -9766,7 +9766,7 @@ snapshots:
       it-protobuf-stream: 1.1.2
       it-pushable: 3.2.3
       it-stream-types: 2.0.1
-      multiformats: 13.1.0
+      multiformats: 13.1.1
       multihashes: 4.0.3
       node-datachannel: 0.5.5
       p-defer: 4.0.1
@@ -9806,7 +9806,7 @@ snapshots:
       '@multiformats/multiaddr': 12.2.1
       '@multiformats/multiaddr-matcher': 1.2.0
       it-stream-types: 2.0.1
-      multiformats: 13.1.0
+      multiformats: 13.1.1
       uint8arraylist: 2.4.8
       uint8arrays: 5.1.0
 
@@ -9835,7 +9835,7 @@ snapshots:
     dependencies:
       '@chainsafe/is-ip': 2.0.2
       '@multiformats/multiaddr': 12.2.1
-      multiformats: 13.1.0
+      multiformats: 13.1.1
 
   '@multiformats/multiaddr-to-uri@10.0.1':
     dependencies:
@@ -9847,7 +9847,7 @@ snapshots:
       '@chainsafe/netmask': 2.0.0
       '@libp2p/interface': 1.1.5
       '@multiformats/dns': 1.0.5
-      multiformats: 13.1.0
+      multiformats: 13.1.1
       uint8-varint: 2.0.4
       uint8arrays: 5.1.0
 
@@ -11244,7 +11244,7 @@ snapshots:
       it-filter: 3.0.4
       it-merge: 3.0.3
       it-pushable: 3.2.3
-      multiformats: 13.1.0
+      multiformats: 13.1.1
     transitivePeerDependencies:
       - supports-color
 
@@ -11254,7 +11254,7 @@ snapshots:
       interface-blockstore: 5.2.10
       interface-store: 5.1.8
       level: 8.0.1
-      multiformats: 13.1.0
+      multiformats: 13.1.1
     transitivePeerDependencies:
       - supports-color
 
@@ -13689,7 +13689,7 @@ snapshots:
       it-drain: 3.0.5
       libp2p: 1.3.1
       mortice: 3.0.4
-      multiformats: 13.1.0
+      multiformats: 13.1.1
       progress-events: 1.0.0
       uint8arrays: 5.1.0
     transitivePeerDependencies:
@@ -13838,7 +13838,7 @@ snapshots:
   interface-blockstore@5.2.10:
     dependencies:
       interface-store: 5.1.8
-      multiformats: 13.1.0
+      multiformats: 13.1.1
 
   interface-datastore@8.2.11:
     dependencies:
@@ -13880,7 +13880,7 @@ snapshots:
       it-pipe: 3.0.1
       it-take: 3.0.4
       just-debounce-it: 3.2.0
-      multiformats: 13.1.0
+      multiformats: 13.1.1
       progress-events: 1.0.0
       protons-runtime: 5.4.0
       timeout-abort-controller: 3.0.0
@@ -13917,7 +13917,7 @@ snapshots:
       cborg: 4.1.4
       err-code: 3.0.1
       interface-datastore: 8.2.11
-      multiformats: 13.1.0
+      multiformats: 13.1.1
       protons-runtime: 5.4.0
       timestamp-nano: 1.0.1
       uint8arraylist: 2.4.8
@@ -14613,7 +14613,7 @@ snapshots:
       it-merge: 3.0.3
       it-parallel: 3.0.6
       merge-options: 3.0.4
-      multiformats: 13.1.0
+      multiformats: 13.1.1
       uint8arrays: 5.1.0
     transitivePeerDependencies:
       - supports-color
@@ -15568,7 +15568,7 @@ snapshots:
 
   multiformats@12.1.3: {}
 
-  multiformats@13.1.0: {}
+  multiformats@13.1.1: {}
 
   multiformats@9.9.0: {}
 
@@ -17733,7 +17733,7 @@ snapshots:
 
   uint8arrays@5.1.0:
     dependencies:
-      multiformats: 13.1.0
+      multiformats: 13.1.1
 
   unbox-primitive@1.0.2:
     dependencies:
