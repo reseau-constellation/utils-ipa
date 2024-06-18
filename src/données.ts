@@ -8,7 +8,8 @@ export function traduire(
   langues: string[],
 ): string | undefined {
   const langueTrouvée = langues.find((l) => trads[l] !== undefined);
-  const trad = langueTrouvée ? trads[langueTrouvée] : undefined;
+  const nImporteLaquelle = Object.values(trads)[0];
+  const trad = langueTrouvée ? trads[langueTrouvée] : nImporteLaquelle;
   return trad;
 }
 

@@ -20,7 +20,11 @@ describe("Utils : données", function () {
     });
     it("non disponible", () => {
       const trad = traduire({ fr: "français" }, ["kaq"]);
-      expect(trad).to.be.undefined();
+      expect(trad).to.equal("français");
+    });
+    it("dictionnaire vide", () => {
+      const trad = traduire({ }, ["kaq"]);
+      expect(trad).to.undefined();
     });
   });
   if (isElectronMain || isNode) {
