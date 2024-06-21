@@ -62,7 +62,7 @@ importers:
         version: 7.13.1(eslint@9.5.0)(typescript@5.4.5)
       aegir:
         specifier: ^43.0.0
-        version: 43.0.1(@babel/core@7.24.7)(@typescript-eslint/parser@7.13.1(eslint@9.5.0)(typescript@5.4.5))(eslint-plugin-n@17.9.0(eslint@9.5.0))
+        version: 43.0.3(@babel/core@7.24.7)(@typescript-eslint/parser@7.13.1(eslint@9.5.0)(typescript@5.4.5))(eslint-plugin-n@17.9.0(eslint@9.5.0))
       core-js:
         specifier: ^3.36.0
         version: 3.37.1
@@ -2141,8 +2141,8 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
-  aegir@43.0.1:
-    resolution: {integrity: sha512-zobTAN58TGtTSoa5XSlwMuUCpCpkhxikWp/hkil7UTa9O+j9JqChKeQRdlbSFvro+nnADL0kaIXYq+lT+3jkgw==}
+  aegir@43.0.3:
+    resolution: {integrity: sha512-VGd+8rB0A5w2pEkzCxkXViabm6jPAHL6h4eNbmyJodJ+2eLZPI7Y5gwi0+J3wKiByxavx8pY6Zsac/VpTEy1gg==}
     hasBin: true
 
   agent-base@7.1.1:
@@ -3252,8 +3252,8 @@ packages:
     engines: {node: '>= 7.0.0'}
     hasBin: true
 
-  electron-to-chromium@1.4.805:
-    resolution: {integrity: sha512-8W4UJwX/w9T0QSzINJckTKG6CYpAUTqsaWcWIsdud3I1FYJcMgW9QqT1/4CBff/pP/TihWh13OmiyY8neto6vw==}
+  electron-to-chromium@1.4.808:
+    resolution: {integrity: sha512-0ItWyhPYnww2VOuCGF4s1LTfbrdAV2ajy/TN+ZTuhR23AHI6rWHCrBXJ/uxoXOvRRqw8qjYVrG81HFI7x/2wdQ==}
 
   electron-window@0.8.1:
     resolution: {integrity: sha512-W1i9LfnZJozk3MXE8VgsL2E5wOUHSgyCvcg1H2vQQjj+gqhO9lVudgY3z3SF7LJAmi+0vy3CJkbMqsynWB49EA==}
@@ -4422,6 +4422,10 @@ packages:
 
   is-core-module@2.13.1:
     resolution: {integrity: sha512-hHrIjvZsftOsvKSn2TRYl63zvxsgE0K+0mYMoH6gD4omR5IWB2KynivBQczo3+wF1cCkjzvptnI9Q0sPU66ilw==}
+
+  is-core-module@2.14.0:
+    resolution: {integrity: sha512-a5dFJih5ZLYlRtDc0dZWP7RiKr6xIKzmn/oAYCDvdLThadVgyJwlaoQPmRtMSpz+rk0OGAgIu+TcM9HUF0fk1A==}
+    engines: {node: '>= 0.4'}
 
   is-data-descriptor@1.0.1:
     resolution: {integrity: sha512-bc4NlCDiCr28U4aEsQ3Qs2491gVq4V8G7MQyws968ImqjKuYtTJXrl7Vq7jsN7Ly/C3xj5KWFrY7sHNeDkAzXw==}
@@ -10906,7 +10910,7 @@ snapshots:
 
   acorn@8.12.0: {}
 
-  aegir@43.0.1(@babel/core@7.24.7)(@typescript-eslint/parser@7.13.1(eslint@9.5.0)(typescript@5.4.5))(eslint-plugin-n@17.9.0(eslint@9.5.0)):
+  aegir@43.0.3(@babel/core@7.24.7)(@typescript-eslint/parser@7.13.1(eslint@9.5.0)(typescript@5.4.5))(eslint-plugin-n@17.9.0(eslint@9.5.0)):
     dependencies:
       '@electron/get': 3.0.0
       '@polka/send-type': 0.5.2
@@ -11438,7 +11442,7 @@ snapshots:
   browserslist@4.23.1:
     dependencies:
       caniuse-lite: 1.0.30001636
-      electron-to-chromium: 1.4.805
+      electron-to-chromium: 1.4.808
       node-releases: 2.0.14
       update-browserslist-db: 1.0.16(browserslist@4.23.1)
 
@@ -12187,7 +12191,7 @@ snapshots:
       deps-regex: 0.2.0
       findup-sync: 5.0.0
       ignore: 5.3.1
-      is-core-module: 2.13.1
+      is-core-module: 2.14.0
       js-yaml: 3.14.1
       json5: 2.2.3
       lodash: 4.17.21
@@ -12289,7 +12293,7 @@ snapshots:
       which: 2.0.2
       yargs: 16.2.0
 
-  electron-to-chromium@1.4.805: {}
+  electron-to-chromium@1.4.808: {}
 
   electron-window@0.8.1:
     dependencies:
@@ -13966,6 +13970,10 @@ snapshots:
       ci-info: 2.0.0
 
   is-core-module@2.13.1:
+    dependencies:
+      hasown: 2.0.2
+
+  is-core-module@2.14.0:
     dependencies:
       hasown: 2.0.2
 
@@ -15692,14 +15700,14 @@ snapshots:
   normalize-package-data@3.0.3:
     dependencies:
       hosted-git-info: 4.1.0
-      is-core-module: 2.13.1
+      is-core-module: 2.14.0
       semver: 7.6.2
       validate-npm-package-license: 3.0.4
 
   normalize-package-data@6.0.1:
     dependencies:
       hosted-git-info: 7.0.2
-      is-core-module: 2.13.1
+      is-core-module: 2.14.0
       semver: 7.6.2
       validate-npm-package-license: 3.0.4
 
