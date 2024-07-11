@@ -1,10 +1,10 @@
 import { CID } from "multiformats/cid";
 import { concat } from "uint8arrays/concat";
 
-export function cidValide(cid: unknown): boolean {
-  if (typeof cid === "string") {
+export function idcValide(idc: unknown): boolean {
+  if (typeof idc === "string") {
     try {
-      CID.parse(cid);
+      CID.parse(idc);
       return true;
     } catch {
       return false;
