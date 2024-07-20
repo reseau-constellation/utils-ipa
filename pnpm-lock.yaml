@@ -33,8 +33,8 @@ importers:
         specifier: 13.1.3
         version: 13.1.3
       rimraf:
-        specifier: ^5.0.5
-        version: 5.0.9
+        specifier: ^6.0.0
+        version: 6.0.1
       uint8arrays:
         specifier: ^5.0.2
         version: 5.1.0
@@ -10855,7 +10855,7 @@ snapshots:
 
   '@libp2p/multistream-select@5.1.13':
     dependencies:
-      '@libp2p/interface': 1.6.0
+      '@libp2p/interface': 1.6.1
       it-length-prefixed: 9.0.4
       it-length-prefixed-stream: 1.1.8
       it-stream-types: 2.0.1
@@ -10895,9 +10895,9 @@ snapshots:
 
   '@libp2p/peer-id-factory@4.2.0':
     dependencies:
-      '@libp2p/crypto': 4.1.5
-      '@libp2p/interface': 1.6.0
-      '@libp2p/peer-id': 4.2.0
+      '@libp2p/crypto': 4.1.6
+      '@libp2p/interface': 1.6.1
+      '@libp2p/peer-id': 4.2.1
       protons-runtime: 5.4.0
       uint8arraylist: 2.4.8
       uint8arrays: 5.1.0
@@ -10959,9 +10959,9 @@ snapshots:
 
   '@libp2p/peer-store@10.1.1':
     dependencies:
-      '@libp2p/interface': 1.6.0
+      '@libp2p/interface': 1.6.1
       '@libp2p/peer-collections': 5.2.5
-      '@libp2p/peer-id': 4.2.0
+      '@libp2p/peer-id': 4.2.1
       '@libp2p/peer-record': 7.0.21
       '@multiformats/multiaddr': 12.3.0
       interface-datastore: 8.2.11
