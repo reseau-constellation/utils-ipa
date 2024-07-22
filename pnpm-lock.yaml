@@ -86,7 +86,7 @@ importers:
         version: 9.1.0(eslint@9.7.0)
       eslint-config-standard:
         specifier: ^17.1.0
-        version: 17.1.0(eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.16.1(eslint@9.7.0)(typescript@5.5.3))(eslint@9.7.0))(eslint-plugin-n@17.9.0(eslint@9.7.0))(eslint-plugin-promise@6.5.1(eslint@9.7.0))(eslint@9.7.0)
+        version: 17.1.0(eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.16.1(eslint@9.7.0)(typescript@5.5.3))(eslint@9.7.0))(eslint-plugin-n@17.9.0(eslint@9.7.0))(eslint-plugin-promise@6.6.0(eslint@9.7.0))(eslint@9.7.0)
       eslint-plugin-import:
         specifier: ^2.29.1
         version: 2.29.1(@typescript-eslint/parser@7.16.1(eslint@9.7.0)(typescript@5.5.3))(eslint@9.7.0)
@@ -95,7 +95,7 @@ importers:
         version: 17.9.0(eslint@9.7.0)
       eslint-plugin-promise:
         specifier: ^6.1.1
-        version: 6.5.1(eslint@9.7.0)
+        version: 6.6.0(eslint@9.7.0)
       mocha:
         specifier: ^10.3.0
         version: 10.6.1
@@ -2957,8 +2957,8 @@ packages:
   caniuse-lite@1.0.30001640:
     resolution: {integrity: sha512-lA4VMpW0PSUrFnkmVuEKBUovSWKhj7puyCg8StBChgu298N1AtuF1sKWEvfDuimSEDbhlb/KqPKC3fs1HbuQUA==}
 
-  caniuse-lite@1.0.30001642:
-    resolution: {integrity: sha512-3XQ0DoRgLijXJErLSl+bLnJ+Et4KqV1PY6JJBGAFlsNsz31zeAIncyeZfLCabHK/jtSh+671RM9YMldxjUPZtA==}
+  caniuse-lite@1.0.30001643:
+    resolution: {integrity: sha512-ERgWGNleEilSrHM6iUz/zJNSQTP8Mr21wDWpdgvRwcTXGAq6jMtOUPP4dqFPTdKqZ2wKTdtB+uucZ3MRpAUSmg==}
 
   catering@2.1.1:
     resolution: {integrity: sha512-K7Qy8O9p76sL3/3m7/zLKbRkyOlSZAgzEaLhyj2mXS8PsCud2Eo4hAb8aLtZqHh0QGqLcb9dlJSu6lHRVENm1w==}
@@ -3898,8 +3898,8 @@ packages:
     peerDependencies:
       eslint: '>=5.16.0'
 
-  eslint-plugin-promise@6.5.1:
-    resolution: {integrity: sha512-KEYBjj9nCynXAquwKrYEnIJ1zK+e+O5jqwn/9Aln/FhdOXm6WwsmCVatDM6OAxkEzbigsyD79Fi3DUWWqulTEA==}
+  eslint-plugin-promise@6.6.0:
+    resolution: {integrity: sha512-57Zzfw8G6+Gq7axm2Pdo3gW/Rx3h9Yywgn61uE/3elTCOePEHVrn2i5CdfBwA1BLK0Q0WqctICIUSqXZW/VprQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0 || ^9.0.0
@@ -10847,7 +10847,7 @@ snapshots:
 
   '@libp2p/multistream-select@5.1.13':
     dependencies:
-      '@libp2p/interface': 1.6.1
+      '@libp2p/interface': 1.6.0
       it-length-prefixed: 9.0.4
       it-length-prefixed-stream: 1.1.8
       it-stream-types: 2.0.1
@@ -10887,9 +10887,9 @@ snapshots:
 
   '@libp2p/peer-id-factory@4.2.0':
     dependencies:
-      '@libp2p/crypto': 4.1.6
-      '@libp2p/interface': 1.6.1
-      '@libp2p/peer-id': 4.2.1
+      '@libp2p/crypto': 4.1.5
+      '@libp2p/interface': 1.6.0
+      '@libp2p/peer-id': 4.2.0
       protons-runtime: 5.4.0
       uint8arraylist: 2.4.8
       uint8arrays: 5.1.0
@@ -10951,9 +10951,9 @@ snapshots:
 
   '@libp2p/peer-store@10.1.1':
     dependencies:
-      '@libp2p/interface': 1.6.1
+      '@libp2p/interface': 1.6.0
       '@libp2p/peer-collections': 5.2.5
-      '@libp2p/peer-id': 4.2.1
+      '@libp2p/peer-id': 4.2.0
       '@libp2p/peer-record': 7.0.21
       '@multiformats/multiaddr': 12.3.0
       interface-datastore: 8.2.11
@@ -12520,7 +12520,7 @@ snapshots:
       eslint-plugin-import: 2.29.1(@typescript-eslint/parser@7.16.1(eslint@9.7.0)(typescript@5.5.3))(eslint@8.57.0)
       eslint-plugin-jsdoc: 48.5.2(eslint@8.57.0)
       eslint-plugin-node: 11.1.0(eslint@8.57.0)
-      eslint-plugin-promise: 6.5.1(eslint@8.57.0)
+      eslint-plugin-promise: 6.6.0(eslint@8.57.0)
       execa: 8.0.1
       extract-zip: 2.0.1
       fast-glob: 3.3.2
@@ -13045,7 +13045,7 @@ snapshots:
 
   browserslist@4.23.2:
     dependencies:
-      caniuse-lite: 1.0.30001642
+      caniuse-lite: 1.0.30001643
       electron-to-chromium: 1.4.832
       node-releases: 2.0.17
       update-browserslist-db: 1.1.0(browserslist@4.23.2)
@@ -13176,7 +13176,7 @@ snapshots:
 
   caniuse-lite@1.0.30001640: {}
 
-  caniuse-lite@1.0.30001642: {}
+  caniuse-lite@1.0.30001643: {}
 
   catering@2.1.1: {}
 
@@ -14176,14 +14176,14 @@ snapshots:
     dependencies:
       '@typescript-eslint/eslint-plugin': 7.16.1(@typescript-eslint/parser@7.16.1(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript@5.5.3)
       '@typescript-eslint/parser': 7.16.1(eslint@8.57.0)(typescript@5.5.3)
-      eslint-config-love: 47.0.0(@typescript-eslint/eslint-plugin@7.16.1(@typescript-eslint/parser@7.16.1(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript@5.5.3))(eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.16.1(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0))(eslint-plugin-n@17.9.0(eslint@9.7.0))(eslint-plugin-promise@6.5.1(eslint@8.57.0))(eslint@8.57.0)(typescript@5.5.3)
-      eslint-config-standard: 17.1.0(eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.16.1(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0))(eslint-plugin-n@17.9.0(eslint@9.7.0))(eslint-plugin-promise@6.5.1(eslint@8.57.0))(eslint@8.57.0)
+      eslint-config-love: 47.0.0(@typescript-eslint/eslint-plugin@7.16.1(@typescript-eslint/parser@7.16.1(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript@5.5.3))(eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.16.1(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0))(eslint-plugin-n@17.9.0(eslint@9.7.0))(eslint-plugin-promise@6.6.0(eslint@8.57.0))(eslint@8.57.0)(typescript@5.5.3)
+      eslint-config-standard: 17.1.0(eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.16.1(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0))(eslint-plugin-n@17.9.0(eslint@9.7.0))(eslint-plugin-promise@6.6.0(eslint@8.57.0))(eslint@8.57.0)
       eslint-plugin-etc: 2.0.3(eslint@8.57.0)(typescript@5.5.3)
       eslint-plugin-import: 2.29.1(@typescript-eslint/parser@7.16.1(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)
       eslint-plugin-jsdoc: 48.5.2(eslint@8.57.0)
       eslint-plugin-no-only-tests: 3.1.0
       eslint-plugin-node: 11.1.0(eslint@8.57.0)
-      eslint-plugin-promise: 6.5.1(eslint@8.57.0)
+      eslint-plugin-promise: 6.6.0(eslint@8.57.0)
     optionalDependencies:
       typescript: 5.5.3
     transitivePeerDependencies:
@@ -14193,14 +14193,14 @@ snapshots:
       - eslint-plugin-n
       - supports-color
 
-  eslint-config-love@47.0.0(@typescript-eslint/eslint-plugin@7.16.1(@typescript-eslint/parser@7.16.1(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript@5.5.3))(eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.16.1(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0))(eslint-plugin-n@17.9.0(eslint@9.7.0))(eslint-plugin-promise@6.5.1(eslint@8.57.0))(eslint@8.57.0)(typescript@5.5.3):
+  eslint-config-love@47.0.0(@typescript-eslint/eslint-plugin@7.16.1(@typescript-eslint/parser@7.16.1(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript@5.5.3))(eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.16.1(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0))(eslint-plugin-n@17.9.0(eslint@9.7.0))(eslint-plugin-promise@6.6.0(eslint@8.57.0))(eslint@8.57.0)(typescript@5.5.3):
     dependencies:
       '@typescript-eslint/eslint-plugin': 7.16.1(@typescript-eslint/parser@7.16.1(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript@5.5.3)
       '@typescript-eslint/parser': 7.16.1(eslint@8.57.0)(typescript@5.5.3)
       eslint: 8.57.0
       eslint-plugin-import: 2.29.1(@typescript-eslint/parser@7.16.1(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)
       eslint-plugin-n: 17.9.0(eslint@9.7.0)
-      eslint-plugin-promise: 6.5.1(eslint@8.57.0)
+      eslint-plugin-promise: 6.6.0(eslint@8.57.0)
       typescript: 5.5.3
     transitivePeerDependencies:
       - supports-color
@@ -14209,19 +14209,19 @@ snapshots:
     dependencies:
       eslint: 9.7.0
 
-  eslint-config-standard@17.1.0(eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.16.1(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0))(eslint-plugin-n@17.9.0(eslint@9.7.0))(eslint-plugin-promise@6.5.1(eslint@8.57.0))(eslint@8.57.0):
+  eslint-config-standard@17.1.0(eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.16.1(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0))(eslint-plugin-n@17.9.0(eslint@9.7.0))(eslint-plugin-promise@6.6.0(eslint@8.57.0))(eslint@8.57.0):
     dependencies:
       eslint: 8.57.0
       eslint-plugin-import: 2.29.1(@typescript-eslint/parser@7.16.1(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)
       eslint-plugin-n: 17.9.0(eslint@9.7.0)
-      eslint-plugin-promise: 6.5.1(eslint@8.57.0)
+      eslint-plugin-promise: 6.6.0(eslint@8.57.0)
 
-  eslint-config-standard@17.1.0(eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.16.1(eslint@9.7.0)(typescript@5.5.3))(eslint@9.7.0))(eslint-plugin-n@17.9.0(eslint@9.7.0))(eslint-plugin-promise@6.5.1(eslint@9.7.0))(eslint@9.7.0):
+  eslint-config-standard@17.1.0(eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.16.1(eslint@9.7.0)(typescript@5.5.3))(eslint@9.7.0))(eslint-plugin-n@17.9.0(eslint@9.7.0))(eslint-plugin-promise@6.6.0(eslint@9.7.0))(eslint@9.7.0):
     dependencies:
       eslint: 9.7.0
       eslint-plugin-import: 2.29.1(@typescript-eslint/parser@7.16.1(eslint@9.7.0)(typescript@5.5.3))(eslint@9.7.0)
       eslint-plugin-n: 17.9.0(eslint@9.7.0)
-      eslint-plugin-promise: 6.5.1(eslint@9.7.0)
+      eslint-plugin-promise: 6.6.0(eslint@9.7.0)
 
   eslint-etc@5.2.1(eslint@8.57.0)(typescript@5.5.3):
     dependencies:
@@ -14418,11 +14418,11 @@ snapshots:
       resolve: 1.22.8
       semver: 6.3.1
 
-  eslint-plugin-promise@6.5.1(eslint@8.57.0):
+  eslint-plugin-promise@6.6.0(eslint@8.57.0):
     dependencies:
       eslint: 8.57.0
 
-  eslint-plugin-promise@6.5.1(eslint@9.7.0):
+  eslint-plugin-promise@6.6.0(eslint@9.7.0):
     dependencies:
       eslint: 9.7.0
 
