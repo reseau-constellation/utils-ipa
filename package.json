@@ -68,7 +68,7 @@
     "genversion": "^3.2.0",
     "geojson-validation": "^1.0.2",
     "jszip": "^3.10.1",
-    "multiformats": "13.2.0",
+    "multiformats": "13.2.1",
     "rimraf": "^6.0.0",
     "uint8arrays": "^5.0.2",
     "wherearewe": "^2.0.1"
