@@ -74,7 +74,7 @@ importers:
         version: 44.1.1(@babel/core@7.25.2)(@typescript-eslint/parser@8.2.0(eslint@9.9.0)(typescript@5.5.4))(eslint-plugin-n@17.10.2(eslint@9.9.0))
       core-js:
         specifier: ^3.36.0
-        version: 3.38.0
+        version: 3.38.1
       eslint:
         specifier: ^9.0.0
         version: 9.9.0
@@ -3040,8 +3040,11 @@ packages:
   core-js-compat@3.38.0:
     resolution: {integrity: sha512-75LAicdLa4OJVwFxFbQR3NdnZjNgX6ILpVcVzcC4T2smerB5lELMrJQQQoWV6TiuC/vlaFqgU2tKQx9w5s0e0A==}
 
-  core-js@3.38.0:
-    resolution: {integrity: sha512-XPpwqEodRljce9KswjZShh95qJ1URisBeKCjUdq27YdenkslVe7OO0ZJhlYXAChW7OhXaRLl8AAba7IBfoIHug==}
+  core-js-compat@3.38.1:
+    resolution: {integrity: sha512-JRH6gfXxGmrzF3tZ57lFx97YARxCXPaMzPo6jELZhv88pBH5VXpQ+y0znKGlFnzuaihqhLbefxSJxWJMPtfDzw==}
+
+  core-js@3.38.1:
+    resolution: {integrity: sha512-OP35aUorbU3Zvlx7pjsFdu1rGNnD4pgw/CWoYzRY3t2EzoVT7shKHY1dlAy3f41cGIO7ZDPQimhGFTlEYkG/Hw==}
 
   core-util-is@1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
@@ -9058,7 +9061,7 @@ snapshots:
       babel-plugin-polyfill-corejs2: 0.4.11(@babel/core@7.25.2)
       babel-plugin-polyfill-corejs3: 0.10.6(@babel/core@7.25.2)
       babel-plugin-polyfill-regenerator: 0.6.2(@babel/core@7.25.2)
-      core-js-compat: 3.38.0
+      core-js-compat: 3.38.1
       semver: 6.3.1
     transitivePeerDependencies:
       - supports-color
@@ -12419,7 +12422,11 @@ snapshots:
     dependencies:
       browserslist: 4.23.3
 
-  core-js@3.38.0: {}
+  core-js-compat@3.38.1:
+    dependencies:
+      browserslist: 4.23.3
+
+  core-js@3.38.1: {}
 
   core-util-is@1.0.3: {}
 
