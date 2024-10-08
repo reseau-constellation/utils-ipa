@@ -101,7 +101,7 @@ importers:
         version: 10.7.3
       playwright:
         specifier: ^1.41.2
-        version: 1.47.2
+        version: 1.48.0
       prettier:
         specifier: ^3.2.5
         version: 3.3.3
@@ -6866,8 +6866,8 @@ packages:
   platform@1.3.6:
     resolution: {integrity: sha512-fnWVljUchTro6RiCFvCXBbNhJc2NijN7oIQxbwsyL0buWJPG85v81ehlHI9fXrJsMNgTofEoWIQeClKpgxFLrg==}
 
-  playwright-core@1.47.2:
-    resolution: {integrity: sha512-3JvMfF+9LJfe16l7AbSmU555PaTl2tPyQsVInqm3id16pdDfvZ8TTZ/pyzmkbDrZTQefyzU7AIHlZqQnxpqHVQ==}
+  playwright-core@1.48.0:
+    resolution: {integrity: sha512-RBvzjM9rdpP7UUFrQzRwR8L/xR4HyC1QXMzGYTbf1vjw25/ya9NRAVnXi/0fvFopjebvyPzsmoK58xxeEOaVvA==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -6876,8 +6876,8 @@ packages:
     engines: {node: '>=16.0.0'}
     hasBin: true
 
-  playwright@1.47.2:
-    resolution: {integrity: sha512-nx1cLMmQWqmA3UsnjaaokyoUpdVaaDhJhMoxX2qj3McpjnsqFHs516QAKYhqHAgOP+oCFTEOCOAaD1RgD/RQfA==}
+  playwright@1.48.0:
+    resolution: {integrity: sha512-qPqFaMEHuY/ug8o0uteYJSRfMGFikhUysk8ZvAtfKmUK3kc/6oNl/y3EczF8OFGYIi/Ex2HspMfzYArk6+XQSA==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -17613,7 +17613,7 @@ snapshots:
 
   platform@1.3.6: {}
 
-  playwright-core@1.47.2: {}
+  playwright-core@1.48.0: {}
 
   playwright-test@14.1.6:
     dependencies:
@@ -17638,7 +17638,7 @@ snapshots:
       ora: 8.1.0
       p-timeout: 6.1.2
       path-browserify: 1.0.1
-      playwright-core: 1.47.2
+      playwright-core: 1.48.0
       polka: 0.5.2
       premove: 4.0.0
       process: 0.11.10
@@ -17654,9 +17654,9 @@ snapshots:
     transitivePeerDependencies:
       - monocart-coverage-reports
 
-  playwright@1.47.2:
+  playwright@1.48.0:
     dependencies:
-      playwright-core: 1.47.2
+      playwright-core: 1.48.0
     optionalDependencies:
       fsevents: 2.3.2
 
