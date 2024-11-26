@@ -44,7 +44,7 @@ importers:
     devDependencies:
       '@constl/ipa':
         specifier: ^1.4.5
-        version: 1.4.5(react-native@0.74.2(@babel/core@7.26.0)(@babel/preset-env@7.24.7(@babel/core@7.26.0))(react@18.2.0))
+        version: 1.4.8(react-native@0.74.2(@babel/core@7.26.0)(@babel/preset-env@7.24.7(@babel/core@7.26.0))(react@18.2.0))
       '@constl/utils-tests':
         specifier: ^1.6.4
         version: 1.6.4(react-native@0.74.2(@babel/core@7.26.0)(@babel/preset-env@7.24.7(@babel/core@7.26.0))(react@18.2.0))
@@ -887,15 +887,15 @@ packages:
   '@constl/bohr-db@1.2.1':
     resolution: {integrity: sha512-HMJyztz1hdQum7chNVY3Dso6ZkYUe35PV3JIVmL/9pvA/Hianz4FOw7EgubJGOUkMLi2aHHDLuayKx2RgHd7QA==}
 
-  '@constl/ipa@1.4.5':
-    resolution: {integrity: sha512-2zcm3Kj7CTxM+c0Mo2iqY23ZVnqx45GeslS4ni5xxYBAmowJ20vhKe3JB5X/d9lQWCPpSS4amRQoPPgMbfYNtg==}
+  '@constl/ipa@1.4.8':
+    resolution: {integrity: sha512-9sRFQHHtZGMha10gjpqFJjlmrGh9s7curq+2SpilklcBLoQLdqrNeBalBiADLGVaX29hm/HinIduZQ5MV5/h+g==}
     engines: {node: '>=20'}
 
   '@constl/mandataire@3.0.3':
     resolution: {integrity: sha512-J7zWtq2EOA46EIzAGjiOP/FVYvQrjvxXT7aLyKEA6chm6i/3kJnmv5pgYSF0rofGgzIyRUwsTLuzSB23DoZNyg==}
 
-  '@constl/utils-ipa@1.0.3':
-    resolution: {integrity: sha512-gWv7BhTXYactNBXPDlUol4EudIr1tsZC1/Gvqcp0Rb2SDqGLHiSURqyiXqj6xVtzPMlcyPHDkBmqsEf8cecWJg==}
+  '@constl/utils-ipa@1.0.4':
+    resolution: {integrity: sha512-U9GCw5o9ZBJHBy5XK5Rt0rEn30ceSkhhQr6UTylVAF4hJ9ChlNsPKYVdk6KHk+opcwxcdS01RMczHIwEoRzRGg==}
     engines: {node: '>=20'}
 
   '@constl/utils-tests@1.6.4':
@@ -5918,9 +5918,6 @@ packages:
     resolution: {integrity: sha512-eajQ/ZH7qXZQR2AgtfpmSMizQzmyYVmCql7pdhldPuYQi4atACekbJaQplk6dWyIi10jCaFnd6pqvcEFXjbaJw==}
     engines: {node: '>=16.0.0', npm: '>=7.0.0'}
 
-  multiformats@13.1.3:
-    resolution: {integrity: sha512-CZPi9lFZCM/+7oRolWYsvalsyWQGFo+GpdaTmjxXXomC+nP/W1Rnxb9sUgjvmNmRZ5bOPqRAl4nuK+Ydw/4tGw==}
-
   multiformats@13.3.1:
     resolution: {integrity: sha512-QxowxTNwJ3r5RMctoGA5p13w5RbRT2QDkoM+yFlqfLiioBp78nhDjnRLvmSBI9+KAqN4VdgOVWM9c0CHd86m3g==}
 
@@ -5938,13 +5935,18 @@ packages:
   mz@2.7.0:
     resolution: {integrity: sha512-z81GNO7nnYMEhrGh9LeymoE4+Yr0Wn5McHIZMK5cfQCl+NDX08sCZgUc9/6MHni9IWuFLm1Z3HTCXu2z9fN62Q==}
 
-  nanoid@3.3.7:
-    resolution: {integrity: sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==}
+  nanoid@3.3.8:
+    resolution: {integrity: sha512-WNLf5Sd8oZxOm+TzppcYk8gVOgP+l58xNy58D0nbUnOxOWRWvlcCV4kUF7ltmI6PsrLl/BgKEyS4mqsGChFN0w==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
   nanoid@5.0.8:
     resolution: {integrity: sha512-TcJPw+9RV9dibz1hHUzlLVy8N4X9TnwirAjrU08Juo6BNKggzVfP2ZJ/3ZUSq15Xl5i85i+Z89XBO90pB2PghQ==}
+    engines: {node: ^18 || >=20}
+    hasBin: true
+
+  nanoid@5.0.9:
+    resolution: {integrity: sha512-Aooyr6MXU6HpvvWXKoVoXwKMs/KyVakWwg7xQfv5/S/RIgJMy0Ifa45H9qqYy7pTCszrHzP21Uk4PZq2HpEM8Q==}
     engines: {node: ^18 || >=20}
     hasBin: true
 
@@ -7042,10 +7044,6 @@ packages:
   rimraf@3.0.2:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
     deprecated: Rimraf versions prior to v4 are no longer supported
-    hasBin: true
-
-  rimraf@5.0.10:
-    resolution: {integrity: sha512-l0OE8wL34P4nJH/H2ffoaniAokM2qSmrtXHmlpvYr5AVVX8msAyW0l8NVJFDxlSK4u3Uh/f41cQheDVdnYijwQ==}
     hasBin: true
 
   rimraf@6.0.1:
@@ -9302,7 +9300,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@constl/ipa@1.4.5(react-native@0.74.2(@babel/core@7.26.0)(@babel/preset-env@7.24.7(@babel/core@7.26.0))(react@18.2.0))':
+  '@constl/ipa@1.4.8(react-native@0.74.2(@babel/core@7.26.0)(@babel/preset-env@7.24.7(@babel/core@7.26.0))(react@18.2.0))':
     dependencies:
       '@chainsafe/libp2p-gossipsub': 14.1.0
       '@chainsafe/libp2p-noise': 16.0.0
@@ -9310,11 +9308,11 @@ snapshots:
       '@chriscdn/promise-semaphore': 2.0.9
       '@constl/bohr-db': 1.2.1(react-native@0.74.2(@babel/core@7.26.0)(@babel/preset-env@7.24.7(@babel/core@7.26.0))(react@18.2.0))
       '@constl/mandataire': 3.0.3
-      '@constl/utils-ipa': 1.0.3
+      '@constl/utils-ipa': 1.0.4
       '@helia/block-brokers': 4.0.2
       '@helia/unixfs': 4.0.1
       '@ipld/dag-cbor': 9.2.2
-      '@lassi-js/kili': 0.3.16(@constl/ipa@1.4.5(react-native@0.74.2(@babel/core@7.26.0)(@babel/preset-env@7.24.7(@babel/core@7.26.0))(react@18.2.0)))
+      '@lassi-js/kili': 0.3.16(@constl/ipa@1.4.8(react-native@0.74.2(@babel/core@7.26.0)(@babel/preset-env@7.24.7(@babel/core@7.26.0))(react@18.2.0)))
       '@libp2p/autonat': 2.0.12
       '@libp2p/bootstrap': 11.0.13
       '@libp2p/circuit-relay-v2': 3.1.3
@@ -9349,7 +9347,7 @@ snapshots:
       deep-equal: 2.2.3
       deepcopy: 2.1.0
       detect-browser: 5.3.0
-      ennikkai: 2.3.2(@constl/ipa@1.4.5(react-native@0.74.2(@babel/core@7.26.0)(@babel/preset-env@7.24.7(@babel/core@7.26.0))(react@18.2.0)))
+      ennikkai: 2.3.2(@constl/ipa@1.4.8(react-native@0.74.2(@babel/core@7.26.0)(@babel/preset-env@7.24.7(@babel/core@7.26.0))(react@18.2.0)))
       env-paths: 3.0.0
       events: 3.3.0
       file-saver: 2.0.5
@@ -9384,7 +9382,7 @@ snapshots:
       events: 3.3.0
       uuid: 11.0.3
 
-  '@constl/utils-ipa@1.0.3':
+  '@constl/utils-ipa@1.0.4':
     dependencies:
       '@chriscdn/promise-semaphore': 2.0.9
       browser-fs-access: 0.35.0
@@ -9393,8 +9391,8 @@ snapshots:
       genversion: 3.2.0
       geojson-validation: 1.0.2
       jszip: 3.10.1
-      multiformats: 13.1.3
-      rimraf: 5.0.10
+      multiformats: 13.3.1
+      rimraf: 6.0.1
       uint8arrays: 5.1.0
       wherearewe: 2.0.1
 
@@ -9923,10 +9921,10 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@lassi-js/kili@0.3.16(@constl/ipa@1.4.5(react-native@0.74.2(@babel/core@7.26.0)(@babel/preset-env@7.24.7(@babel/core@7.26.0))(react@18.2.0)))':
+  '@lassi-js/kili@0.3.16(@constl/ipa@1.4.8(react-native@0.74.2(@babel/core@7.26.0)(@babel/preset-env@7.24.7(@babel/core@7.26.0))(react@18.2.0)))':
     dependencies:
-      '@constl/ipa': 1.4.5(react-native@0.74.2(@babel/core@7.26.0)(@babel/preset-env@7.24.7(@babel/core@7.26.0))(react@18.2.0))
-      '@constl/utils-ipa': 1.0.3
+      '@constl/ipa': 1.4.8(react-native@0.74.2(@babel/core@7.26.0)(@babel/preset-env@7.24.7(@babel/core@7.26.0))(react@18.2.0))
+      '@constl/utils-ipa': 1.0.4
       '@orbitdb/core': 2.4.3
       deepcopy: 2.1.0
 
@@ -9971,7 +9969,7 @@ snapshots:
       it-protobuf-stream: 1.1.5
       it-stream-types: 2.0.2
       multiformats: 13.3.1
-      nanoid: 5.0.8
+      nanoid: 5.0.9
       progress-events: 1.0.1
       protons-runtime: 5.5.0
       retimeable-signal: 0.0.0
@@ -13122,10 +13120,10 @@ snapshots:
       graceful-fs: 4.2.11
       tapable: 2.2.1
 
-  ennikkai@2.3.2(@constl/ipa@1.4.5(react-native@0.74.2(@babel/core@7.26.0)(@babel/preset-env@7.24.7(@babel/core@7.26.0))(react@18.2.0))):
+  ennikkai@2.3.2(@constl/ipa@1.4.8(react-native@0.74.2(@babel/core@7.26.0)(@babel/preset-env@7.24.7(@babel/core@7.26.0))(react@18.2.0))):
     dependencies:
-      '@constl/ipa': 1.4.5(react-native@0.74.2(@babel/core@7.26.0)(@babel/preset-env@7.24.7(@babel/core@7.26.0))(react@18.2.0))
-      '@lassi-js/kili': 0.3.16(@constl/ipa@1.4.5(react-native@0.74.2(@babel/core@7.26.0)(@babel/preset-env@7.24.7(@babel/core@7.26.0))(react@18.2.0)))
+      '@constl/ipa': 1.4.8(react-native@0.74.2(@babel/core@7.26.0)(@babel/preset-env@7.24.7(@babel/core@7.26.0))(react@18.2.0))
+      '@lassi-js/kili': 0.3.16(@constl/ipa@1.4.8(react-native@0.74.2(@babel/core@7.26.0)(@babel/preset-env@7.24.7(@babel/core@7.26.0))(react@18.2.0)))
       deepmerge: 4.3.1
       events: 3.3.0
 
@@ -16407,8 +16405,6 @@ snapshots:
 
   multiformats@12.1.3: {}
 
-  multiformats@13.1.3: {}
-
   multiformats@13.3.1: {}
 
   multimatch@5.0.0:
@@ -16429,9 +16425,11 @@ snapshots:
       object-assign: 4.1.1
       thenify-all: 1.6.0
 
-  nanoid@3.3.7: {}
+  nanoid@3.3.8: {}
 
   nanoid@5.0.8: {}
+
+  nanoid@5.0.9: {}
 
   nanomatch@1.2.13:
     dependencies:
@@ -17098,7 +17096,7 @@ snapshots:
 
   postcss@8.4.49:
     dependencies:
-      nanoid: 3.3.7
+      nanoid: 3.3.8
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
@@ -17610,10 +17608,6 @@ snapshots:
   rimraf@3.0.2:
     dependencies:
       glob: 7.2.3
-
-  rimraf@5.0.10:
-    dependencies:
-      glob: 10.4.5
 
   rimraf@6.0.1:
     dependencies:
