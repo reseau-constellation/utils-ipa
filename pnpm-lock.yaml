@@ -47,7 +47,7 @@ importers:
         version: 1.4.8(react-native@0.74.2(@babel/core@7.26.0)(@babel/preset-env@7.24.7(@babel/core@7.26.0))(react@18.2.0))
       '@constl/utils-tests':
         specifier: ^1.6.4
-        version: 1.6.6(react-native@0.74.2(@babel/core@7.26.0)(@babel/preset-env@7.24.7(@babel/core@7.26.0))(react@18.2.0))
+        version: 1.6.7(react-native@0.74.2(@babel/core@7.26.0)(@babel/preset-env@7.24.7(@babel/core@7.26.0))(react@18.2.0))
       '@types/crypto-js':
         specifier: ^4.2.2
         version: 4.2.2
@@ -129,8 +129,8 @@ packages:
   '@achingbrain/nat-port-mapper@2.0.10':
     resolution: {integrity: sha512-Eg3j9tlwTvN7yewAoCWqaSV78cni10s0HlJOskYBJKyuk+IU5JNPEah1QMnK1FxWBng7Qlqi6+BFDhgTeZd0tg==}
 
-  '@achingbrain/ssdp@4.1.1':
-    resolution: {integrity: sha512-1DZZug4yqtMhzM7afCE1SuzEik3540RBKQLx3BsYsVDiSGq4kJMpZubSb5IS/Z7fbglKeXJam4YyTye+LGvSXQ==}
+  '@achingbrain/ssdp@4.1.3':
+    resolution: {integrity: sha512-ddCCCnsWuZwZsPQ/VKcdAgh7TfjLNZxsm/22mF1+YGcHdNUYIEvV195W36+dqUNjk9j3+Gsj6Vol1uTx1e+sOA==}
 
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
@@ -898,8 +898,8 @@ packages:
     resolution: {integrity: sha512-U9GCw5o9ZBJHBy5XK5Rt0rEn30ceSkhhQr6UTylVAF4hJ9ChlNsPKYVdk6KHk+opcwxcdS01RMczHIwEoRzRGg==}
     engines: {node: '>=20'}
 
-  '@constl/utils-tests@1.6.6':
-    resolution: {integrity: sha512-3d+tzJC5VuiCuulDs7vQFU7qiMaGshjWpvVkYwVAXEerFBBrKs/jGcNuv2wEOmdR9q4DrLgtbLcb43gDCtltZA==}
+  '@constl/utils-tests@1.6.7':
+    resolution: {integrity: sha512-DzkciiA+vOhyr92VlNHb2dqVj5Eqi0qaExfVuE7JMiDk5CmowtgQOBTkVyJ11U3wJOh+mfdmEIlJtwdp8nbtNA==}
     engines: {node: '>=20'}
 
   '@cspotcode/source-map-support@0.8.1':
@@ -2053,14 +2053,17 @@ packages:
   '@types/node-forge@1.3.11':
     resolution: {integrity: sha512-FQx220y22OKNTqaByeBGqHWYz4cl94tpcxeFdvBo3wjG6XPBuZ0BNgNZRV5J5TFmmcsJ4IzsLkmGRiQbnYsBEQ==}
 
-  '@types/node@18.19.66':
-    resolution: {integrity: sha512-14HmtUdGxFUalGRfLLn9Gc1oNWvWh5zNbsyOLo5JV6WARSeN1QcEBKRnZm9QqNfrutgsl/hY4eJW63aZ44aBCg==}
+  '@types/node@18.19.67':
+    resolution: {integrity: sha512-wI8uHusga+0ZugNp0Ol/3BqQfEcCCNfojtO6Oou9iVNGPTL6QNSdnUdqq85fRgIorLhLMuPIKpsN98QE9Nh+KQ==}
 
   '@types/node@20.17.8':
     resolution: {integrity: sha512-ahz2g6/oqbKalW9sPv6L2iRbhLnojxjYWspAqhjvqSWBgGebEJT5GvRmk0QXPj3sbC6rU0GTQjPLQkmR8CObvA==}
 
   '@types/node@22.10.0':
     resolution: {integrity: sha512-XC70cRZVElFHfIUB40FgZOBbgJYFKKMa5nb9lxcwYstFG/Mi+/Y0bGS+rs6Dmhmkpq4pnNiLiuZAbc02YCOnmA==}
+
+  '@types/node@22.10.1':
+    resolution: {integrity: sha512-qKgsUwfHZV2WCWLAnVP1JqnpE6Im6h3Y0+fYgMTasNQ7V++CBX5OT1as0g0f+OyubbFqhf6XVNIsmN4IIhEgGQ==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -2918,8 +2921,8 @@ packages:
     resolution: {integrity: sha512-NIxF55hv4nSqQswkAeiOi1r83xy8JldOFDTWiug55KBu9Jnblncd2U6ViHmYgHf01TPZS77NJBhBMKdWj9HQMQ==}
     engines: {node: '>=8'}
 
-  cipher-base@1.0.5:
-    resolution: {integrity: sha512-xq7ICKB4TMHUx7Tz1L9O2SGKOhYMOTR32oir45Bq28/AQTpHogKgHcoYFSdRbMtddl+ozNXfXY9jWcgYKmde0w==}
+  cipher-base@1.0.6:
+    resolution: {integrity: sha512-3Ek9H3X6pj5TgenXYtNWdaBon1tgYCaebd+XPg0keyjEbEfkD4KkmAxkQ/i1vYvxdcT5nscLBfq9VJRmCBcFSw==}
     engines: {node: '>= 0.10'}
 
   class-utils@0.3.6:
@@ -7209,8 +7212,9 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
-  shell-quote@1.8.1:
-    resolution: {integrity: sha512-6j1W9l1iAs/4xYBI1SYOVZyFcCis9b4KCLQ8fgAGG07QvzaRLVVRQvAy85yNmmZSjYjg4MWh4gNvlPujU/5LpA==}
+  shell-quote@1.8.2:
+    resolution: {integrity: sha512-AzqKpGKjrj7EM6rKVQEPpB288oCfnrEIuyoT9cyF4nmGa7V8Zk6f7RRqYisX8X9m+Q7bd632aZW4ky7EhbQztA==}
+    engines: {node: '>= 0.4'}
 
   shiki@0.14.7:
     resolution: {integrity: sha512-dNPAPrxSc87ua2sKJ3H5dQ/6ZaY8RNnaAqK+t0eG7p0Soi2ydiqbGOTaZCqaYvA/uZYfS1LJnemt3Q+mSfcPCg==}
@@ -7812,6 +7816,10 @@ packages:
     resolution: {integrity: sha512-LO/+yb3mf46YqfUC7QkkoAlpa7CTYh//V1Xy9+NQ+pKqDqXIq0NTfPfQRwFfCt+if4Qkwb9gzZfsl6E5TkXZGw==}
     engines: {node: '>=16'}
 
+  type-fest@4.29.0:
+    resolution: {integrity: sha512-RPYt6dKyemXJe7I6oNstcH24myUGSReicxcHTvCLgzm4e0n8y05dGvcGB15/SoPRBmhlMthWQ9pvKyL81ko8nQ==}
+    engines: {node: '>=16'}
+
   typed-array-buffer@1.0.2:
     resolution: {integrity: sha512-gEymJYKZtKXzzBzM4jqa9w6Q1Jjm7x2d+sh19AdsD4wqnMPDYyvwpsIc2Q/835kHuo3BEQ7CjelGhfTsoBb2MQ==}
     engines: {node: '>= 0.4'}
@@ -8290,7 +8298,7 @@ snapshots:
 
   '@achingbrain/nat-port-mapper@2.0.10':
     dependencies:
-      '@achingbrain/ssdp': 4.1.1
+      '@achingbrain/ssdp': 4.1.3
       '@libp2p/logger': 5.1.4
       abort-error: 1.0.0
       any-signal: 4.1.1
@@ -8301,7 +8309,7 @@ snapshots:
       race-signal: 1.1.0
       xml2js: 0.6.2
 
-  '@achingbrain/ssdp@4.1.1':
+  '@achingbrain/ssdp@4.1.3':
     dependencies:
       abort-error: 1.0.0
       freeport-promise: 2.0.0
@@ -9396,7 +9404,7 @@ snapshots:
       uint8arrays: 5.1.0
       wherearewe: 2.0.1
 
-  '@constl/utils-tests@1.6.6(react-native@0.74.2(@babel/core@7.26.0)(@babel/preset-env@7.24.7(@babel/core@7.26.0))(react@18.2.0))':
+  '@constl/utils-tests@1.6.7(react-native@0.74.2(@babel/core@7.26.0)(@babel/preset-env@7.24.7(@babel/core@7.26.0))(react@18.2.0))':
     dependencies:
       '@helia/block-brokers': 4.0.2
       '@libp2p/peer-id': 5.0.8
@@ -9861,14 +9869,14 @@ snapshots:
     dependencies:
       '@jest/fake-timers': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 22.10.0
+      '@types/node': 22.10.1
       jest-mock: 29.7.0
 
   '@jest/fake-timers@29.7.0':
     dependencies:
       '@jest/types': 29.6.3
       '@sinonjs/fake-timers': 10.3.0
-      '@types/node': 22.10.0
+      '@types/node': 22.10.1
       jest-message-util: 29.7.0
       jest-mock: 29.7.0
       jest-util: 29.7.0
@@ -9881,7 +9889,7 @@ snapshots:
     dependencies:
       '@types/istanbul-lib-coverage': 2.0.6
       '@types/istanbul-reports': 3.0.4
-      '@types/node': 22.10.0
+      '@types/node': 22.10.1
       '@types/yargs': 15.0.19
       chalk: 4.1.2
 
@@ -9890,7 +9898,7 @@ snapshots:
       '@jest/schemas': 29.6.3
       '@types/istanbul-lib-coverage': 2.0.6
       '@types/istanbul-reports': 3.0.4
-      '@types/node': 22.10.0
+      '@types/node': 22.10.1
       '@types/yargs': 17.0.33
       chalk: 4.1.2
 
@@ -10872,7 +10880,7 @@ snapshots:
       open: 6.4.0
       ora: 5.4.1
       semver: 7.6.3
-      shell-quote: 1.8.1
+      shell-quote: 1.8.2
       sudo-prompt: 9.2.1
     transitivePeerDependencies:
       - encoding
@@ -11047,7 +11055,7 @@ snapshots:
 
   '@rnx-kit/chromium-edge-launcher@1.0.0':
     dependencies:
-      '@types/node': 18.19.66
+      '@types/node': 18.19.67
       escape-string-regexp: 4.0.0
       is-wsl: 2.2.0
       lighthouse-logger: 1.4.2
@@ -11292,9 +11300,9 @@ snapshots:
 
   '@types/node-forge@1.3.11':
     dependencies:
-      '@types/node': 22.10.0
+      '@types/node': 22.10.1
 
-  '@types/node@18.19.66':
+  '@types/node@18.19.67':
     dependencies:
       undici-types: 5.26.5
 
@@ -11303,6 +11311,10 @@ snapshots:
       undici-types: 6.19.8
 
   '@types/node@22.10.0':
+    dependencies:
+      undici-types: 6.20.0
+
+  '@types/node@22.10.1':
     dependencies:
       undici-types: 6.20.0
 
@@ -12181,7 +12193,7 @@ snapshots:
   browserify-aes@1.2.0:
     dependencies:
       buffer-xor: 1.0.3
-      cipher-base: 1.0.5
+      cipher-base: 1.0.6
       create-hash: 1.2.0
       evp_bytestokey: 1.0.3
       inherits: 2.0.4
@@ -12195,7 +12207,7 @@ snapshots:
 
   browserify-des@1.0.2:
     dependencies:
-      cipher-base: 1.0.5
+      cipher-base: 1.0.6
       des.js: 1.1.0
       inherits: 2.0.4
       safe-buffer: 5.2.1
@@ -12425,7 +12437,7 @@ snapshots:
 
   chrome-launcher@0.15.2:
     dependencies:
-      '@types/node': 22.10.0
+      '@types/node': 22.10.1
       escape-string-regexp: 4.0.0
       is-wsl: 2.2.0
       lighthouse-logger: 1.4.2
@@ -12436,7 +12448,7 @@ snapshots:
 
   ci-info@3.9.0: {}
 
-  cipher-base@1.0.5:
+  cipher-base@1.0.6:
     dependencies:
       inherits: 2.0.4
       safe-buffer: 5.2.1
@@ -12722,7 +12734,7 @@ snapshots:
 
   create-hash@1.2.0:
     dependencies:
-      cipher-base: 1.0.5
+      cipher-base: 1.0.6
       inherits: 2.0.4
       md5.js: 1.3.5
       ripemd160: 2.0.2
@@ -12730,7 +12742,7 @@ snapshots:
 
   create-hmac@1.1.7:
     dependencies:
-      cipher-base: 1.0.5
+      cipher-base: 1.0.6
       create-hash: 1.2.0
       inherits: 2.0.4
       ripemd160: 2.0.2
@@ -15169,7 +15181,7 @@ snapshots:
       '@jest/environment': 29.7.0
       '@jest/fake-timers': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 22.10.0
+      '@types/node': 22.10.1
       jest-mock: 29.7.0
       jest-util: 29.7.0
 
@@ -15190,13 +15202,13 @@ snapshots:
   jest-mock@29.7.0:
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 22.10.0
+      '@types/node': 22.10.1
       jest-util: 29.7.0
 
   jest-util@29.7.0:
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 22.10.0
+      '@types/node': 22.10.1
       chalk: 4.1.2
       ci-info: 3.9.0
       graceful-fs: 4.2.11
@@ -15213,7 +15225,7 @@ snapshots:
 
   jest-worker@29.7.0:
     dependencies:
-      '@types/node': 22.10.0
+      '@types/node': 22.10.1
       jest-util: 29.7.0
       merge-stream: 2.0.0
       supports-color: 8.1.1
@@ -16905,7 +16917,7 @@ snapshots:
     dependencies:
       '@babel/code-frame': 7.26.2
       index-to-position: 0.1.2
-      type-fest: 4.28.1
+      type-fest: 4.29.0
 
   parse-ms@4.0.0: {}
 
@@ -17264,7 +17276,7 @@ snapshots:
 
   react-devtools-core@5.3.2:
     dependencies:
-      shell-quote: 1.8.1
+      shell-quote: 1.8.2
       ws: 7.5.10
     transitivePeerDependencies:
       - bufferutil
@@ -17377,7 +17389,7 @@ snapshots:
     dependencies:
       find-up-simple: 1.0.0
       read-pkg: 9.0.1
-      type-fest: 4.28.1
+      type-fest: 4.29.0
 
   read-pkg-up@11.0.0:
     dependencies:
@@ -17403,7 +17415,7 @@ snapshots:
       '@types/normalize-package-data': 2.4.4
       normalize-package-data: 6.0.2
       parse-json: 8.1.0
-      type-fest: 4.28.1
+      type-fest: 4.29.0
       unicorn-magic: 0.1.0
 
   read@1.0.7:
@@ -17843,7 +17855,7 @@ snapshots:
 
   shebang-regex@3.0.0: {}
 
-  shell-quote@1.8.1: {}
+  shell-quote@1.8.2: {}
 
   shiki@0.14.7:
     dependencies:
@@ -18460,6 +18472,8 @@ snapshots:
   type-fest@2.19.0: {}
 
   type-fest@4.28.1: {}
+
+  type-fest@4.29.0: {}
 
   typed-array-buffer@1.0.2:
     dependencies:
