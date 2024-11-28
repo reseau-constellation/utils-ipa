@@ -71,7 +71,7 @@ importers:
         version: 8.16.0(eslint@9.15.0)(typescript@5.5.4)
       aegir:
         specifier: ^45.0.2
-        version: 45.0.2(@babel/core@7.26.0)(@typescript-eslint/parser@8.16.0(eslint@9.15.0)(typescript@5.5.4))(eslint-plugin-n@17.14.0(eslint@9.15.0))
+        version: 45.0.7(@babel/core@7.26.0)(@typescript-eslint/parser@8.16.0(eslint@9.15.0)(typescript@5.5.4))(eslint-plugin-n@17.14.0(eslint@9.15.0))
       core-js:
         specifier: ^3.39.0
         version: 3.39.0
@@ -1622,8 +1622,8 @@ packages:
   '@octokit/openapi-types@22.2.0':
     resolution: {integrity: sha512-QBhVjcUa9W7Wwhm6DBFu6ZZ+1/t/oYxqc2tp81Pi41YNuJinbFRx8B133qVOrAaBbF7D/m0Et6f9/pZt9Rc+tg==}
 
-  '@octokit/plugin-paginate-rest@11.3.5':
-    resolution: {integrity: sha512-cgwIRtKrpwhLoBi0CUNuY83DPGRMaWVjqVI/bGKsLJ4PzyWZNaEmhHroI2xlrVXkk6nFv0IsZpOp+ZWSWUS2AQ==}
+  '@octokit/plugin-paginate-rest@11.3.6':
+    resolution: {integrity: sha512-zcvqqf/+TicbTCa/Z+3w4eBJcAxCFymtc0UAIsR3dEVoNilWld4oXdscQ3laXamTszUZdusw97K8+DrbFiOwjw==}
     engines: {node: '>= 18'}
     peerDependencies:
       '@octokit/core': '>=6'
@@ -2326,8 +2326,8 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
-  aegir@45.0.2:
-    resolution: {integrity: sha512-o2DFwefj44JJ2ckD73YlvvepTIGChsAdQ8lFjC2TToX/9iKvfspj/DTLvn8wx3MBqFcxoBqm1Unsnq3RlCwpRA==}
+  aegir@45.0.7:
+    resolution: {integrity: sha512-9OLmVUkiQ2WVqkCQJzP5kiIe/zlNohrdipsOEpGtljles3TvZac30cqaCC+XK/1vrnhy9p6HLhDl/j4zmg86XA==}
     hasBin: true
 
   agent-base@7.1.1:
@@ -3472,8 +3472,8 @@ packages:
     engines: {node: '>= 16.0.0'}
     hasBin: true
 
-  electron-to-chromium@1.5.65:
-    resolution: {integrity: sha512-PWVzBjghx7/wop6n22vS2MLU8tKGd4Q91aCEGhG/TYmW6PP5OcSXcdnxTe1NNt0T66N8D6jxh4kC8UsdzOGaIw==}
+  electron-to-chromium@1.5.66:
+    resolution: {integrity: sha512-pI2QF6+i+zjPbqRzJwkMvtvkdI7MjVbSh2g8dlMguDJIXEPw+kwasS1Jl+YGPEBfGVxsVgGUratAKymPdPo2vQ==}
 
   electron-window@0.8.1:
     resolution: {integrity: sha512-W1i9LfnZJozk3MXE8VgsL2E5wOUHSgyCvcg1H2vQQjj+gqhO9lVudgY3z3SF7LJAmi+0vy3CJkbMqsynWB49EA==}
@@ -5940,11 +5940,6 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
-  nanoid@5.0.8:
-    resolution: {integrity: sha512-TcJPw+9RV9dibz1hHUzlLVy8N4X9TnwirAjrU08Juo6BNKggzVfP2ZJ/3ZUSq15Xl5i85i+Z89XBO90pB2PghQ==}
-    engines: {node: ^18 || >=20}
-    hasBin: true
-
   nanoid@5.0.9:
     resolution: {integrity: sha512-Aooyr6MXU6HpvvWXKoVoXwKMs/KyVakWwg7xQfv5/S/RIgJMy0Ifa45H9qqYy7pTCszrHzP21Uk4PZq2HpEM8Q==}
     engines: {node: ^18 || >=20}
@@ -6915,8 +6910,8 @@ packages:
     resolution: {integrity: sha512-H66BPQMrv+V16t8xtmq+UC0CBpiTBA60V8ibS1QVReIp8T1z8hwFxqcGzm9K6lgsN7sB5edVH8a+ze6Fqm4weA==}
     engines: {node: '>=4'}
 
-  registry-auth-token@5.0.2:
-    resolution: {integrity: sha512-o/3ikDxtXaA59BmZuZrJZDJv8NMDGSj+6j6XaeBmHw8eY1i1qd9+6H+LjVvQXx3HN6aRCGa1cUdJ9RaJZUugnQ==}
+  registry-auth-token@5.0.3:
+    resolution: {integrity: sha512-1bpc9IyC+e+CNFRaWyn77tk4xGG4PPUyfakSmA6F6cvUDjrm58dfyJ3II+9yb10EDkHoy1LaPSmHaWLOH3m6HA==}
     engines: {node: '>=14'}
 
   registry-url@6.0.1:
@@ -7809,10 +7804,6 @@ packages:
     resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
     engines: {node: '>=12.20'}
 
-  type-fest@4.28.1:
-    resolution: {integrity: sha512-LO/+yb3mf46YqfUC7QkkoAlpa7CTYh//V1Xy9+NQ+pKqDqXIq0NTfPfQRwFfCt+if4Qkwb9gzZfsl6E5TkXZGw==}
-    engines: {node: '>=16'}
-
   type-fest@4.29.0:
     resolution: {integrity: sha512-RPYt6dKyemXJe7I6oNstcH24myUGSReicxcHTvCLgzm4e0n8y05dGvcGB15/SoPRBmhlMthWQ9pvKyL81ko8nQ==}
     engines: {node: '>=16'}
@@ -8092,6 +8083,10 @@ packages:
 
   which-typed-array@1.1.15:
     resolution: {integrity: sha512-oV0jmFtUky6CXfkqehVvBP/LSWJ2sy4vWMioiENyJLePrBO/yKyV9OyJySfAKosh+RYkIl5zJCNZ8/4JncrpdA==}
+    engines: {node: '>= 0.4'}
+
+  which-typed-array@1.1.16:
+    resolution: {integrity: sha512-g+N+GAWiRj66DngFwHvISJd+ITsyphZvD1vChfVg6cEdnzy53GzB3oy0fUNlvhz7H7+MiqhYr26qxQShCpKTTQ==}
     engines: {node: '>= 0.4'}
 
   which@1.3.1:
@@ -10550,7 +10545,7 @@ snapshots:
 
   '@octokit/openapi-types@22.2.0': {}
 
-  '@octokit/plugin-paginate-rest@11.3.5(@octokit/core@6.1.2)':
+  '@octokit/plugin-paginate-rest@11.3.6(@octokit/core@6.1.2)':
     dependencies:
       '@octokit/core': 6.1.2
       '@octokit/types': 13.6.2
@@ -11116,7 +11111,7 @@ snapshots:
   '@semantic-release/github@11.0.1(semantic-release@24.2.0(typescript@5.5.4))':
     dependencies:
       '@octokit/core': 6.1.2
-      '@octokit/plugin-paginate-rest': 11.3.5(@octokit/core@6.1.2)
+      '@octokit/plugin-paginate-rest': 11.3.6(@octokit/core@6.1.2)
       '@octokit/plugin-retry': 7.1.2(@octokit/core@6.1.2)
       '@octokit/plugin-throttling': 9.3.2(@octokit/core@6.1.2)
       '@semantic-release/error': 4.0.0
@@ -11147,7 +11142,7 @@ snapshots:
       npm: 10.9.1
       rc: 1.2.8
       read-pkg: 9.0.1
-      registry-auth-token: 5.0.2
+      registry-auth-token: 5.0.3
       semantic-release: 24.2.0(typescript@5.5.4)
       semver: 7.6.3
       tempy: 3.1.0
@@ -11668,7 +11663,7 @@ snapshots:
 
   acorn@8.14.0: {}
 
-  aegir@45.0.2(@babel/core@7.26.0)(@typescript-eslint/parser@8.16.0(eslint@9.15.0)(typescript@5.5.4))(eslint-plugin-n@17.14.0(eslint@9.15.0)):
+  aegir@45.0.7(@babel/core@7.26.0)(@typescript-eslint/parser@8.16.0(eslint@9.15.0)(typescript@5.5.4))(eslint-plugin-n@17.14.0(eslint@9.15.0)):
     dependencies:
       '@electron/get': 3.1.0
       '@polka/send-type': 0.5.2
@@ -12233,7 +12228,7 @@ snapshots:
   browserslist@4.24.2:
     dependencies:
       caniuse-lite: 1.0.30001684
-      electron-to-chromium: 1.5.65
+      electron-to-chromium: 1.5.66
       node-releases: 2.0.18
       update-browserslist-db: 1.1.1(browserslist@4.24.2)
 
@@ -13084,7 +13079,7 @@ snapshots:
       which: 4.0.0
       yargs: 17.7.2
 
-  electron-to-chromium@1.5.65: {}
+  electron-to-chromium@1.5.66: {}
 
   electron-window@0.8.1:
     dependencies:
@@ -14924,7 +14919,7 @@ snapshots:
 
   is-typed-array@1.1.13:
     dependencies:
-      which-typed-array: 1.1.15
+      which-typed-array: 1.1.16
 
   is-typedarray@1.0.0: {}
 
@@ -16432,8 +16427,6 @@ snapshots:
 
   nanoid@3.3.8: {}
 
-  nanoid@5.0.8: {}
-
   nanoid@5.0.9: {}
 
   nanomatch@1.2.13:
@@ -16562,7 +16555,7 @@ snapshots:
       semver: 7.6.3
       slash: 3.0.0
       strip-json-comments: 3.1.1
-      type-fest: 4.28.1
+      type-fest: 4.29.0
       validate-npm-package-name: 5.0.1
     transitivePeerDependencies:
       - supports-color
@@ -16866,7 +16859,7 @@ snapshots:
   package-json@10.0.1:
     dependencies:
       ky: 1.7.2
-      registry-auth-token: 5.0.2
+      registry-auth-token: 5.0.3
       registry-url: 6.0.1
       semver: 7.6.3
 
@@ -17056,7 +17049,7 @@ snapshots:
       lilconfig: 3.1.2
       lodash: 4.17.21
       merge-options: 3.0.4
-      nanoid: 5.0.8
+      nanoid: 5.0.9
       ora: 8.1.1
       p-timeout: 6.1.3
       path-browserify: 1.0.1
@@ -17388,7 +17381,7 @@ snapshots:
     dependencies:
       find-up-simple: 1.0.0
       read-pkg: 9.0.1
-      type-fest: 4.28.1
+      type-fest: 4.29.0
 
   read-pkg-up@7.0.1:
     dependencies:
@@ -17514,7 +17507,7 @@ snapshots:
       unicode-match-property-ecmascript: 2.0.0
       unicode-match-property-value-ecmascript: 2.2.0
 
-  registry-auth-token@5.0.2:
+  registry-auth-token@5.0.3:
     dependencies:
       '@pnpm/npm-conf': 2.3.1
 
@@ -18464,8 +18457,6 @@ snapshots:
 
   type-fest@2.19.0: {}
 
-  type-fest@4.28.1: {}
-
   type-fest@4.29.0: {}
 
   typed-array-buffer@1.0.2:
@@ -18672,7 +18663,7 @@ snapshots:
       is-arguments: 1.1.1
       is-generator-function: 1.0.10
       is-typed-array: 1.1.13
-      which-typed-array: 1.1.15
+      which-typed-array: 1.1.16
 
   utils-merge@1.0.1: {}
 
@@ -18775,6 +18766,14 @@ snapshots:
   which-module@2.0.1: {}
 
   which-typed-array@1.1.15:
+    dependencies:
+      available-typed-arrays: 1.0.7
+      call-bind: 1.0.7
+      for-each: 0.3.3
+      gopd: 1.0.1
+      has-tostringtag: 1.0.2
+
+  which-typed-array@1.1.16:
     dependencies:
       available-typed-arrays: 1.0.7
       call-bind: 1.0.7
