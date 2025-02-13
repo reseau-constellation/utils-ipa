@@ -1,4 +1,4 @@
-name: Tests IPA
+name: Tests Utils IPA
 on:
   push:
     branches:
