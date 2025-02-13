@@ -72,5 +72,19 @@
     "rimraf": "^6.0.1",
     "uint8arrays": "^5.1.0",
     "wherearewe": "^2.0.1"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@localfirst/auth",
+      "@localfirst/crdx",
+      "@localfirst/crypto",
+      "@localfirst/shared",
+      "classic-level",
+      "core-js",
+      "esbuild",
+      "iso-constants",
+      "msgpackr-extract",
+      "node-datachannel"
+    ]
   }
 }
