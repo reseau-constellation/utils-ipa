@@ -18,7 +18,7 @@ export async function toBuffer(
   stream: AsyncIterable<Uint8Array> | Iterable<Uint8Array>,
   max?: number,
 ): Promise<Uint8Array | null> {
-  let buffer = new Uint8Array(0);
+  let buffer: Uint8Array<ArrayBufferLike> = new Uint8Array(0);
 
   for await (const buf of stream) {
     buffer = concat([buffer, buf], buffer.length + buf.length);
