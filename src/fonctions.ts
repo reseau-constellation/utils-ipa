@@ -7,6 +7,7 @@ import type {
   PasNondéfini,
   élémentsBd,
 } from "@/types.js";
+import { AbortError } from "@libp2p/interface";
 
 class ÉmetteurUneFois<T> extends EventEmitter {
   condition: (x: T) => boolean | Promise<boolean>;
@@ -278,4 +279,49 @@ export const suivreBdsDeFonctionListe = async <
     oublierBdRacine = retourRacine.fOublier;
     return Object.assign({}, retourRacine, { fOublier });
   }
+};
+
+export const réessayer = async <T>({
+  f,
+  signal,
+}: {
+  f: () => Promise<T>;
+  signal: AbortSignal;
+}): Promise<T> => {
+  try {
+    return await f();
+  } catch {
+    if (signal.aborted) throw new AbortError();
+    else return await réessayer({ f, signal });
+  }
+};
+
+type NoUndefinedField<T> = {
+  [P in keyof T]-?: NoUndefinedField<NonNullable<T[P]>>;
+};
+
+type élémentsBdOuNonDéfini =
+  | number
+  | boolean
+  | string
+  | { [clef: string]: élémentsBdOuNonDéfini }
+  | Array<élémentsBd>
+  | undefined;
+
+export const effacerPropriétésNonDéfinies = <
+  T extends { [clef: string]: élémentsBdOuNonDéfini | undefined },
+>(
+  objet: T,
+): NoUndefinedField<T> => {
+  return Object.fromEntries(
+    Object.entries(objet)
+      .filter(([_clef, val]) => val !== undefined)
+      .map(([clef, val]): [string, élémentsBd] => {
+        return [
+          clef,
+          // @ts-expect-error
+          (typeof val === "object" && !Array.isArray(val)) ? effacerPropriétésNonDéfinies(val) : val!,
+        ] as [string, élémentsBd];
+      }),
+  ) as NoUndefinedField<T>;
 };

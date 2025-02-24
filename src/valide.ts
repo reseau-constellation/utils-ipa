@@ -24,7 +24,7 @@ export const adresseOrbiteValide = (address: string) => {
   let idc;
   try {
     idc = CID.parse(address, base58btc);
-  } catch (e) {
+  } catch {
     return false;
   }
 
