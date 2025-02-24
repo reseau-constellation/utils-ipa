@@ -23,7 +23,7 @@ describe("Utils : données", function () {
       expect(trad).to.equal("français");
     });
     it("dictionnaire vide", () => {
-      const trad = traduire({ }, ["kaq"]);
+      const trad = traduire({}, ["kaq"]);
       expect(trad).to.undefined();
     });
   });
