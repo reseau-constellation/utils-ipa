@@ -49,25 +49,25 @@ class ÉmetteurUneFois<T> extends EventEmitter {
   }
 }
 
-export const suivreBdDeFonction = <T>({
+export const suivreBdDeFonction = async <T>({
   fRacine,
   f,
   fSuivre,
 }: {
   fRacine: (args: {
     fSuivreRacine: (nouvelIdBdCible?: string) => Promise<void>;
-  }) => schémaFonctionOublier;
+  }) => Promise<schémaFonctionOublier>;
   f: schémaFonctionSuivi<T | undefined>;
   fSuivre: (args: {
     id: string;
     fSuivreBd: schémaFonctionSuivi<T | undefined>;
-  }) => schémaFonctionOublier;
-}): schémaFonctionOublier => {
+  }) => Promise<schémaFonctionOublier>;
+}): Promise<schémaFonctionOublier> => {
   let oublierFSuivre: schémaFonctionOublier | undefined;
   let idBdCible: string | undefined;
   let premièreFois = true;
 
-  const oublierRacine = fRacine({
+  const oublierRacine = await fRacine({
     fSuivreRacine: async (nouvelIdBdCible?: string) => {
       if (nouvelIdBdCible === undefined && premièreFois) {
         premièreFois = false;
@@ -78,7 +78,7 @@ export const suivreBdDeFonction = <T>({
         if (oublierFSuivre) await oublierFSuivre();
 
         if (idBdCible) {
-          oublierFSuivre = fSuivre({ id: idBdCible, fSuivreBd: f });
+          oublierFSuivre = await fSuivre({ id: idBdCible, fSuivreBd: f });
         } else {
           await f(undefined);
           oublierFSuivre = undefined;
@@ -138,7 +138,7 @@ export const attendreStabilité = <T>(
     });
 };
 
-export const suivreBdsDeFonctionListe = <
+export const suivreBdsDeFonctionListe = async <
   T extends élémentsBd,
   U extends PasNondéfini,
   V,
@@ -154,17 +154,17 @@ export const suivreBdsDeFonctionListe = <
     [...new Set(branches.flat())] as unknown as V[],
   fCode = (é) => é as string,
 }: {
-  fListe: (fSuivreRacine: (éléments: T[]) => Promise<void>) => W;
+  fListe: (fSuivreRacine: (éléments: T[]) => Promise<void>) => Promise<W>;
   f: schémaFonctionSuivi<V[]>;
   fBranche: (
     id: string,
     fSuivreBranche: schémaFonctionSuivi<U>,
     branche: T,
-  ) => schémaFonctionOublier | undefined;
+  ) => Promise<schémaFonctionOublier | undefined>;
   fIdBdDeBranche?: (b: T) => string;
   fRéduction?: (branches: U[]) => V[];
   fCode?: (é: T) => string;
-}): W => {
+}): Promise<W> => {
   interface InterfaceBranches {
     données?: U;
     déjàÉvaluée: boolean;
@@ -262,7 +262,7 @@ export const suivreBdsDeFonctionListe = <
     verrou.release("racine");
   };
 
-  const retourRacine = fListe(fSuivreRacine);
+  const retourRacine = await fListe(fSuivreRacine);
 
   let oublierBdRacine: schémaFonctionOublier;
 
@@ -288,22 +288,11 @@ export const réessayer = async <T>({
   f: () => Promise<T>;
   signal: AbortSignal;
 }): Promise<T> => {
-  let n = 0
-  let avant = Date.now();
   try {
-    avant = Date.now();
     return await f();
   } catch {
     if (signal.aborted) throw new AbortError();
-    n++
-    const maintenant = Date.now();
-    const tempsÀAttendre = n * 1000 - (maintenant - avant) 
-    if (tempsÀAttendre > 0)
-      await new Promise(résoudre => {
-      const chrono = setTimeout(résoudre, tempsÀAttendre)
-      signal.addEventListener("abort", () => clearInterval(chrono))
-    })
-    return await réessayer({ f, signal });
+    else return await réessayer({ f, signal });
   }
 };
 
@@ -330,7 +319,7 @@ export const effacerPropriétésNonDéfinies = <
       .map(([clef, val]): [string, élémentsBd] => {
         return [
           clef,
-          // @ts-expect-error C'est compliqué
+          // @ts-expect-error
           (typeof val === "object" && !Array.isArray(val)) ? effacerPropriétésNonDéfinies(val) : val!,
         ] as [string, élémentsBd];
       }),
