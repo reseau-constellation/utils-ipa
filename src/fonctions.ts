@@ -199,67 +199,72 @@ export const suivreBdsDeFonctionListe = async <
       console.error(
         "Définir fCode si les éléments ne sont pas en format texte (chaînes).",
       );
+      verrou.release("racine")
       throw new Error(
         "Définir fCode si les éléments ne sont pas en format texte (chaînes).",
       );
     }
-    const dictÉléments = Object.fromEntries(éléments.map((é) => [fCode(é), é]));
-    const existants = Object.keys(arbre);
-    let nouveaux = Object.keys(dictÉléments).filter(
-      (é) => !existants.includes(é),
-    );
-    const disparus = existants.filter(
-      (é) => !Object.keys(dictÉléments).includes(é),
-    );
-    const changés = Object.entries(dictÉléments)
-      .filter((é) => {
-        return !deepEqual(dictBranches[é[0]], é[1]);
-      })
-      .map((é) => é[0]);
-    nouveaux.push(...changés);
-    nouveaux = [...new Set(nouveaux)];
+    try {
 
-    await Promise.all(
-      changés.map(async (c) => {
-        if (arbre[c]) {
-          const fOublier = arbre[c].fOublier;
+      const dictÉléments = Object.fromEntries(éléments.map((é) => [fCode(é), é]));
+      const existants = Object.keys(arbre);
+      let nouveaux = Object.keys(dictÉléments).filter(
+        (é) => !existants.includes(é),
+      );
+      const disparus = existants.filter(
+        (é) => !Object.keys(dictÉléments).includes(é),
+      );
+      const changés = Object.entries(dictÉléments)
+        .filter((é) => {
+          return !deepEqual(dictBranches[é[0]], é[1]);
+        })
+        .map((é) => é[0]);
+      nouveaux.push(...changés);
+      nouveaux = [...new Set(nouveaux)];
+  
+      await Promise.all(
+        changés.map(async (c) => {
+          if (arbre[c]) {
+            const fOublier = arbre[c].fOublier;
+            if (fOublier) await fOublier();
+            delete arbre[c];
+          }
+        }),
+      );
+  
+      await Promise.all(
+        disparus.map(async (d) => {
+          const fOublier = arbre[d].fOublier;
           if (fOublier) await fOublier();
-          delete arbre[c];
-        }
-      }),
-    );
+          delete arbre[d];
+        }),
+      );
+  
+      await Promise.all(
+        nouveaux.map(async (n: string) => {
+          arbre[n] = {
+            déjàÉvaluée: false,
+          };
+          const élément = dictÉléments[n];
+          dictBranches[n] = élément;
+  
+          const idBdBranche = fIdBdDeBranche(élément);
+          const fSuivreBranche = async (données: U) => {
+            arbre[n].données = données;
+            arbre[n].déjàÉvaluée = true;
+            await fFinale();
+          };
+          const fOublier = await fBranche(idBdBranche, fSuivreBranche, élément);
+          arbre[n].fOublier = fOublier;
+        }),
+      );
+  
+      prêt = true;
+      await fFinale();
+    } finally {
+      verrou.release("racine");
+    }
 
-    await Promise.all(
-      disparus.map(async (d) => {
-        const fOublier = arbre[d].fOublier;
-        if (fOublier) await fOublier();
-        delete arbre[d];
-      }),
-    );
-
-    await Promise.all(
-      nouveaux.map(async (n: string) => {
-        arbre[n] = {
-          déjàÉvaluée: false,
-        };
-        const élément = dictÉléments[n];
-        dictBranches[n] = élément;
-
-        const idBdBranche = fIdBdDeBranche(élément);
-        const fSuivreBranche = async (données: U) => {
-          arbre[n].données = données;
-          arbre[n].déjàÉvaluée = true;
-          await fFinale();
-        };
-        const fOublier = await fBranche(idBdBranche, fSuivreBranche, élément);
-        arbre[n].fOublier = fOublier;
-      }),
-    );
-
-    prêt = true;
-    await fFinale();
-
-    verrou.release("racine");
   };
 
   const retourRacine = await fListe(fSuivreRacine);
