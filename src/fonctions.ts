@@ -205,7 +205,6 @@ export const suivreBdsDeFonctionListe = async <
       );
     }
     try {
-
       const dictÉléments = Object.fromEntries(éléments.map((é) => [fCode(é), é]));
       const existants = Object.keys(arbre);
       let nouveaux = Object.keys(dictÉléments).filter(
