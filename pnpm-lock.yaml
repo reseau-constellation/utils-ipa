@@ -44,7 +44,7 @@ importers:
     devDependencies:
       '@constl/ipa':
         specifier: ^1.5.16
-        version: 1.6.5(react-native@0.74.2(@babel/core@7.26.10)(@babel/preset-env@7.24.7(@babel/core@7.26.10))(react@18.2.0))
+        version: 1.6.7(react-native@0.74.2(@babel/core@7.26.10)(@babel/preset-env@7.24.7(@babel/core@7.26.10))(react@18.2.0))
       '@constl/utils-tests':
         specifier: ^1.6.13
         version: 1.6.15(react-native@0.74.2(@babel/core@7.26.10)(@babel/preset-env@7.24.7(@babel/core@7.26.10))(react@18.2.0))
@@ -934,6 +934,10 @@ packages:
     resolution: {integrity: sha512-nzFBbHOoRFa/bXUSzmJaXOgHI+EttTldhLJ33yWcM0DxnWhLKychHkCDLoJO3THa1+dnzrDJoxj3N3/V0WoPVw==}
     engines: {npm: '>=8.7.0'}
 
+  '@chainsafe/libp2p-gossipsub@14.1.1':
+    resolution: {integrity: sha512-EUs2C+xHXXbw0pQQF2AN/ih4qB6BBWOGkDhvHz1VN52o2m/827IBEMT8RHdXMNZciQc90to1L57BKmhXkvztDw==}
+    engines: {npm: '>=8.7.0'}
+
   '@chainsafe/libp2p-noise@16.1.0':
     resolution: {integrity: sha512-GJA/i5pd6VmetxokvnPlEbVCeL7SfLHkSuUHwbJ4w0u7dZUbse4Hr8SA8RYGwNHbZr2TEKFC9WerhvMWbciIrQ==}
 
@@ -953,8 +957,8 @@ packages:
   '@constl/bohr-db@1.2.3':
     resolution: {integrity: sha512-IJXOqeMnJEOqD7DRNMowwPOY7bVKlTdQNu3DNn9zoSKj+fBzTXLzkxl4uRbKLu9vwWzjoXyxgvp2iw7vkt/amQ==}
 
-  '@constl/ipa@1.6.5':
-    resolution: {integrity: sha512-CF4mzGUBf0ZIDusoE5Lmm0V2ER8/jC1RhPbIMH66i1Cy4WdI4e4S1iUoqKrciNW2TF2qtjf18t1cSHRcex/ODA==}
+  '@constl/ipa@1.6.7':
+    resolution: {integrity: sha512-aPrmQh4ozqJd78s/FkDMR3QvlVNTa0Xp5ZD6wOuiLTtJNPlm12Y6BL6yJVDt0Maxg8wSpIDsqPxVWh/VjNMQdg==}
     engines: {node: '>=20'}
 
   '@constl/mandataire@3.0.3':
@@ -4956,8 +4960,8 @@ packages:
     resolution: {integrity: sha512-bAH5jbK/F3T3Jls4I0SO1hmPR0dKU0a7+SY6n1yzRtG54FLO8d6w/nxLFX2Nb7dBu6cCWXPaAME6cYqFUMmuCA==}
     engines: {node: '>= 4'}
 
-  image-size@1.2.0:
-    resolution: {integrity: sha512-4S8fwbO6w3GeCVN6OPtA9I5IGKkcDMPcKndtUlpJuCwu7JLjtj7JZpwqLuyY2nrmQT3AWsCJLSKPsc2mPBSl3w==}
+  image-size@1.2.1:
+    resolution: {integrity: sha512-rH+46sQJ2dlwfjfhCyNx5thzrv+dtmBIhPHk0zgRUukHzZ/kRueTJXoYYsclBaKcSMBWuGbOFXtioLpzTb5euw==}
     engines: {node: '>=16.x'}
     hasBin: true
 
@@ -9818,6 +9822,23 @@ snapshots:
       uint8arraylist: 2.4.8
       uint8arrays: 5.1.0
 
+  '@chainsafe/libp2p-gossipsub@14.1.1':
+    dependencies:
+      '@libp2p/crypto': 5.0.15
+      '@libp2p/interface': 2.7.0
+      '@libp2p/interface-internal': 2.3.9
+      '@libp2p/peer-id': 5.1.0
+      '@libp2p/pubsub': 10.1.8
+      '@multiformats/multiaddr': 12.4.0
+      denque: 2.1.0
+      it-length-prefixed: 9.1.1
+      it-pipe: 3.0.1
+      it-pushable: 3.2.3
+      multiformats: 13.3.2
+      protons-runtime: 5.5.0
+      uint8arraylist: 2.4.8
+      uint8arrays: 5.1.0
+
   '@chainsafe/libp2p-noise@16.1.0':
     dependencies:
       '@chainsafe/as-chacha20poly1305': 0.1.0
@@ -9873,9 +9894,9 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@constl/ipa@1.6.5(react-native@0.74.2(@babel/core@7.26.10)(@babel/preset-env@7.24.7(@babel/core@7.26.10))(react@18.2.0))':
+  '@constl/ipa@1.6.7(react-native@0.74.2(@babel/core@7.26.10)(@babel/preset-env@7.24.7(@babel/core@7.26.10))(react@18.2.0))':
     dependencies:
-      '@chainsafe/libp2p-gossipsub': 14.1.0
+      '@chainsafe/libp2p-gossipsub': 14.1.1
       '@chainsafe/libp2p-noise': 16.1.0
       '@chainsafe/libp2p-yamux': 7.0.1
       '@chriscdn/promise-semaphore': 2.0.10
@@ -9902,6 +9923,7 @@ snapshots:
       '@libp2p/webrtc': 5.2.9(react-native@0.74.2(@babel/core@7.26.10)(@babel/preset-env@7.24.7(@babel/core@7.26.10))(react@18.2.0))
       '@libp2p/websockets': 9.2.8
       '@libp2p/webtransport': 5.0.37
+      '@multiformats/mafmt': 12.1.6
       '@multiformats/multiaddr-matcher': 1.7.0
       '@noble/hashes': 1.7.1
       '@orbitdb/core': 2.5.0
@@ -15775,7 +15797,7 @@ snapshots:
 
   ignore@7.0.3: {}
 
-  image-size@1.2.0:
+  image-size@1.2.1:
     dependencies:
       queue: 6.0.2
 
@@ -17289,7 +17311,7 @@ snapshots:
       flow-enums-runtime: 0.0.6
       graceful-fs: 4.2.11
       hermes-parser: 0.23.1
-      image-size: 1.2.0
+      image-size: 1.2.1
       invariant: 2.2.4
       jest-worker: 29.7.0
       jsc-safe-url: 0.2.4
