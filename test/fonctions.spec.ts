@@ -13,7 +13,7 @@ import type {
 import { générerFsTestImbriquées } from "./utils.js";
 
 describe("Fonctions", function () {
-  describe.only("Suivi imbriquées", function () {
+  describe("Suivi imbriquées", function () {
     let fRacine: InterfaceContrôlleurRacine;
     let fSuivre: InterfaceSuivi;
     let f: InterfaceFonction;
@@ -32,7 +32,7 @@ describe("Fonctions", function () {
       await fOublier();
     });
 
-    it("Non défini pour commencer", async () => {
+    it("Vide pour commencer", async () => {
       expect(fSuivre.appeléeAvec).to.deep.equal([]);
       expect(f.appeléeAvec.appelléeAvec).to.deep.equal([]);
     });
@@ -48,7 +48,7 @@ describe("Fonctions", function () {
     it("Non dupliqué si racine est identique", async () => {
       await fRacine("a");
       await fRacine("a");
-      expect(fSuivre.appeléeAvec).to.deep.equal(["a"]);      
+      expect(fSuivre.appeléeAvec).to.deep.equal(["a"]);
     });
     it("Changement d'id pour fonction imbriquée", async () => {
       await fRacine("a");
@@ -63,17 +63,17 @@ describe("Fonctions", function () {
     });
     it("Changement de fonction suivi", async () => {
       const suiviA = await fRacine("a");
-      suiviA("a1")
-      const suiviB = await fRacine("b")
+      suiviA("a1");
+      const suiviB = await fRacine("b");
       await suiviB("b1");
-      expect(fSuivre.appeléeAvec).to.deep.equal(["a", "b",]);
-      expect(f.appeléeAvec.appelléeAvec).to.deep.equal(["a1", "b1",]);
+      expect(fSuivre.appeléeAvec).to.deep.equal(["a", "b"]);
+      expect(f.appeléeAvec.appelléeAvec).to.deep.equal(["a1", "b1"]);
     });
     it("Id non défini fonction imbriquée", async () => {
       const suiviA = await fRacine("a");
       suiviA("a1");
       fRacine(undefined);
-      await fOublier();  // On s'assure que tout a terminé
+      await fOublier(); // On s'assure que tout a terminé
       expect(fSuivre.appeléeAvec).to.deep.equal(["a"]);
       expect(f.appeléeAvec.appelléeAvec).to.deep.equal(["a1", undefined]);
     });
@@ -140,6 +140,10 @@ describe("Fonctions", function () {
       expect(fSuivre.appeléeAvec).to.deep.equal(["a"]);
       expect(f.appeléeAvec.appelléeAvec).to.deep.equal(["a1", "a2"]);
     });
+  });
+
+  describe("Suivi de liste", function () {
+    it.skip("Vide pour commencer");
   });
 
   describe("Effacer propriétés non définies", function () {

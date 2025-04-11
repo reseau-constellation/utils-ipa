@@ -83,11 +83,11 @@ export const suivreFonctionImbriquée = async <T>({
         oublierFSuivre = undefined;
       }
     }
-  }
+  };
 
   const oublierRacine = await fRacine({
     fSuivreRacine: async (nouvelIdImbriqué?: string) => {
-      queue.add(créerTâche(nouvelIdImbriqué))
+      queue.add(créerTâche(nouvelIdImbriqué));
     },
   });
   return async () => {
@@ -143,7 +143,7 @@ export const attendreStabilité = <T>(
     });
 };
 
-export const suivreBdsDeFonctionListe = async <
+export const suivreDeFonctionListe = async <
   T extends élémentsBd,
   U extends PasNondéfini,
   V,
@@ -226,8 +226,7 @@ export const suivreBdsDeFonctionListe = async <
       await Promise.all(
         changés.map(async (c) => {
           if (arbre[c]) {
-            const fOublier = arbre[c].fOublier;
-            if (fOublier) await fOublier();
+            await arbre[c].fOublier?.();
             delete arbre[c];
           }
         }),
