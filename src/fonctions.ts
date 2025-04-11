@@ -1,5 +1,5 @@
 import { EventEmitter, once } from "events";
-import Semaphore from "@chriscdn/promise-semaphore";
+import PQueue from "p-queue";
 import deepEqual from "deep-equal";
 import type {
   schémaFonctionSuivi,
@@ -7,7 +7,6 @@ import type {
   PasNondéfini,
   élémentsBd,
 } from "@/types.js";
-import { AbortError } from "@libp2p/interface";
 
 class ÉmetteurUneFois<T> extends EventEmitter {
   condition: (x: T) => boolean | Promise<boolean>;
@@ -49,13 +48,13 @@ class ÉmetteurUneFois<T> extends EventEmitter {
   }
 }
 
-export const suivreBdDeFonction = async <T>({
+export const suivreFonctionImbriquée = async <T>({
   fRacine,
   f,
   fSuivre,
 }: {
   fRacine: (args: {
-    fSuivreRacine: (nouvelIdBdCible?: string) => Promise<void>;
+    fSuivreRacine: (nouvelIdImbriqué?: string) => Promise<void>;
   }) => Promise<schémaFonctionOublier>;
   f: schémaFonctionSuivi<T | undefined>;
   fSuivre: (args: {
@@ -64,30 +63,36 @@ export const suivreBdDeFonction = async <T>({
   }) => Promise<schémaFonctionOublier>;
 }): Promise<schémaFonctionOublier> => {
   let oublierFSuivre: schémaFonctionOublier | undefined;
-  let idBdCible: string | undefined;
+  let idImbriqué: string | undefined = undefined;
   let premièreFois = true;
 
-  const oublierRacine = await fRacine({
-    fSuivreRacine: async (nouvelIdBdCible?: string) => {
-      if (nouvelIdBdCible === undefined && premièreFois) {
-        premièreFois = false;
-        await f(undefined);
-      }
-      if (nouvelIdBdCible !== idBdCible) {
-        idBdCible = nouvelIdBdCible;
-        if (oublierFSuivre) await oublierFSuivre();
+  const queue = new PQueue({ concurrency: 1 });
 
-        if (idBdCible) {
-          oublierFSuivre = await fSuivre({ id: idBdCible, fSuivreBd: f });
-        } else {
-          await f(undefined);
-          oublierFSuivre = undefined;
-        }
+  const créerTâche = (id?: string) => async () => {
+    if (id === undefined && premièreFois) {
+      await f(undefined);
+    }
+    premièreFois = false;
+    if (id !== idImbriqué) {
+      idImbriqué = id;
+      if (oublierFSuivre) await oublierFSuivre();
+      if (idImbriqué) {
+        oublierFSuivre = await fSuivre({ id: idImbriqué, fSuivreBd: f });
+      } else {
+        await f(undefined);
+        oublierFSuivre = undefined;
       }
+    }
+  }
+
+  const oublierRacine = await fRacine({
+    fSuivreRacine: async (nouvelIdImbriqué?: string) => {
+      queue.add(créerTâche(nouvelIdImbriqué))
     },
   });
   return async () => {
     await oublierRacine();
+    await queue.onIdle();
     if (oublierFSuivre) await oublierFSuivre();
   };
 };
@@ -191,21 +196,18 @@ export const suivreBdsDeFonctionListe = async <
     const réduits = fRéduction(listeDonnées);
     await f(réduits);
   };
-  const verrou = new Semaphore();
+  const queue = new PQueue({ concurrency: 1 });
 
   const fSuivreRacine = async (éléments: Array<T>) => {
-    await verrou.acquire("racine");
-    if (éléments.some((x) => typeof fCode(x) !== "string")) {
-      console.error(
-        "Définir fCode si les éléments ne sont pas en format texte (chaînes).",
+    const tâche = async () => {
+      if (éléments.some((x) => typeof fCode(x) !== "string")) {
+        throw new Error(
+          "Définir fCode si les éléments ne sont pas en format texte (chaînes).",
+        );
+      }
+      const dictÉléments = Object.fromEntries(
+        éléments.map((é) => [fCode(é), é]),
       );
-      verrou.release("racine")
-      throw new Error(
-        "Définir fCode si les éléments ne sont pas en format texte (chaînes).",
-      );
-    }
-    try {
-      const dictÉléments = Object.fromEntries(éléments.map((é) => [fCode(é), é]));
       const existants = Object.keys(arbre);
       let nouveaux = Object.keys(dictÉléments).filter(
         (é) => !existants.includes(é),
@@ -220,7 +222,7 @@ export const suivreBdsDeFonctionListe = async <
         .map((é) => é[0]);
       nouveaux.push(...changés);
       nouveaux = [...new Set(nouveaux)];
-  
+
       await Promise.all(
         changés.map(async (c) => {
           if (arbre[c]) {
@@ -230,7 +232,7 @@ export const suivreBdsDeFonctionListe = async <
           }
         }),
       );
-  
+
       await Promise.all(
         disparus.map(async (d) => {
           const fOublier = arbre[d].fOublier;
@@ -238,7 +240,7 @@ export const suivreBdsDeFonctionListe = async <
           delete arbre[d];
         }),
       );
-  
+
       await Promise.all(
         nouveaux.map(async (n: string) => {
           arbre[n] = {
@@ -246,7 +248,7 @@ export const suivreBdsDeFonctionListe = async <
           };
           const élément = dictÉléments[n];
           dictBranches[n] = élément;
-  
+
           const idBdBranche = fIdBdDeBranche(élément);
           const fSuivreBranche = async (données: U) => {
             arbre[n].données = données;
@@ -257,13 +259,11 @@ export const suivreBdsDeFonctionListe = async <
           arbre[n].fOublier = fOublier;
         }),
       );
-  
+
       prêt = true;
       await fFinale();
-    } finally {
-      verrou.release("racine");
-    }
-
+    };
+    queue.add(tâche);
   };
 
   const retourRacine = await fListe(fSuivreRacine);
@@ -272,6 +272,7 @@ export const suivreBdsDeFonctionListe = async <
 
   const fOublier = async () => {
     await oublierBdRacine();
+    await queue.onIdle();
     await Promise.all(
       Object.values(arbre).map((x) => x.fOublier && x.fOublier()),
     );
@@ -282,21 +283,6 @@ export const suivreBdsDeFonctionListe = async <
   } else {
     oublierBdRacine = retourRacine.fOublier;
     return Object.assign({}, retourRacine, { fOublier });
-  }
-};
-
-export const réessayer = async <T>({
-  f,
-  signal,
-}: {
-  f: () => Promise<T>;
-  signal: AbortSignal;
-}): Promise<T> => {
-  try {
-    return await f();
-  } catch {
-    if (signal.aborted) throw new AbortError();
-    else return await réessayer({ f, signal });
   }
 };
 
@@ -323,8 +309,10 @@ export const effacerPropriétésNonDéfinies = <
       .map(([clef, val]): [string, élémentsBd] => {
         return [
           clef,
-          // @ts-expect-error
-          (typeof val === "object" && !Array.isArray(val)) ? effacerPropriétésNonDéfinies(val) : val!,
+          // @ts-expect-error Bizarre d'erreur récursion infinie
+          typeof val === "object" && !Array.isArray(val)
+            ? effacerPropriétésNonDéfinies(val)
+            : val!,
         ] as [string, élémentsBd];
       }),
   ) as NoUndefinedField<T>;
