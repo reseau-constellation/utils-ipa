@@ -1,5 +1,6 @@
 import {
   effacerPropriétésNonDéfinies,
+  ignorerNonDéfinis,
   suivreFonctionImbriquée,
 } from "@/fonctions.js";
 import { schémaFonctionOublier } from "@/types";
@@ -9,8 +10,9 @@ import type {
   InterfaceFonction,
   InterfaceContrôlleurRacine,
   InterfaceSuivi,
+  Espion,
 } from "./utils.js";
-import { générerFsTestImbriquées } from "./utils.js";
+import { générerEspion, générerFsTestImbriquées } from "./utils.js";
 
 describe("Fonctions", function () {
   describe("Suivi imbriquées", function () {
@@ -142,9 +144,7 @@ describe("Fonctions", function () {
     });
   });
 
-  describe("Suivi de liste", function () {
-    it.skip("Vide pour commencer");
-  });
+
 
   describe("Effacer propriétés non définies", function () {
     it("N'efface rien d'un objet où tout est défini", () => {
@@ -165,4 +165,33 @@ describe("Fonctions", function () {
       expect(Object.keys(processé.b)).to.not.include("c");
     });
   });
+
+  describe("Ignorer non définis", function () {
+    let f: Espion;
+    beforeEach(function () {
+      f = générerEspion()
+    });
+
+    it("Non défini ne passe pas", async () => {
+      const fSansNonDéfinis = ignorerNonDéfinis(f);
+      await fSansNonDéfinis(undefined);
+      expect(f.appelléeAvec).to.deep.equal([]);
+    })
+    it("Nul passe", async () => {
+      const fSansNonDéfinis = ignorerNonDéfinis(f);
+      await fSansNonDéfinis(null);
+      expect(f.appelléeAvec).to.deep.equal([null]);
+    })
+    it("false passe", async () => {
+      const fSansNonDéfinis = ignorerNonDéfinis(f);
+      await fSansNonDéfinis(false);
+      expect(f.appelléeAvec).to.deep.equal([false]);
+    })
+    it("Autres valeurs valides passent", async () => {
+      const fSansNonDéfinis = ignorerNonDéfinis(f);
+      await fSansNonDéfinis(1);
+      await fSansNonDéfinis(2);
+      expect(f.appelléeAvec).to.deep.equal([1, 2]);
+    })
+  })
 });

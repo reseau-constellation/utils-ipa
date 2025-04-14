@@ -30,17 +30,20 @@ const générerStatut = (): Statut => {
   };
 };
 
-interface Espion {
+export interface Espion {
+  (args: unknown): void;
   résolue: (args: { val?: string | undefined }) => Promise<void>;
   appelerAvec: (args: { val?: string | undefined }) => void;
-  appelléeAvec: (string | undefined)[];
+  appelléeAvec: (unknown)[];
 }
 
-const générerEspion = (): Espion => {
-  const appelléeAvec: (string | undefined)[] = [];
+export const générerEspion = (): Espion => {
+  const appelléeAvec: (unknown)[] = [];
   const événementsStatut = new TypedEmitter<{ résolue: () => void }>();
 
-  return {
+  return Object.assign(
+    (args: unknown)=>{appelléeAvec.push(args)},
+    {
     appelléeAvec,
     appelerAvec: ({ val }: { val?: string }) => {
       appelléeAvec.push(val);
@@ -62,7 +65,7 @@ const générerEspion = (): Espion => {
         événementsStatut.on("résolue", fFinale);
       });
     },
-  };
+  });
 };
 
 export interface InterfaceContrôlleurRacine {
@@ -225,7 +228,7 @@ export const générerFsTestImbriquées = (): {
 
   const f: InterfaceFonction = {
     fonction: async (val: string | undefined): Promise<void> => {
-      fAppeléeAvec.appelerAvec({ val });
+      fAppeléeAvec(val);
       statutF.résoudre({ id: val });
       await sémaphoreF.acquire(val);
       sémaphoreF.release(val);

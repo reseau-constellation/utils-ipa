@@ -154,21 +154,19 @@ export const suivreDeFonctionListe = async <
   fListe,
   f,
   fBranche,
-  fIdBdDeBranche = (b) => b as string,
+  fIdDeBranche = (b) => b as string,
   fRéduction = (branches: U[]) =>
     [...new Set(branches.flat())] as unknown as V[],
-  fCode = (é) => é as string,
 }: {
-  fListe: (fSuivreRacine: (éléments: T[]) => Promise<void>) => Promise<W>;
+  fListe: (args: {fSuivreRacine: (éléments: T[]) => Promise<void>}) => Promise<W>;
   f: schémaFonctionSuivi<V[]>;
-  fBranche: (
+  fBranche: (args: {
     id: string,
     fSuivreBranche: schémaFonctionSuivi<U>,
     branche: T,
-  ) => Promise<schémaFonctionOublier | undefined>;
-  fIdBdDeBranche?: (b: T) => string;
+  }) => Promise<schémaFonctionOublier | undefined>;
+  fIdDeBranche?: (b: T) => string;
   fRéduction?: (branches: U[]) => V[];
-  fCode?: (é: T) => string;
 }): Promise<W> => {
   interface InterfaceBranches {
     données?: U;
@@ -200,13 +198,13 @@ export const suivreDeFonctionListe = async <
 
   const fSuivreRacine = async (éléments: Array<T>) => {
     const tâche = async () => {
-      if (éléments.some((x) => typeof fCode(x) !== "string")) {
+      if (éléments.some((x) => typeof fIdDeBranche(x) !== "string")) {
         throw new Error(
-          "Définir fCode si les éléments ne sont pas en format texte (chaînes).",
+          "Définir fIdDeBranche (qui doit rendre une chaîne) si les éléments ne sont pas en format texte (chaînes).",
         );
       }
       const dictÉléments = Object.fromEntries(
-        éléments.map((é) => [fCode(é), é]),
+        éléments.map((é) => [fIdDeBranche(é), é]),
       );
       const existants = Object.keys(arbre);
       let nouveaux = Object.keys(dictÉléments).filter(
@@ -248,13 +246,13 @@ export const suivreDeFonctionListe = async <
           const élément = dictÉléments[n];
           dictBranches[n] = élément;
 
-          const idBdBranche = fIdBdDeBranche(élément);
+          const idBranche = fIdDeBranche(élément);
           const fSuivreBranche = async (données: U) => {
             arbre[n].données = données;
             arbre[n].déjàÉvaluée = true;
             await fFinale();
           };
-          const fOublier = await fBranche(idBdBranche, fSuivreBranche, élément);
+          const fOublier = await fBranche({id: idBranche, fSuivreBranche, branche: élément});
           arbre[n].fOublier = fOublier;
         }),
       );
@@ -265,22 +263,22 @@ export const suivreDeFonctionListe = async <
     queue.add(tâche);
   };
 
-  const retourRacine = await fListe(fSuivreRacine);
+  const retourRacine = await fListe({ fSuivreRacine });
 
-  let oublierBdRacine: schémaFonctionOublier;
+  let oublierRacine: schémaFonctionOublier;
 
   const fOublier = async () => {
-    await oublierBdRacine();
+    await oublierRacine();
     await queue.onIdle();
-    await Promise.all(
+    await Promise.allSettled(
       Object.values(arbre).map((x) => x.fOublier && x.fOublier()),
     );
   };
   if (typeof retourRacine === "function") {
-    oublierBdRacine = retourRacine;
+    oublierRacine = retourRacine;
     return fOublier as W;
   } else {
-    oublierBdRacine = retourRacine.fOublier;
+    oublierRacine = retourRacine.fOublier;
     return Object.assign({}, retourRacine, { fOublier });
   }
 };
