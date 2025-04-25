@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@chriscdn/promise-semaphore':
         specifier: ^2.0.9
-        version: 2.0.10
+        version: 2.0.11
       browser-fs-access:
         specifier: ^0.35.0
         version: 0.35.0
@@ -883,8 +883,8 @@ packages:
   '@chainsafe/netmask@2.0.0':
     resolution: {integrity: sha512-I3Z+6SWUoaljh3TBzCnCxjlUyN8tA+NAk5L6m9IxvCf1BENQTePzPMis97CoN/iMW1St3WN+AWCCRp+TTBRiDg==}
 
-  '@chriscdn/promise-semaphore@2.0.10':
-    resolution: {integrity: sha512-NagoHAZEYISDYYprsHe+x2BEcD6GKhTpEreI8BM1qgtHOtCS3lbwRvvTQxzAxU8JVSmw7ep/ROLv3Ng/MPcMHg==}
+  '@chriscdn/promise-semaphore@2.0.11':
+    resolution: {integrity: sha512-Fw68keZcPzifN44h3MXzYaLhxTpGWiQT6iEdJgdwaA2n86r9dCbljiuiys7BUKDDz4CIsVIflLTNXYS/RXULJA==}
 
   '@colors/colors@1.5.0':
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
@@ -9789,7 +9789,7 @@ snapshots:
     dependencies:
       '@chainsafe/is-ip': 2.1.0
 
-  '@chriscdn/promise-semaphore@2.0.10': {}
+  '@chriscdn/promise-semaphore@2.0.11': {}
 
   '@colors/colors@1.5.0': {}
 
@@ -9815,7 +9815,7 @@ snapshots:
       '@chainsafe/libp2p-gossipsub': 14.1.1
       '@chainsafe/libp2p-noise': 16.1.0
       '@chainsafe/libp2p-yamux': 7.0.1
-      '@chriscdn/promise-semaphore': 2.0.10
+      '@chriscdn/promise-semaphore': 2.0.11
       '@constl/bohr-db': 1.2.3(react-native@0.74.2(@babel/core@7.26.10)(@babel/preset-env@7.24.7(@babel/core@7.26.10))(react@18.2.0))
       '@constl/mandataire': 3.0.3
       '@constl/utils-ipa': 2.0.1
@@ -9906,7 +9906,7 @@ snapshots:
 
   '@constl/utils-ipa@2.0.1':
     dependencies:
-      '@chriscdn/promise-semaphore': 2.0.10
+      '@chriscdn/promise-semaphore': 2.0.11
       browser-fs-access: 0.35.0
       deep-equal: 2.2.3
       events: 3.3.0
