@@ -44,7 +44,7 @@
     "@types/node": "^22.13.5",
     "@typescript-eslint/eslint-plugin": "^8.24.1",
     "@typescript-eslint/parser": "^8.24.1",
-    "aegir": "^45.1.2",
+    "aegir": "^46.0.0",
     "core-js": "^3.40.0",
     "eslint": "^9.21.0",
     "eslint-config-airbnb-base": "^15.0.0",
