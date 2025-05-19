@@ -46,8 +46,8 @@ importers:
         version: 2.0.1
     devDependencies:
       '@chriscdn/promise-semaphore':
-        specifier: ^2.0.10
-        version: 2.0.10
+        specifier: ^3.0.0
+        version: 3.0.1
       '@constl/ipa':
         specifier: ^1.5.16
         version: 1.6.2(react-native@0.74.2(@babel/core@7.26.9)(@babel/preset-env@7.24.7(@babel/core@7.26.9))(react@18.2.0))
@@ -887,6 +887,9 @@ packages:
 
   '@chriscdn/promise-semaphore@2.0.10':
     resolution: {integrity: sha512-NagoHAZEYISDYYprsHe+x2BEcD6GKhTpEreI8BM1qgtHOtCS3lbwRvvTQxzAxU8JVSmw7ep/ROLv3Ng/MPcMHg==}
+
+  '@chriscdn/promise-semaphore@3.0.1':
+    resolution: {integrity: sha512-fVlCnoYE4hDzpcYRPtmN7dmcpmd2zxyPWjyfjIKI9Y+gsI7rwZSkjtuwMi8HFtlkSmNh8L7Zr37hdqeL13sYrw==}
 
   '@colors/colors@1.5.0':
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
@@ -8633,11 +8636,6 @@ packages:
     resolution: {integrity: sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==}
     engines: {node: '>= 6'}
 
-  yaml@2.7.0:
-    resolution: {integrity: sha512-+hSoy/QHluxmC9kCIJyL/uyFmLmc+e5CFR5Wa+bpIhIj85LVb9ZH2nVnqrHoSvKogwODv0ClqZkmiSSaIH5LTA==}
-    engines: {node: '>= 14'}
-    hasBin: true
-
   yaml@2.8.0:
     resolution: {integrity: sha512-4lLa/EcQCB0cJkyts+FpIRx5G/llPxfP6VQU5KByHEhLxY3IJCH0f0Hy1MHI8sClTvsIb8qwRJ6R/ZdlDJ/leQ==}
     engines: {node: '>= 14.6'}
@@ -9668,6 +9666,8 @@ snapshots:
       '@chainsafe/is-ip': 2.1.0
 
   '@chriscdn/promise-semaphore@2.0.10': {}
+
+  '@chriscdn/promise-semaphore@3.0.1': {}
 
   '@colors/colors@1.5.0': {}
 
@@ -11411,7 +11411,7 @@ snapshots:
       semver: 7.7.1
       strip-ansi: 5.2.0
       wcwidth: 1.0.1
-      yaml: 2.7.0
+      yaml: 2.8.0
     transitivePeerDependencies:
       - encoding
 
@@ -19803,8 +19803,6 @@ snapshots:
   yallist@4.0.0: {}
 
   yaml@1.10.2: {}
-
-  yaml@2.7.0: {}
 
   yaml@2.8.0: {}
 

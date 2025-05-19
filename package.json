@@ -33,7 +33,7 @@
     "postbuild": "./dist/**/*"
   },
   "devDependencies": {
-    "@chriscdn/promise-semaphore": "^2.0.10",
+    "@chriscdn/promise-semaphore": "^3.0.0",
     "@constl/ipa": "^1.5.16",
     "@constl/utils-tests": "^1.6.13",
     "@eslint/js": "^9.21.0",
