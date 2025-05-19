@@ -1,6 +1,6 @@
 import { schémaFonctionOublier, schémaFonctionSuivi } from "@/types";
 import { TypedEmitter } from "tiny-typed-emitter";
-import Semaphore from "@chriscdn/promise-semaphore";
+import { Semaphore } from "@chriscdn/promise-semaphore";
 
 interface Statut {
   attendreRésolue: (args: { id?: string }) => Promise<void>;
