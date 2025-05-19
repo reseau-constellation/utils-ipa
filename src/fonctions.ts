@@ -129,7 +129,10 @@ export const attendreStabilité = <T>(
 
   return (v: T) =>
     new Promise<boolean>((résoudre) => {
-      if (déjàAppellé && JSON.stringify(v) === val) return;
+      if (déjàAppellé && JSON.stringify(v) === val) {
+        résoudre(false)
+        return
+      };
 
       déjàAppellé = true;
       annulerRebours();

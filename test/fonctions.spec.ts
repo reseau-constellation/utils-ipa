@@ -1,4 +1,5 @@
 import {
+  attendreStabilité,
   effacerPropriétésNonDéfinies,
   ignorerNonDéfinis,
   suivreFonctionImbriquée,
@@ -194,6 +195,19 @@ describe("Fonctions", function () {
       await fSansNonDéfinis(1);
       await fSansNonDéfinis(2);
       expect(f.appelléeAvec).to.deep.equal([1, 2]);
+    })
+  })
+
+  describe("Attendre stabilité", function () {
+    it("Première valeur stable rendue", async () => {
+      const f = attendreStabilité(10);
+      const pStable1 = f(1)
+      const pStable2 = f(2)
+      const pStable2_2 = f(2)
+      
+      expect(await pStable1).to.be.false();
+      expect(await pStable2).to.be.true();
+      expect(await pStable2_2).to.be.false();
     })
   })
 });
