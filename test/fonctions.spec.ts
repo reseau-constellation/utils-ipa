@@ -144,7 +144,9 @@ describe("Fonctions", function () {
     });
   });
 
-
+  describe.skip("Suivi fonction liste", function () {
+    
+  })
 
   describe("Effacer propriétés non définies", function () {
     it("N'efface rien d'un objet où tout est défini", () => {
