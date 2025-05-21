@@ -34,38 +34,44 @@ export interface Espion {
   (args: unknown): void;
   résolue: (args: { val?: string | undefined }) => Promise<void>;
   appelerAvec: (args: { val?: string | undefined }) => void;
-  appelléeAvec: (unknown)[];
+  appelléeAvec: unknown[];
 }
 
 export const générerEspion = (): Espion => {
-  const appelléeAvec: (unknown)[] = [];
+  const appelléeAvec: unknown[] = [];
   const événementsStatut = new TypedEmitter<{ résolue: () => void }>();
 
   return Object.assign(
-    (args: unknown)=>{appelléeAvec.push(args)},
+    (args: unknown) => {
+      appelléeAvec.push(args);
+    },
     {
-    appelléeAvec,
-    appelerAvec: ({ val }: { val?: string }) => {
-      appelléeAvec.push(val);
-      événementsStatut.emit("résolue");
+      appelléeAvec,
+      appelerAvec: ({ val }: { val?: string }) => {
+        appelléeAvec.push(val);
+        événementsStatut.emit("résolue");
+      },
+      résolue: async ({ val }: { val?: string }) => {
+        if (
+          appelléeAvec.length &&
+          appelléeAvec[appelléeAvec.length - 1] === val
+        )
+          return;
+        await new Promise<void>((résoudre) => {
+          const fFinale = () => {
+            if (
+              appelléeAvec.length &&
+              appelléeAvec[appelléeAvec.length - 1] === val
+            ) {
+              événementsStatut.off("résolue", fFinale);
+              résoudre();
+            }
+          };
+          événementsStatut.on("résolue", fFinale);
+        });
+      },
     },
-    résolue: async ({ val }: { val?: string }) => {
-      if (appelléeAvec.length && appelléeAvec[appelléeAvec.length - 1] === val)
-        return;
-      await new Promise<void>((résoudre) => {
-        const fFinale = () => {
-          if (
-            appelléeAvec.length &&
-            appelléeAvec[appelléeAvec.length - 1] === val
-          ) {
-            événementsStatut.off("résolue", fFinale);
-            résoudre();
-          }
-        };
-        événementsStatut.on("résolue", fFinale);
-      });
-    },
-  });
+  );
 };
 
 export interface InterfaceContrôlleurRacine {
