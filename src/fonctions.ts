@@ -56,7 +56,7 @@ const ignorerErreurAvorté = <T, A>(
     try {
       return await f(args);
     } catch (e) {
-      if (!(e.name === AbortError.name)) {
+      if (!(e instanceof AbortError)) {
         throw e;
       }
     }
@@ -92,8 +92,9 @@ export const suivreFonctionImbriquée = async <T>({
   const créerTâche = (id?: string) => async () => {
     if (id === undefined && premièreFois) {
       pOublierFSuivre = ignorerErreurAvorté(asynchronifier(f))(undefined);
+      premièreFois = false;
+      return
     }
-    premièreFois = false;
     if (id !== idImbriqué) {
       idImbriqué = id;
       if (pOublierFSuivre) await (await pOublierFSuivre)?.();

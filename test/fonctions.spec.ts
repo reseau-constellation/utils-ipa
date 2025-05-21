@@ -168,7 +168,7 @@ describe("Fonctions", function () {
             return faisRien;
           },
           async fSuivre() {
-            throw new AbortError("Opération avorté");
+            throw new AbortError(Error("Opération avorté"));
           },
           async f() {},
         });
@@ -201,7 +201,7 @@ describe("Fonctions", function () {
             return faisRien;
           },
           async f() {
-            throw new AbortError("fonction f avortée");
+            throw new AbortError(Error("fonction f avortée"));
           },
         });
         await fOublier();
