@@ -7,6 +7,7 @@ import type {
   PasNondéfini,
   élémentsBd,
 } from "@/types.js";
+import { AbortError } from "p-retry";
 
 class ÉmetteurUneFois<T> extends EventEmitter {
   condition: (x: T) => boolean | Promise<boolean>;
@@ -48,6 +49,18 @@ class ÉmetteurUneFois<T> extends EventEmitter {
   }
 }
 
+const ignorerErreursAvortés = async (f: ()=>Promise<schémaFonctionOublier>) => {
+  try {
+    return await f()
+  } catch (e) {
+    console.log("ici", e)
+    if (!(e.name === AbortError.name)) {
+      throw e
+    }
+    return faisRien
+  }
+}
+
 export const suivreFonctionImbriquée = async <T>({
   fRacine,
   f,
@@ -62,7 +75,7 @@ export const suivreFonctionImbriquée = async <T>({
     fSuivreBd: schémaFonctionSuivi<T | undefined>;
   }) => Promise<schémaFonctionOublier>;
 }): Promise<schémaFonctionOublier> => {
-  let oublierFSuivre: schémaFonctionOublier | undefined;
+  let pOublierFSuivre: Promise<schémaFonctionOublier> | undefined;
   let idImbriqué: string | undefined = undefined;
   let premièreFois = true;
 
@@ -75,12 +88,13 @@ export const suivreFonctionImbriquée = async <T>({
     premièreFois = false;
     if (id !== idImbriqué) {
       idImbriqué = id;
-      if (oublierFSuivre) await oublierFSuivre();
+      if (pOublierFSuivre) await (await pOublierFSuivre)();
       if (idImbriqué) {
-        oublierFSuivre = await fSuivre({ id: idImbriqué, fSuivreBd: f });
+        const idImbriquéExiste = idImbriqué
+        pOublierFSuivre = ignorerErreursAvortés(() => fSuivre({ id: idImbriquéExiste, fSuivreBd: f }));
       } else {
         await f(undefined);
-        oublierFSuivre = undefined;
+        pOublierFSuivre = undefined;
       }
     }
   };
@@ -93,7 +107,7 @@ export const suivreFonctionImbriquée = async <T>({
   return async () => {
     await oublierRacine();
     await queue.onIdle();
-    if (oublierFSuivre) await oublierFSuivre();
+    if (pOublierFSuivre) await (await pOublierFSuivre)();
   };
 };
 
