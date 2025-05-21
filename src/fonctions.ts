@@ -206,6 +206,7 @@ export const suivreDeFonctionListe = async <
   }
   const arbre: { [key: string]: InterfaceBranches } = {};
   const dictBranches: { [key: string]: T } = {};
+  let pFinaleIntiale: Promise<void>;
 
   const fFinale = async () => {
     // Arrêter si aucune des branches n'a encore donnée son premier résultat
@@ -287,6 +288,7 @@ export const suivreDeFonctionListe = async <
           arbre[n].pOublier = pOublier;
         }),
       );
+      pFinaleIntiale = fFinale();
     };
     await queue.add(tâche);
   };
@@ -298,6 +300,7 @@ export const suivreDeFonctionListe = async <
   const fOublier = async () => {
     await oublierRacine();
     await queue.onIdle();
+    if (pFinaleIntiale) await pFinaleIntiale
     await Promise.all(
       Object.values(arbre).map(async (x) => (await x.pOublier)?.()),
     );
