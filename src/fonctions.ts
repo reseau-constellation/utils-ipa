@@ -51,14 +51,15 @@ class ÉmetteurUneFois<T> extends EventEmitter {
 
 const ignorerErreurAvorté = <T, A>(
   f: (args: A) => Promise<T>,
-): ((args: A) => Promise<T | void>) => {
-  return async (args): Promise<T | void> => {
+): ((args: A) => Promise<T|undefined>) => {
+  return async (args): Promise<T|undefined> => {
     try {
       return await f(args);
     } catch (e) {
       if (!(e instanceof AbortError)) {
         throw e;
       }
+      return undefined;
     }
   };
 };
@@ -201,26 +202,22 @@ export const suivreDeFonctionListe = async <
   interface InterfaceBranches {
     données?: U;
     déjàÉvaluée: boolean;
-    fOublier?: schémaFonctionOublier;
+    pOublier?: Promise<schémaFonctionOublier | undefined>;
   }
   const arbre: { [key: string]: InterfaceBranches } = {};
   const dictBranches: { [key: string]: T } = {};
 
-  let prêt = false; // Afin d'éviter d'appeler fFinale() avant que toutes les branches aient été évaluées 1 fois
-
   const fFinale = async () => {
-    if (!prêt) return;
-
     // Arrêter si aucune des branches n'a encore donnée son premier résultat
     if (
       Object.values(arbre).length &&
       Object.values(arbre).every((x) => !x.déjàÉvaluée)
     )
-      return;
-
+    return;
+    
     const listeDonnées = Object.values(arbre)
-      .map((x) => x.données)
-      .filter((d) => d !== undefined) as U[];
+    .map((x) => x.données)
+    .filter((d) => d !== undefined) as U[];
     const réduits = fRéduction(listeDonnées);
     await f(réduits);
   };
@@ -254,7 +251,7 @@ export const suivreDeFonctionListe = async <
       await Promise.all(
         changés.map(async (c) => {
           if (arbre[c]) {
-            await arbre[c].fOublier?.();
+            await (await arbre[c].pOublier)?.();
             delete arbre[c];
           }
         }),
@@ -262,7 +259,7 @@ export const suivreDeFonctionListe = async <
 
       await Promise.all(
         disparus.map(async (d) => {
-          const fOublier = arbre[d].fOublier;
+          const fOublier = await arbre[d].pOublier;
           if (fOublier) await fOublier();
           delete arbre[d];
         }),
@@ -282,19 +279,16 @@ export const suivreDeFonctionListe = async <
             arbre[n].déjàÉvaluée = true;
             await fFinale();
           };
-          const fOublier = await fBranche({
+          const pOublier = ignorerErreurAvorté(fBranche)({
             id: idBranche,
             fSuivreBranche,
             branche: élément,
           });
-          arbre[n].fOublier = fOublier;
+          arbre[n].pOublier = pOublier;
         }),
       );
-
-      prêt = true;
-      await fFinale();
     };
-    queue.add(tâche);
+    await queue.add(tâche);
   };
 
   const retourRacine = await fListe({ fSuivreRacine });
@@ -304,8 +298,8 @@ export const suivreDeFonctionListe = async <
   const fOublier = async () => {
     await oublierRacine();
     await queue.onIdle();
-    await Promise.allSettled(
-      Object.values(arbre).map((x) => x.fOublier && x.fOublier()),
+    await Promise.all(
+      Object.values(arbre).map(async (x) => (await x.pOublier)?.()),
     );
   };
   if (typeof retourRacine === "function") {

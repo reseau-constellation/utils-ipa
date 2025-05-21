@@ -3,6 +3,7 @@ import {
   effacerPropriétésNonDéfinies,
   faisRien,
   ignorerNonDéfinis,
+  suivreDeFonctionListe,
   suivreFonctionImbriquée,
 } from "@/fonctions.js";
 import { schémaFonctionOublier } from "@/types";
@@ -209,7 +210,68 @@ describe("Fonctions", function () {
     });
   });
 
-  describe.skip("Suivi fonction liste", function () {});
+  describe("Suivi fonction liste", function () {
+    describe("Gestion d'erreurs", function () {
+      it("Erreur dans fBranche", async () => {
+        const fOublier = await suivreDeFonctionListe({
+          async fListe({ fSuivreRacine }) {
+            await fSuivreRacine(["abc"]);
+            return faisRien;
+          },
+          async fBranche() {
+            throw new Error("On a une erreur");
+          },
+          async f() {},
+        });
+        await expect(fOublier()).to.be.rejectedWith("On a une erreur");
+      });
+      it("Avorter opération dans fBranche", async () => {
+        const fOublier = await suivreDeFonctionListe({
+          async fListe({ fSuivreRacine }) {
+            await fSuivreRacine(["abc"]);
+            return faisRien;
+          },
+          async fBranche() {
+            throw new AbortError(Error("Opération avorté"));
+          },
+          async f() {},
+        });
+        await fOublier();
+      });
+      it("Erreur dans f", async () => {
+        const fOublier = await suivreDeFonctionListe({
+          async fListe({ fSuivreRacine }) {
+            await fSuivreRacine(["abc"]);
+            return faisRien;
+          },
+          async fBranche({fSuivreBranche}) {
+            await fSuivreBranche("a");
+            return faisRien;
+          },
+          async f() {
+            throw new Error("On a une erreur");
+          },
+        });
+        await expect(fOublier()).to.be.rejectedWith("On a une erreur");
+      });
+      it("Avorter opération dans f", async () => {
+        const fOublier = await suivreDeFonctionListe({
+          async fListe({ fSuivreRacine }) {
+            await fSuivreRacine(["abc"]);
+            return faisRien;
+          },
+          async fBranche({fSuivreBranche}) {
+            await fSuivreBranche("a");
+            return faisRien;
+          },
+          async f() {
+            throw new AbortError(Error("Opération avorté"));
+          },
+        });
+        await fOublier();
+      });
+    });
+  });
 
   describe("Effacer propriétés non définies", function () {
     it("N'efface rien d'un objet où tout est défini", () => {
