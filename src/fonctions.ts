@@ -49,17 +49,25 @@ class ÉmetteurUneFois<T> extends EventEmitter {
   }
 }
 
-const ignorerErreursAvortés = async (f: ()=>Promise<schémaFonctionOublier>) => {
-  try {
-    return await f()
-  } catch (e) {
-    console.log("ici", e)
-    if (!(e.name === AbortError.name)) {
-      throw e
+const ignorerErreurAvorté = <T, A>(
+  f: (args: A) => Promise<T>,
+): ((args: A) => Promise<T | void>) => {
+  return async (args): Promise<T | void> => {
+    try {
+      return await f(args);
+    } catch (e) {
+      if (!(e.name === AbortError.name)) {
+        throw e;
+      }
     }
-    return faisRien
-  }
-}
+  };
+};
+
+const asynchronifier = <T, A>(
+  f: (args: A) => T | Promise<T>,
+): ((args: A) => Promise<T>) => {
+  return async (x) => await f(x);
+};
 
 export const suivreFonctionImbriquée = async <T>({
   fRacine,
@@ -75,7 +83,7 @@ export const suivreFonctionImbriquée = async <T>({
     fSuivreBd: schémaFonctionSuivi<T | undefined>;
   }) => Promise<schémaFonctionOublier>;
 }): Promise<schémaFonctionOublier> => {
-  let pOublierFSuivre: Promise<schémaFonctionOublier> | undefined;
+  let pOublierFSuivre: Promise<schémaFonctionOublier | void> | undefined;
   let idImbriqué: string | undefined = undefined;
   let premièreFois = true;
 
@@ -83,18 +91,22 @@ export const suivreFonctionImbriquée = async <T>({
 
   const créerTâche = (id?: string) => async () => {
     if (id === undefined && premièreFois) {
-      await f(undefined);
+      console.log("ici 0");
+      pOublierFSuivre = ignorerErreurAvorté(asynchronifier(f))(undefined);
+      console.log("ici 1");
     }
     premièreFois = false;
     if (id !== idImbriqué) {
       idImbriqué = id;
-      if (pOublierFSuivre) await (await pOublierFSuivre)();
+      if (pOublierFSuivre) await (await pOublierFSuivre)?.();
       if (idImbriqué) {
-        const idImbriquéExiste = idImbriqué
-        pOublierFSuivre = ignorerErreursAvortés(() => fSuivre({ id: idImbriquéExiste, fSuivreBd: f }));
+        const idImbriquéExiste = idImbriqué;
+        pOublierFSuivre = ignorerErreurAvorté(fSuivre)({
+          id: idImbriquéExiste,
+          fSuivreBd: f,
+        });
       } else {
-        await f(undefined);
-        pOublierFSuivre = undefined;
+        pOublierFSuivre = ignorerErreurAvorté(asynchronifier(f))(undefined);
       }
     }
   };
@@ -107,7 +119,7 @@ export const suivreFonctionImbriquée = async <T>({
   return async () => {
     await oublierRacine();
     await queue.onIdle();
-    if (pOublierFSuivre) await (await pOublierFSuivre)();
+    if (pOublierFSuivre) await (await pOublierFSuivre)?.();
   };
 };
 
@@ -144,9 +156,9 @@ export const attendreStabilité = <T>(
   return (v: T) =>
     new Promise<boolean>((résoudre) => {
       if (déjàAppellé && JSON.stringify(v) === val) {
-        résoudre(false)
-        return
-      };
+        résoudre(false);
+        return;
+      }
 
       déjàAppellé = true;
       annulerRebours();
@@ -175,12 +187,14 @@ export const suivreDeFonctionListe = async <
   fRéduction = (branches: U[]) =>
     [...new Set(branches.flat())] as unknown as V[],
 }: {
-  fListe: (args: {fSuivreRacine: (éléments: T[]) => Promise<void>}) => Promise<W>;
+  fListe: (args: {
+    fSuivreRacine: (éléments: T[]) => Promise<void>;
+  }) => Promise<W>;
   f: schémaFonctionSuivi<V[]>;
   fBranche: (args: {
-    id: string,
-    fSuivreBranche: schémaFonctionSuivi<U>,
-    branche: T,
+    id: string;
+    fSuivreBranche: schémaFonctionSuivi<U>;
+    branche: T;
   }) => Promise<schémaFonctionOublier | undefined>;
   fIdDeBranche?: (b: T) => string;
   fRéduction?: (branches: U[]) => V[];
@@ -269,7 +283,11 @@ export const suivreDeFonctionListe = async <
             arbre[n].déjàÉvaluée = true;
             await fFinale();
           };
-          const fOublier = await fBranche({id: idBranche, fSuivreBranche, branche: élément});
+          const fOublier = await fBranche({
+            id: idBranche,
+            fSuivreBranche,
+            branche: élément,
+          });
           arbre[n].fOublier = fOublier;
         }),
       );

@@ -20,13 +20,12 @@ import { AbortError } from "p-retry";
 describe("Fonctions", function () {
   describe("Suivi imbriquées", function () {
     describe("Fonctionalités", function () {
-
       let fRacine: InterfaceContrôlleurRacine;
       let fSuivre: InterfaceSuivi;
       let f: InterfaceFonction;
-  
+
       let fOublier: schémaFonctionOublier;
-  
+
       beforeEach(async function () {
         ({ fRacine, fSuivre, f } = générerFsTestImbriquées());
         fOublier = await suivreFonctionImbriquée({
@@ -38,7 +37,7 @@ describe("Fonctions", function () {
       afterEach(async function () {
         await fOublier();
       });
-  
+
       it("Vide pour commencer", async () => {
         expect(fSuivre.appeléeAvec).to.deep.equal([]);
         expect(f.appeléeAvec.appelléeAvec).to.deep.equal([]);
@@ -102,13 +101,13 @@ describe("Fonctions", function () {
         suiviA("a1");
         const suiviB = await fRacine("b");
         await suiviB("b1");
-  
+
         suiviA("a2"); // N'aura aucun impacte
-  
+
         expect(fSuivre.appeléeAvec).to.deep.equal(["a", "b"]);
         expect(f.appeléeAvec.appelléeAvec).to.deep.equal(["a1", "b1"]);
       });
-  
+
       it("Attente conclusion f racine avant fermeture", async () => {
         const suiviA = await fRacine("a");
         suiviA("a1");
@@ -117,7 +116,7 @@ describe("Fonctions", function () {
         suiviA("a2");
         const suiviB = await fRacine("b");
         suiviB("b1");
-  
+
         fRacine.conclureOublier();
         await promesseOublier;
         expect(fSuivre.appeléeAvec).to.deep.equal(["a", "b"]);
@@ -129,7 +128,7 @@ describe("Fonctions", function () {
         await suiviA.bloquerOublier();
         const promesseOublier = fOublier();
         suiviA("a2");
-  
+
         suiviA.conclureOublier();
         await promesseOublier;
         expect(fSuivre.appeléeAvec).to.deep.equal(["a"]);
@@ -141,46 +140,76 @@ describe("Fonctions", function () {
         await fA1.bloquerRetour();
         const promesseOublier = fOublier();
         suiviA("a2");
-  
+
         fA1.conclureRetour();
         await promesseOublier;
         expect(fSuivre.appeléeAvec).to.deep.equal(["a"]);
         expect(f.appeléeAvec.appelléeAvec).to.deep.equal(["a1", "a2"]);
       });
-    })
+    });
     describe("Gestion d'erreurs", function () {
       it("Erreur dans fSuivi", async () => {
         const fOublier = await suivreFonctionImbriquée({
-          async fRacine({fSuivreRacine}) {
-            await fSuivreRacine("abc")
-            return faisRien
+          async fRacine({ fSuivreRacine }) {
+            await fSuivreRacine("abc");
+            return faisRien;
           },
           async fSuivre() {
             throw new Error("On a une erreur");
           },
-          async f() {}
+          async f() {},
         });
-        await expect(fOublier()).to.be.rejectedWith("On a une erreur")
-      })
+        await expect(fOublier()).to.be.rejectedWith("On a une erreur");
+      });
       it("Avorter opération dans fSuivi", async () => {
         const fOublier = await suivreFonctionImbriquée({
-          async fRacine({fSuivreRacine}) {
-            await fSuivreRacine("abc")
-            return faisRien
+          async fRacine({ fSuivreRacine }) {
+            await fSuivreRacine("abc");
+            return faisRien;
           },
           async fSuivre() {
             throw new AbortError("Opération avorté");
           },
-          async f() {}
+          async f() {},
         });
-        await fOublier()
-      })
-    })
+        await fOublier();
+      });
+      it("Erreur dans f", async () => {
+        const fOublier = await suivreFonctionImbriquée({
+          async fRacine({ fSuivreRacine }) {
+            await fSuivreRacine("abc");
+            return faisRien;
+          },
+          async fSuivre({ fSuivreBd }) {
+            await fSuivreBd("def");
+            return faisRien;
+          },
+          async f() {
+            throw new Error("Erreur dans f");
+          },
+        });
+        await expect(fOublier()).to.be.rejectedWith("Erreur dans f");
+      });
+      it("Avorter opération dans f", async () => {
+        const fOublier = await suivreFonctionImbriquée({
+          async fRacine({ fSuivreRacine }) {
+            await fSuivreRacine(undefined);
+            return faisRien;
+          },
+          async fSuivre({ fSuivreBd }) {
+            await fSuivreBd("def");
+            return faisRien;
+          },
+          async f() {
+            throw new AbortError("fonction f avortée");
+          },
+        });
+        await fOublier();
+      });
+    });
   });
 
-  describe.skip("Suivi fonction liste", function () {
-    
-  })
+  describe.skip("Suivi fonction liste", function () {});
 
   describe("Effacer propriétés non définies", function () {
     it("N'efface rien d'un objet où tout est défini", () => {
@@ -205,42 +234,42 @@ describe("Fonctions", function () {
   describe("Ignorer non définis", function () {
     let f: Espion;
     beforeEach(function () {
-      f = générerEspion()
+      f = générerEspion();
     });
 
     it("Non défini ne passe pas", async () => {
       const fSansNonDéfinis = ignorerNonDéfinis(f);
       await fSansNonDéfinis(undefined);
       expect(f.appelléeAvec).to.deep.equal([]);
-    })
+    });
     it("Nul passe", async () => {
       const fSansNonDéfinis = ignorerNonDéfinis(f);
       await fSansNonDéfinis(null);
       expect(f.appelléeAvec).to.deep.equal([null]);
-    })
+    });
     it("false passe", async () => {
       const fSansNonDéfinis = ignorerNonDéfinis(f);
       await fSansNonDéfinis(false);
       expect(f.appelléeAvec).to.deep.equal([false]);
-    })
+    });
     it("Autres valeurs valides passent", async () => {
       const fSansNonDéfinis = ignorerNonDéfinis(f);
       await fSansNonDéfinis(1);
       await fSansNonDéfinis(2);
       expect(f.appelléeAvec).to.deep.equal([1, 2]);
-    })
-  })
+    });
+  });
 
   describe("Attendre stabilité", function () {
     it("Première valeur stable rendue", async () => {
       const f = attendreStabilité(10);
-      const pStable1 = f(1)
-      const pStable2 = f(2)
-      const pStable2_2 = f(2)
-      
+      const pStable1 = f(1);
+      const pStable2 = f(2);
+      const pStable2_2 = f(2);
+
       expect(await pStable1).to.be.false();
       expect(await pStable2).to.be.true();
       expect(await pStable2_2).to.be.false();
-    })
-  })
+    });
+  });
 });
