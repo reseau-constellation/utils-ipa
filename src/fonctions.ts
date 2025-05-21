@@ -91,9 +91,7 @@ export const suivreFonctionImbriquée = async <T>({
 
   const créerTâche = (id?: string) => async () => {
     if (id === undefined && premièreFois) {
-      console.log("ici 0");
       pOublierFSuivre = ignorerErreurAvorté(asynchronifier(f))(undefined);
-      console.log("ici 1");
     }
     premièreFois = false;
     if (id !== idImbriqué) {
