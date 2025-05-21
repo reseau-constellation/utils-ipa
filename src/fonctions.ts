@@ -84,7 +84,7 @@ export const suivreFonctionImbriquée = async <T>({
     fSuivreBd: schémaFonctionSuivi<T | undefined>;
   }) => Promise<schémaFonctionOublier>;
 }): Promise<schémaFonctionOublier> => {
-  let pOublierFSuivre: Promise<schémaFonctionOublier | void> | undefined;
+  let pOublier: Promise<schémaFonctionOublier | void> | undefined;
   let idImbriqué: string | undefined = undefined;
   let premièreFois = true;
 
@@ -92,21 +92,21 @@ export const suivreFonctionImbriquée = async <T>({
 
   const créerTâche = (id?: string) => async () => {
     if (id === undefined && premièreFois) {
-      pOublierFSuivre = ignorerErreurAvorté(asynchronifier(f))(undefined);
+      pOublier = ignorerErreurAvorté(asynchronifier(f))(undefined);
       premièreFois = false;
       return
     }
     if (id !== idImbriqué) {
       idImbriqué = id;
-      if (pOublierFSuivre) await (await pOublierFSuivre)?.();
+      if (pOublier) await (await pOublier)?.();
       if (idImbriqué) {
         const idImbriquéExiste = idImbriqué;
-        pOublierFSuivre = ignorerErreurAvorté(fSuivre)({
+        pOublier = ignorerErreurAvorté(fSuivre)({
           id: idImbriquéExiste,
           fSuivreBd: f,
         });
       } else {
-        pOublierFSuivre = ignorerErreurAvorté(asynchronifier(f))(undefined);
+        pOublier = ignorerErreurAvorté(asynchronifier(f))(undefined);
       }
     }
   };
@@ -119,7 +119,7 @@ export const suivreFonctionImbriquée = async <T>({
   return async () => {
     await oublierRacine();
     await queue.onIdle();
-    if (pOublierFSuivre) await (await pOublierFSuivre)?.();
+    if (pOublier) await (await pOublier)?.();
   };
 };
 
@@ -288,7 +288,7 @@ export const suivreDeFonctionListe = async <
           arbre[n].pOublier = pOublier;
         }),
       );
-      pFinaleIntiale = fFinale();
+      pFinaleIntiale = ignorerErreurAvorté(fFinale)({});
     };
     await queue.add(tâche);
   };

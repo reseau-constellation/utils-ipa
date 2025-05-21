@@ -270,6 +270,36 @@ describe("Fonctions", function () {
         });
         await fOublier();
       });
+      it("Erreur dans f si fListe vide", async () => {
+        const fOublier = await suivreDeFonctionListe({
+          async fListe({ fSuivreRacine }) {
+            await fSuivreRacine([]);
+            return faisRien;
+          },
+          async fBranche() {
+            return faisRien;
+          },
+          async f() {
+            throw new Error("On a une erreur");
+          },
+        });
+        await expect(fOublier()).to.be.rejectedWith("On a une erreur");
+      });
+      it("Avorter opération dans f si fListe vide", async () => {
+        const fOublier = await suivreDeFonctionListe({
+          async fListe({ fSuivreRacine }) {
+            await fSuivreRacine([]);
+            return faisRien;
+          },
+          async fBranche() {
+            return faisRien;
+          },
+          async f() {
+            throw new AbortError(Error("Opération avorté"));
+          },
+        });
+        await fOublier();
+      });
     });
   });
 
