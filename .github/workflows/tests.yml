@@ -44,6 +44,8 @@ jobs:
 
       - name: Envoyer couverure à Codecov
         uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
   
   test-ipa-navig:
     name: IPA sur le navigateur
@@ -75,6 +77,8 @@ jobs:
 
       - name: Envoyer couverure à Codecov
         uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
 
   test-ipa-electron-principal:
     name: IPA sur Électron principal
