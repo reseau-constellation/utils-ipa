@@ -15,7 +15,7 @@ import type {
   InterfaceSuivi,
   Espion,
 } from "./utils.js";
-import { générerEspion, générerFsTestImbriquées } from "./utils.js";
+import { générerEspion, générerFsTestImbriquées, journalTest } from "./utils.js";
 import { AbortError } from "p-retry";
 
 describe("Fonctions", function () {
@@ -149,6 +149,59 @@ describe("Fonctions", function () {
       });
     });
     describe("Gestion d'erreurs", function () {
+      it("Erreur dans fRacine", async () => {
+        await expect(
+          suivreFonctionImbriquée({
+            async fRacine() {
+              throw new Error("On a une erreur");
+            },
+            async fSuivre() {
+              return faisRien;
+            },
+            async f() {},
+          })
+        ).to.be.rejectedWith("On a une erreur");
+      });
+      it("Avorter opération dans fRacine", async () => {
+        const fOublier = await suivreFonctionImbriquée({
+          async fRacine() {
+            throw new AbortError(Error("Opération avorté"));
+          },
+          async fSuivre() {
+            return faisRien;
+          },
+          async f() {},
+        });
+        await fOublier();
+      });
+      it("Erreur dans oublier fRacine", async () => {
+        const fOublier = await suivreFonctionImbriquée({
+            async fRacine() {
+              return async () => {
+                throw new Error("On a une erreur")
+              };
+            },
+            async fSuivre() {
+              return faisRien;
+            },
+            async f() {},
+          })
+        expect(fOublier()).to.be.rejectedWith("On a une erreur");
+      });
+      it("Avorter opération dans oublier fRacine", async () => {
+        const fOublier = await suivreFonctionImbriquée({
+            async fRacine() {
+              return async () => {
+                throw new AbortError(Error("Opération avortée"))
+              };
+            },
+            async fSuivre() {
+              return faisRien;
+            },
+            async f() {},
+          })
+        await fOublier();
+      });
       it("Erreur dans fSuivi", async () => {
         const fOublier = await suivreFonctionImbriquée({
           async fRacine({ fSuivreRacine }) {
@@ -169,7 +222,37 @@ describe("Fonctions", function () {
             return faisRien;
           },
           async fSuivre() {
-            throw new AbortError(Error("Opération avorté"));
+            throw new AbortError(Error("Opération avortée"));
+          },
+          async f() {},
+        });
+        await fOublier();
+      });
+      it("Erreur dans fOublier fSuivi", async () => {
+        const fOublier = await suivreFonctionImbriquée({
+          async fRacine({ fSuivreRacine }) {
+            await fSuivreRacine("abc");
+            return faisRien;
+          },
+          async fSuivre() {
+            return async () => {
+              throw new Error("On a une erreur");
+            }
+          },
+          async f() {},
+        });
+        await expect(fOublier()).to.be.rejectedWith("On a une erreur");
+      });
+      it("Avorter opération dans fOublier fSuivi", async () => {
+        const fOublier = await suivreFonctionImbriquée({
+          async fRacine({ fSuivreRacine }) {
+            await fSuivreRacine("abc");
+            return faisRien;
+          },
+          async fSuivre() {
+            return async () => {
+              throw new AbortError(Error("Opération avortée"));
+            }
           },
           async f() {},
         });
@@ -232,7 +315,7 @@ describe("Fonctions", function () {
             return faisRien;
           },
           async fBranche() {
-            throw new AbortError(Error("Opération avorté"));
+            throw new AbortError(Error("Opération avortée"));
           },
           async f() {},
         });
@@ -252,9 +335,10 @@ describe("Fonctions", function () {
             throw new Error("On a une erreur");
           },
         });
-        await expect(fOublier()).to.be.rejectedWith("On a une erreur");
+
+        await expect(fOublier()).to.be.rejectedWith(AggregateError);
       });
-      it("Avorter opération dans f", async () => {
+      it("Erreur dans f - lorsqu'appelé de fBranche", async () => {
         const fOublier = await suivreDeFonctionListe({
           async fListe({ fSuivreRacine }) {
             await fSuivreRacine(["abc"]);
@@ -264,8 +348,26 @@ describe("Fonctions", function () {
             await fSuivreBranche("a");
             return faisRien;
           },
-          async f() {
-            throw new AbortError(Error("Opération avorté"));
+          async f(val) {
+            if(val)
+              throw new Error("On a une erreur");
+          },
+        });
+        await expect(fOublier()).to.be.rejectedWith("On a une erreur");
+      });
+      it("Avorter opération dans f - lorsqu'appelé de fBranche", async () => {
+        const fOublier = await suivreDeFonctionListe({
+          async fListe({ fSuivreRacine }) {
+            await fSuivreRacine(["abc"]);
+            return faisRien;
+          },
+          async fBranche({id, fSuivreBranche}) {
+            await fSuivreBranche(id);
+            return faisRien;
+          },
+          async f(val) {
+            if (val)
+              throw new AbortError(Error("Opération avortée"));
           },
         });
         await fOublier();
@@ -295,7 +397,7 @@ describe("Fonctions", function () {
             return faisRien;
           },
           async f() {
-            throw new AbortError(Error("Opération avorté"));
+            throw new AbortError(Error("Opération avortée"));
           },
         });
         await fOublier();

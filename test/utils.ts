@@ -248,3 +248,19 @@ export const générerFsTestImbriquées = (): {
     f,
   };
 };
+
+export type Journal = ((e: Error)=>(Promise<void>|void));
+export const journalTest = (): Journal  & {erreurs: Error[]; attendre: ()=>Promise<Error[]>}=> {
+  const erreurs: Error[] = [];
+  const événements = new TypedEmitter<{erreur: (e: Error[])=>void}>();
+  const attendre = async () => {
+    if (erreurs.length) return erreurs;
+    return new Promise<Error[]>(résoudre => événements.once('erreur', résoudre))
+  }
+  return Object.assign(async (e: Error)=>{
+    erreurs.push(e);
+    événements.emit('erreur', erreurs)
+  }, {
+    erreurs, attendre
+  })
+}

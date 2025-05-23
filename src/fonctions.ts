@@ -8,6 +8,7 @@ import type {
   élémentsBd,
 } from "@/types.js";
 import { AbortError } from "p-retry";
+import type { Journal } from "test/utils";
 
 class ÉmetteurUneFois<T> extends EventEmitter {
   condition: (x: T) => boolean | Promise<boolean>;
@@ -64,6 +65,36 @@ const ignorerErreurAvorté = <T, A>(
   };
 };
 
+const avecJournal = <T, A>(
+  f: (args: A) => Promise<T>,
+  journal: Journal
+): ((args: A) => Promise<T|undefined>) => {
+  return async (args): Promise<T|undefined> => {
+    try {
+      return await f(args);
+    } catch (e) {
+      journal(e);
+      return undefined;
+    }
+  };
+};
+
+const dédoubler = <T, A>(
+  f: (args: A) => Promise<T>,
+): ((args: A) => Promise<T|undefined>) => {
+  let valAntérieur: string | undefined = undefined;
+  let premièreFois = true;
+
+  return async (args): Promise<T|undefined> => {
+    if (premièreFois || (valAntérieur !== JSON.stringify(args))) {
+      premièreFois = false;
+      valAntérieur = JSON.stringify(args)
+      return await f(args)
+    };
+    return undefined
+  };
+};
+
 const asynchronifier = <T, A>(
   f: (args: A) => T | Promise<T>,
 ): ((args: A) => Promise<T>) => {
@@ -88,11 +119,15 @@ export const suivreFonctionImbriquée = async <T>({
   let idImbriqué: string | undefined = undefined;
   let premièreFois = true;
 
+  const fEnveloppée = ignorerErreurAvorté(asynchronifier(f))
+  const fSuivreEnveloppée = ignorerErreurAvorté(fSuivre)
+  const fRacineEnveloppée = ignorerErreurAvorté(fRacine)
+
   const queue = new PQueue({ concurrency: 1 });
 
   const créerTâche = (id?: string) => async () => {
     if (id === undefined && premièreFois) {
-      pOublier = ignorerErreurAvorté(asynchronifier(f))(undefined);
+      pOublier = fEnveloppée(undefined);
       premièreFois = false;
       return
     }
@@ -101,23 +136,23 @@ export const suivreFonctionImbriquée = async <T>({
       if (pOublier) await (await pOublier)?.();
       if (idImbriqué) {
         const idImbriquéExiste = idImbriqué;
-        pOublier = ignorerErreurAvorté(fSuivre)({
+        pOublier = fSuivreEnveloppée({
           id: idImbriquéExiste,
-          fSuivreBd: f,
+          fSuivreBd: fEnveloppée,
         });
       } else {
-        pOublier = ignorerErreurAvorté(asynchronifier(f))(undefined);
+        pOublier = fEnveloppée(undefined);
       }
     }
   };
 
-  const oublierRacine = await fRacine({
+  const oublierRacine = await fRacineEnveloppée({
     fSuivreRacine: async (nouvelIdImbriqué?: string) => {
-      queue.add(créerTâche(nouvelIdImbriqué));
+      await queue.add(créerTâche(nouvelIdImbriqué));
     },
   });
   return async () => {
-    await oublierRacine();
+    if (oublierRacine) await ignorerErreurAvorté(oublierRacine)({});
     await queue.onIdle();
     if (pOublier) await (await pOublier)?.();
   };
@@ -206,10 +241,10 @@ export const suivreDeFonctionListe = async <
   }
   const arbre: { [key: string]: InterfaceBranches } = {};
   const dictBranches: { [key: string]: T } = {};
-  let pFinaleIntiale: Promise<void>;
+  let pFinaleIntiale: Promise<void>|undefined = undefined;
 
   const fFinale = async () => {
-    // Arrêter si aucune des branches n'a encore donnée son premier résultat
+    // Arrêter si aucune des branches n'a encore donné son premier résultat
     if (
       Object.values(arbre).length &&
       Object.values(arbre).every((x) => !x.déjàÉvaluée)
@@ -278,7 +313,7 @@ export const suivreDeFonctionListe = async <
           const fSuivreBranche = async (données: U) => {
             arbre[n].données = données;
             arbre[n].déjàÉvaluée = true;
-            await fFinale();
+            await ignorerErreurAvorté(fFinale)({});
           };
           const pOublier = ignorerErreurAvorté(fBranche)({
             id: idBranche,
@@ -288,22 +323,24 @@ export const suivreDeFonctionListe = async <
           arbre[n].pOublier = pOublier;
         }),
       );
+      if (pFinaleIntiale) await pFinaleIntiale
       pFinaleIntiale = ignorerErreurAvorté(fFinale)({});
     };
     await queue.add(tâche);
   };
 
-  const retourRacine = await fListe({ fSuivreRacine });
+  const retourRacine = await fListe({ fSuivreRacine: dédoubler(fSuivreRacine) });
 
   let oublierRacine: schémaFonctionOublier;
 
   const fOublier = async () => {
     await oublierRacine();
     await queue.onIdle();
-    if (pFinaleIntiale) await pFinaleIntiale
-    await Promise.all(
-      Object.values(arbre).map(async (x) => (await x.pOublier)?.()),
+    const résultats = await Promise.allSettled(
+      [pFinaleIntiale, ...Object.values(arbre).map(async (x) => await (await x.pOublier)?.())],
     );
+    const erreurs = résultats.filter(r=>r.status === 'rejected') as PromiseRejectedResult[];
+    if (erreurs.length) throw AggregateError(erreurs.map(e=>e.reason))
   };
   if (typeof retourRacine === "function") {
     oublierRacine = retourRacine;
