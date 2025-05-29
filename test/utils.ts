@@ -1,4 +1,4 @@
-import { schémaFonctionOublier, schémaFonctionSuivi } from "@/types";
+import { type Journal, schémaFonctionOublier, schémaFonctionSuivi } from "@/types";
 import { TypedEmitter } from "tiny-typed-emitter";
 import { Semaphore } from "@chriscdn/promise-semaphore";
 import { expect } from "aegir/chai";
@@ -250,7 +250,6 @@ export const générerFsTestImbriquées = (): {
   };
 };
 
-export type Journal = ((e: Error)=>(Promise<void>|void));
 export const journalTest = (): Journal  & {erreurs: Error[]; attendre: ()=>Promise<Error[]>}=> {
   const erreurs: Error[] = [];
   const événements = new TypedEmitter<{erreur: (e: Error[])=>void}>();

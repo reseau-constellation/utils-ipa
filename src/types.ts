@@ -12,3 +12,5 @@ export type élémentsBd =
   | string
   | { [clef: string]: élémentsBd }
   | Array<élémentsBd>;
+
+export type Journal = ((e: Error)=>(Promise<void>|void));

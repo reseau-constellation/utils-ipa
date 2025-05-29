@@ -8,7 +8,7 @@ import type {
   élémentsBd,
 } from "@/types.js";
 import { AbortError } from "p-retry";
-import type { Journal } from "test/utils";
+import type { Journal } from "./types.js";
 
 class ÉmetteurUneFois<T> extends EventEmitter {
   condition: (x: T) => boolean | Promise<boolean>;
