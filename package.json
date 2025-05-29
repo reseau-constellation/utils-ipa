@@ -1,5 +1,5 @@
 {
-  "version": "2.0.8",
+  "version": "2.0.9",
   "license": "AGPL-3.0-or-later",
   "name": "@constl/utils-ipa",
   "author": "Julien Jean Malard-Adam",
@@ -72,6 +72,7 @@
     "genversion": "^3.2.0",
     "geojson-validation": "^1.0.2",
     "jszip": "^3.10.1",
+    "lodash-es": "^4.17.21",
     "multiformats": "13.3.6",
     "p-queue": "^8.1.0",
     "p-retry": "^6.2.1",
