@@ -9,9 +9,9 @@ import type {
 } from "@/types.js";
 import { isNull } from "lodash-es";
 import { AbortError } from "p-retry";
+import { TypedEmitter } from "tiny-typed-emitter";
 
 import type { Journal } from "./types.js";
-import type { TypedEmitter } from "tiny-typed-emitter";
 
 export const obtenir = async <T>(
   f: (args: {
