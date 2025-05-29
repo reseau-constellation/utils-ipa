@@ -105,6 +105,7 @@ export const suivreFonctionImbriquée = async <T>({
   fRacine,
   f,
   fSuivre,
+  journal,
 }: {
   fRacine: (args: {
     fSuivreRacine: (nouvelIdImbriqué?: string) => Promise<void>;
@@ -114,6 +115,7 @@ export const suivreFonctionImbriquée = async <T>({
     id: string;
     fSuivreBd: schémaFonctionSuivi<T | undefined>;
   }) => Promise<schémaFonctionOublier>;
+  journal?: Journal;
 }): Promise<schémaFonctionOublier> => {
   let pOublier: Promise<schémaFonctionOublier | void> | undefined;
   let idImbriqué: string | undefined = undefined;
@@ -133,7 +135,11 @@ export const suivreFonctionImbriquée = async <T>({
     }
     if (id !== idImbriqué) {
       idImbriqué = id;
-      if (pOublier) await (await pOublier)?.();
+      if (pOublier) {
+        const fOublier = await pOublier;
+        if (fOublier) await ignorerErreurAvorté(fOublier)({});
+      };
+
       if (idImbriqué) {
         const idImbriquéExiste = idImbriqué;
         pOublier = fSuivreEnveloppée({
@@ -154,7 +160,10 @@ export const suivreFonctionImbriquée = async <T>({
   return async () => {
     if (oublierRacine) await ignorerErreurAvorté(oublierRacine)({});
     await queue.onIdle();
-    if (pOublier) await (await pOublier)?.();
+    if (pOublier) {
+      const fOublier = await pOublier;
+      if (fOublier) await ignorerErreurAvorté(fOublier)({});
+    }
   };
 };
 
@@ -220,7 +229,8 @@ export const suivreDeFonctionListe = async <
   fBranche,
   fIdDeBranche = (b) => b as string,
   fRéduction = (branches: U[]) =>
-    [...new Set(branches.flat())] as unknown as V[],
+    [...new Set(branches.flat())] as V[],
+  journal,
 }: {
   fListe: (args: {
     fSuivreRacine: (éléments: T[]) => Promise<void>;
@@ -233,11 +243,15 @@ export const suivreDeFonctionListe = async <
   }) => Promise<schémaFonctionOublier | undefined>;
   fIdDeBranche?: (b: T) => string;
   fRéduction?: (branches: U[]) => V[];
+  journal?: Journal;
 }): Promise<W> => {
+  journal = journal ?? console.log;
+  const fEnveloppée = avecJournal(ignorerErreurAvorté(asynchronifier(f)), journal);
+
   interface InterfaceBranches {
     données?: U;
     déjàÉvaluée: boolean;
-    pOublier?: Promise<schémaFonctionOublier | undefined>;
+    fOublier?: schémaFonctionOublier;
   }
   const arbre: { [key: string]: InterfaceBranches } = {};
   const dictBranches: { [key: string]: T } = {};
@@ -252,10 +266,10 @@ export const suivreDeFonctionListe = async <
     return;
     
     const listeDonnées = Object.values(arbre)
-    .map((x) => x.données)
-    .filter((d) => d !== undefined) as U[];
+      .map((x) => x.données)
+      .filter((d) => d !== undefined) as U[];
     const réduits = fRéduction(listeDonnées);
-    await f(réduits);
+    await fEnveloppée(réduits);
   };
   const queue = new PQueue({ concurrency: 1 });
 
@@ -284,19 +298,18 @@ export const suivreDeFonctionListe = async <
       nouveaux.push(...changés);
       nouveaux = [...new Set(nouveaux)];
 
-      await Promise.all(
+      await Promise.allSettled(
         changés.map(async (c) => {
           if (arbre[c]) {
-            await (await arbre[c].pOublier)?.();
+            await arbre[c].fOublier?.();
             delete arbre[c];
           }
         }),
       );
 
-      await Promise.all(
+      await Promise.allSettled(
         disparus.map(async (d) => {
-          const fOublier = await arbre[d].pOublier;
-          if (fOublier) await fOublier();
+          await arbre[d].fOublier?.();
           delete arbre[d];
         }),
       );
@@ -313,18 +326,18 @@ export const suivreDeFonctionListe = async <
           const fSuivreBranche = async (données: U) => {
             arbre[n].données = données;
             arbre[n].déjàÉvaluée = true;
-            await ignorerErreurAvorté(fFinale)({});
+            await fFinale();
           };
-          const pOublier = ignorerErreurAvorté(fBranche)({
+          // Ignorer les erreurs d'avortement avant de passer au journal
+          arbre[n].fOublier = await avecJournal(ignorerErreurAvorté(fBranche), journal)({
             id: idBranche,
             fSuivreBranche,
             branche: élément,
           });
-          arbre[n].pOublier = pOublier;
         }),
       );
       if (pFinaleIntiale) await pFinaleIntiale
-      pFinaleIntiale = ignorerErreurAvorté(fFinale)({});
+      pFinaleIntiale = fFinale();
     };
     await queue.add(tâche);
   };
@@ -336,12 +349,11 @@ export const suivreDeFonctionListe = async <
   const fOublier = async () => {
     await oublierRacine();
     await queue.onIdle();
-    const résultats = await Promise.allSettled(
-      [pFinaleIntiale, ...Object.values(arbre).map(async (x) => await (await x.pOublier)?.())],
+    await Promise.allSettled(
+      [pFinaleIntiale, ...Object.values(arbre).map(async (x) => await (x.fOublier)?.())],
     );
-    const erreurs = résultats.filter(r=>r.status === 'rejected') as PromiseRejectedResult[];
-    if (erreurs.length) throw AggregateError(erreurs.map(e=>e.reason))
   };
+
   if (typeof retourRacine === "function") {
     oublierRacine = retourRacine;
     return fOublier as W;

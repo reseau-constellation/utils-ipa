@@ -1,6 +1,7 @@
 import { schémaFonctionOublier, schémaFonctionSuivi } from "@/types";
 import { TypedEmitter } from "tiny-typed-emitter";
 import { Semaphore } from "@chriscdn/promise-semaphore";
+import { expect } from "aegir/chai";
 
 interface Statut {
   attendreRésolue: (args: { id?: string }) => Promise<void>;
@@ -263,4 +264,10 @@ export const journalTest = (): Journal  & {erreurs: Error[]; attendre: ()=>Promi
   }, {
     erreurs, attendre
   })
+}
+
+export const vérifierErreur = (val: Error, message?: string) => {
+  expect(val).to.be.instanceOf(Error);
+  if (message)
+    expect(val.message).to.include(message)
 }
