@@ -83,7 +83,7 @@ importers:
         version: 10.0.10
       '@types/node':
         specifier: ^22.13.5
-        version: 22.15.29
+        version: 22.15.30
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.24.1
         version: 8.33.0(@typescript-eslint/parser@8.33.0(eslint@9.28.0)(typescript@5.8.3))(eslint@9.28.0)(typescript@5.8.3)
@@ -2418,9 +2418,6 @@ packages:
   '@types/node@18.19.111':
     resolution: {integrity: sha512-90sGdgA+QLJr1F9X79tQuEut0gEYIfkX9pydI4XGRgvFo9g2JWswefI+WUSUHPYVBHYSEfTEqBxA5hQvAZB3Mw==}
 
-  '@types/node@22.15.29':
-    resolution: {integrity: sha512-LNdjOkUDlU1RZb8e1kOIUpN1qQUlzGkEtbVNo53vbrwDg5om6oduhm4SiUaPW5ASTXhAiP0jInWG8Qx9fVlOeQ==}
-
   '@types/node@22.15.30':
     resolution: {integrity: sha512-6Q7lr06bEHdlfplU6YRbgG1SFBdlsfNC4/lX+SkhiTs0cpJkOElmWls8PxDFv4yY/xKb8Y6SO0OmSX4wgqTZbA==}
 
@@ -4491,8 +4488,8 @@ packages:
   flow-enums-runtime@0.0.6:
     resolution: {integrity: sha512-3PYnM29RFXwvAN6Pc/scUfkI7RwhQ/xqyLUyPNlXUp9S40zI8nup9tUSrTLSVnWGBN38FNiGWbwZOB6uR4OGdw==}
 
-  flow-parser@0.272.2:
-    resolution: {integrity: sha512-AMMHyzXP4T6ran6yIqaPniH8BDSdJf3T8PJVfnTnPAdILA1tt8nCSxiJAWRk2ZKiuos3OsrO2NWe8XNIcPw+Qw==}
+  flow-parser@0.273.0:
+    resolution: {integrity: sha512-KHe9AJfT0Zn0TpQ2daDFBpwaE0zqjWWiWLOANxzo/U6Xar5fRpU3Lucnk8iMVNitxo9inz2OmSnger70qHmsLw==}
     engines: {node: '>=0.4.0'}
 
   follow-redirects@1.15.9:
@@ -12505,7 +12502,7 @@ snapshots:
 
   '@types/dns-packet@5.6.5':
     dependencies:
-      '@types/node': 22.15.29
+      '@types/node': 22.15.30
 
   '@types/estree@1.0.7': {}
 
@@ -12514,7 +12511,7 @@ snapshots:
   '@types/glob@7.2.0':
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 22.15.29
+      '@types/node': 22.15.30
 
   '@types/hast@3.0.4':
     dependencies:
@@ -12559,7 +12556,7 @@ snapshots:
   '@types/multicast-dns@7.2.4':
     dependencies:
       '@types/dns-packet': 5.6.5
-      '@types/node': 22.15.29
+      '@types/node': 22.15.30
 
   '@types/node-forge@1.3.11':
     dependencies:
@@ -12568,10 +12565,6 @@ snapshots:
   '@types/node@18.19.111':
     dependencies:
       undici-types: 5.26.5
-
-  '@types/node@22.15.29':
-    dependencies:
-      undici-types: 6.21.0
 
   '@types/node@22.15.30':
     dependencies:
@@ -12601,7 +12594,7 @@ snapshots:
 
   '@types/ws@8.18.1':
     dependencies:
-      '@types/node': 22.15.29
+      '@types/node': 22.15.30
 
   '@types/yargs-parser@21.0.3': {}
 
@@ -12615,7 +12608,7 @@ snapshots:
 
   '@types/yauzl@2.10.3':
     dependencies:
-      '@types/node': 22.15.29
+      '@types/node': 22.15.30
     optional: true
 
   '@typescript-eslint/eslint-plugin@8.33.0(@typescript-eslint/parser@8.33.0(eslint@9.28.0)(typescript@5.8.3))(eslint@9.28.0)(typescript@5.8.3)':
@@ -12866,7 +12859,7 @@ snapshots:
       '@types/chai-string': 1.4.5
       '@types/chai-subset': 1.3.6(@types/chai@4.3.20)
       '@types/mocha': 10.0.10
-      '@types/node': 22.15.29
+      '@types/node': 22.15.30
       '@typescript-eslint/parser': 8.33.0(eslint@9.28.0)(typescript@5.8.3)
       buffer: 6.0.3
       bytes: 3.1.2
@@ -12942,7 +12935,7 @@ snapshots:
       typedoc-plugin-mermaid: 1.12.0(typedoc@0.28.4(typescript@5.8.3))
       typedoc-plugin-missing-exports: 4.0.0(typedoc@0.28.4(typescript@5.8.3))
       typescript: 5.8.3
-      typescript-docs-verifier: 2.5.3(@types/node@22.15.29)(typescript@5.8.3)
+      typescript-docs-verifier: 2.5.3(@types/node@22.15.30)(typescript@5.8.3)
       wherearewe: 2.0.1
       yargs: 17.7.2
       yargs-parser: 21.1.1
@@ -15248,7 +15241,7 @@ snapshots:
 
   flow-enums-runtime@0.0.6: {}
 
-  flow-parser@0.272.2: {}
+  flow-parser@0.273.0: {}
 
   follow-redirects@1.15.9(debug@4.4.1):
     optionalDependencies:
@@ -16650,7 +16643,7 @@ snapshots:
       '@babel/register': 7.27.1(@babel/core@7.27.1)
       babel-core: 7.0.0-bridge.0(@babel/core@7.27.1)
       chalk: 4.1.2
-      flow-parser: 0.272.2
+      flow-parser: 0.273.0
       graceful-fs: 4.2.11
       micromatch: 4.0.8
       neo-async: 2.6.2
@@ -19894,14 +19887,14 @@ snapshots:
     dependencies:
       typescript: 5.8.3
 
-  ts-node@10.9.2(@types/node@22.15.29)(typescript@5.8.3):
+  ts-node@10.9.2(@types/node@22.15.30)(typescript@5.8.3):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.11
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 22.15.29
+      '@types/node': 22.15.30
       acorn: 8.14.1
       acorn-walk: 8.3.4
       arg: 4.1.3
@@ -20052,13 +20045,13 @@ snapshots:
       typescript: 5.8.3
       yaml: 2.8.0
 
-  typescript-docs-verifier@2.5.3(@types/node@22.15.29)(typescript@5.8.3):
+  typescript-docs-verifier@2.5.3(@types/node@22.15.30)(typescript@5.8.3):
     dependencies:
       chalk: 4.1.2
       fs-extra: 10.1.0
       ora: 5.4.1
       strip-ansi: 7.1.0
-      ts-node: 10.9.2(@types/node@22.15.29)(typescript@5.8.3)
+      ts-node: 10.9.2(@types/node@22.15.30)(typescript@5.8.3)
       tsconfig: 7.0.0
       typescript: 5.8.3
       yargs: 17.7.2
