@@ -270,3 +270,7 @@ export const vérifierErreur = (val: Error, message?: string) => {
   if (message)
     expect(val.message).to.include(message)
 }
+
+export const attendre = (n: number): Promise<void> => {
+  return new Promise<void>(résoudre => setTimeout(résoudre, n))
+}

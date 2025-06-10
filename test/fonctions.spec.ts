@@ -15,7 +15,7 @@ import type {
   InterfaceSuivi,
   Espion,
 } from "./utils.js";
-import { générerEspion, générerFsTestImbriquées, journalTest, vérifierErreur } from "./utils.js";
+import { attendre, générerEspion, générerFsTestImbriquées, journalTest, vérifierErreur } from "./utils.js";
 import { AbortError } from "p-retry";
 
 describe("Fonctions", function () {
@@ -594,6 +594,19 @@ describe("Fonctions", function () {
       expect(await pStable1).to.be.false();
       expect(await pStable2).to.be.true();
       expect(await pStable2_2).to.be.false();
+    });
+
+    it("Ajustement dynamique", async () => {
+      const f = attendreStabilité(10);
+      const pStable1 = f(1);
+      await attendre(8)
+      const pStable2 = f(2);
+      await attendre(12)
+      const pStable3 = f(3);
+
+      expect(await pStable1).to.be.false();
+      expect(await pStable2).to.be.false();
+      expect(await pStable3).to.be.true();
     });
   });
 });
