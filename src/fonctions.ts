@@ -264,6 +264,7 @@ export const attendreStabilité = <T>(
   n: number,
 ): ((v: T) => Promise<boolean>) => {
   let déjàAppellé = false;
+  let dernierT = 0;
   let val: string | undefined = undefined;
   let annulerRebours: () => void = faisRien;
 
@@ -277,9 +278,14 @@ export const attendreStabilité = <T>(
       déjàAppellé = true;
       annulerRebours();
       val = JSON.stringify(v);
+      dernierT = Date.now();
 
       const crono = setTimeout(() => résoudre(true), n);
       annulerRebours = () => {
+        if (dernierT) {
+          const dif = Date.now() - dernierT
+          n += dif * 0.5
+        }
         clearTimeout(crono);
         résoudre(false);
       };
