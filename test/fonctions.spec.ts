@@ -596,6 +596,18 @@ describe("Fonctions", function () {
       expect(await pStable2_2).to.be.false();
     });
 
+    it("Dépassement de temps", async () => {
+      const f = attendreStabilité(10);
+      const pStable1 = f(1);
+      const pStable2 = f(2);
+      await attendre(12)
+      const pStable3 = f(3);
+
+      expect(await pStable1).to.be.false();
+      expect(await pStable2).to.be.true();
+      expect(await pStable3).to.be.true();
+    });
+
     it("Ajustement dynamique", async () => {
       const f = attendreStabilité(10);
       const pStable1 = f(1);
