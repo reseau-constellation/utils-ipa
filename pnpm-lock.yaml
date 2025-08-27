@@ -53,7 +53,7 @@ importers:
     devDependencies:
       '@chriscdn/promise-semaphore':
         specifier: ^3.0.1
-        version: 3.0.1
+        version: 3.1.1
       '@constl/ipa':
         specifier: ^1.5.16
         version: 1.6.24(react-native@0.74.2(@babel/core@7.28.0)(@babel/preset-env@7.24.7(@babel/core@7.28.0))(react@18.2.0))
@@ -1042,8 +1042,8 @@ packages:
   '@chainsafe/netmask@2.0.0':
     resolution: {integrity: sha512-I3Z+6SWUoaljh3TBzCnCxjlUyN8tA+NAk5L6m9IxvCf1BENQTePzPMis97CoN/iMW1St3WN+AWCCRp+TTBRiDg==}
 
-  '@chriscdn/promise-semaphore@3.0.1':
-    resolution: {integrity: sha512-fVlCnoYE4hDzpcYRPtmN7dmcpmd2zxyPWjyfjIKI9Y+gsI7rwZSkjtuwMi8HFtlkSmNh8L7Zr37hdqeL13sYrw==}
+  '@chriscdn/promise-semaphore@3.1.1':
+    resolution: {integrity: sha512-ALLLLYlPfd/QZLptcVi6HQRK1zaCDWZoqYYw+axLmCatFs4gVTSZ5nqlyxwFe4qwR/K84HvOMa9hxda881FqMA==}
 
   '@colors/colors@1.5.0':
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
@@ -3805,8 +3805,8 @@ packages:
   date-fns@1.30.1:
     resolution: {integrity: sha512-hBSVCvSmWC+QypYObzwGOd9wqdDpOt+0wl0KbU+R+uuZBS1jN8VsD1ss3irQDknRj5NvxiTF6oj/nDRnN/UQNw==}
 
-  dayjs@1.11.13:
-    resolution: {integrity: sha512-oaMBel6gjolK862uaPQOVTA7q3TZhuSvuMQAAglQDOWYO9A91IrAOUJEyKVlqJlHE0vq5p5UXxzdPfMH/x6xNg==}
+  dayjs@1.11.14:
+    resolution: {integrity: sha512-E8fIdSxUlyqSA8XYGnNa3IkIzxtEmFjI+JU/6ic0P1zmSqyL6HyG5jHnpPjRguDNiaHLpfvHKWFiohNsJLqcJQ==}
 
   debug@2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
@@ -4048,8 +4048,8 @@ packages:
   electron-to-chromium@1.5.197:
     resolution: {integrity: sha512-m1xWB3g7vJ6asIFz+2pBUbq3uGmfmln1M9SSvBe4QIFWYrRHylP73zL/3nMjDmwz8V+1xAXQDfBd6+HPW0WvDQ==}
 
-  electron-to-chromium@1.5.208:
-    resolution: {integrity: sha512-ozZyibehoe7tOhNaf16lKmljVf+3npZcJIEbJRVftVsmAg5TeA1mGS9dVCZzOwr2xT7xK15V0p7+GZqSPgkuPg==}
+  electron-to-chromium@1.5.209:
+    resolution: {integrity: sha512-Xoz0uMrim9ZETCQt8UgM5FxQF9+imA7PBpokoGcZloA1uw2LeHzTlip5cb5KOAsXZLjh/moN2vReN3ZjJmjI9A==}
 
   electron-window@0.8.1:
     resolution: {integrity: sha512-W1i9LfnZJozk3MXE8VgsL2E5wOUHSgyCvcg1H2vQQjj+gqhO9lVudgY3z3SF7LJAmi+0vy3CJkbMqsynWB49EA==}
@@ -10428,7 +10428,7 @@ snapshots:
     dependencies:
       '@chainsafe/is-ip': 2.1.0
 
-  '@chriscdn/promise-semaphore@3.0.1': {}
+  '@chriscdn/promise-semaphore@3.1.1': {}
 
   '@colors/colors@1.5.0': {}
 
@@ -10455,7 +10455,7 @@ snapshots:
       '@chainsafe/libp2p-gossipsub': 14.1.1
       '@chainsafe/libp2p-noise': 16.1.3
       '@chainsafe/libp2p-yamux': 7.0.1
-      '@chriscdn/promise-semaphore': 3.0.1
+      '@chriscdn/promise-semaphore': 3.1.1
       '@constl/bohr-db': 1.2.3(react-native@0.74.2(@babel/core@7.28.0)(@babel/preset-env@7.24.7(@babel/core@7.28.0))(react@18.2.0))
       '@constl/mandataire': 3.1.2
       '@constl/utils-ipa': 2.0.10
@@ -14348,7 +14348,7 @@ snapshots:
   browserslist@4.25.3:
     dependencies:
       caniuse-lite: 1.0.30001737
-      electron-to-chromium: 1.5.208
+      electron-to-chromium: 1.5.209
       node-releases: 2.0.19
       update-browserslist-db: 1.1.3(browserslist@4.25.3)
 
@@ -15078,7 +15078,7 @@ snapshots:
 
   date-fns@1.30.1: {}
 
-  dayjs@1.11.13: {}
+  dayjs@1.11.14: {}
 
   debug@2.6.9:
     dependencies:
@@ -15328,7 +15328,7 @@ snapshots:
 
   electron-to-chromium@1.5.197: {}
 
-  electron-to-chromium@1.5.208: {}
+  electron-to-chromium@1.5.209: {}
 
   electron-window@0.8.1:
     dependencies:
@@ -17875,7 +17875,7 @@ snapshots:
   logkitty@0.7.1:
     dependencies:
       ansi-fragments: 0.2.1
-      dayjs: 1.11.13
+      dayjs: 1.11.14
       yargs: 15.4.1
 
   longest-streak@3.1.0: {}
