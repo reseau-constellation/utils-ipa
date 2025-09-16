@@ -74,7 +74,7 @@
     "geojson-validation": "^1.0.2",
     "jszip": "^3.10.1",
     "lodash-es": "^4.17.21",
-    "multiformats": "13.4.0",
+    "multiformats": "13.4.1",
     "p-queue": "^8.1.0",
     "p-retry": "^6.2.1",
     "rimraf": "^6.0.1",
