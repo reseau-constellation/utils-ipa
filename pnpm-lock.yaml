@@ -83,7 +83,7 @@ importers:
         version: 10.0.10
       '@types/node':
         specifier: ^22.13.5
-        version: 22.18.7
+        version: 22.18.8
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.24.1
         version: 8.45.0(@typescript-eslint/parser@8.45.0(eslint@9.36.0)(typescript@5.9.3))(eslint@9.36.0)(typescript@5.9.3)
@@ -2618,11 +2618,11 @@ packages:
   '@types/node-forge@1.3.14':
     resolution: {integrity: sha512-mhVF2BnD4BO+jtOp7z1CdzaK4mbuK0LLQYAvdOLqHTavxFNq4zA1EmYkpnFjP8HOUzedfQkRnp0E2ulSAYSzAw==}
 
-  '@types/node@18.19.128':
-    resolution: {integrity: sha512-m7wxXGpPpqxp2QDi/rpih5O772APRuBIa/6XiGqLNoM1txkjI8Sz1V4oSXJxQLTz/yP5mgy9z6UXEO6/lP70Gg==}
+  '@types/node@18.19.129':
+    resolution: {integrity: sha512-hrmi5jWt2w60ayox3iIXwpMEnfUvOLJCRtrOPbHtH15nTjvO7uhnelvrdAs0dO0/zl5DZ3ZbahiaXEVb54ca/A==}
 
-  '@types/node@22.18.7':
-    resolution: {integrity: sha512-3E97nlWEVp2V6J7aMkR8eOnw/w0pArPwf/5/W0865f+xzBoGL/ZuHkTAKAGN7cOWNwd+sG+hZOqj+fjzeHS75g==}
+  '@types/node@22.18.8':
+    resolution: {integrity: sha512-pAZSHMiagDR7cARo/cch1f3rXy0AEXwsVsVH09FcyeJVAzCnGgmYis7P3JidtTUjyadhTeSo8TgRPswstghDaw==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -11409,14 +11409,14 @@ snapshots:
     dependencies:
       '@jest/fake-timers': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 22.18.7
+      '@types/node': 22.18.8
       jest-mock: 29.7.0
 
   '@jest/fake-timers@29.7.0':
     dependencies:
       '@jest/types': 29.6.3
       '@sinonjs/fake-timers': 10.3.0
-      '@types/node': 22.18.7
+      '@types/node': 22.18.8
       jest-message-util: 29.7.0
       jest-mock: 29.7.0
       jest-util: 29.7.0
@@ -11429,7 +11429,7 @@ snapshots:
     dependencies:
       '@types/istanbul-lib-coverage': 2.0.6
       '@types/istanbul-reports': 3.0.4
-      '@types/node': 22.18.7
+      '@types/node': 22.18.8
       '@types/yargs': 15.0.19
       chalk: 4.1.2
 
@@ -11438,7 +11438,7 @@ snapshots:
       '@jest/schemas': 29.6.3
       '@types/istanbul-lib-coverage': 2.0.6
       '@types/istanbul-reports': 3.0.4
-      '@types/node': 22.18.7
+      '@types/node': 22.18.8
       '@types/yargs': 17.0.33
       chalk: 4.1.2
 
@@ -13164,7 +13164,7 @@ snapshots:
 
   '@rnx-kit/chromium-edge-launcher@1.0.0':
     dependencies:
-      '@types/node': 18.19.128
+      '@types/node': 18.19.129
       escape-string-regexp: 4.0.0
       is-wsl: 2.2.0
       lighthouse-logger: 1.4.2
@@ -13185,7 +13185,7 @@ snapshots:
 
   '@sec-ant/readable-stream@0.4.1': {}
 
-  '@semantic-release/changelog@6.0.3(semantic-release@24.2.8(typescript@5.8.3))':
+  '@semantic-release/changelog@6.0.3(semantic-release@24.2.8(typescript@5.9.3))':
     dependencies:
       '@semantic-release/error': 3.0.0
       aggregate-error: 3.1.0
@@ -13211,7 +13211,7 @@ snapshots:
 
   '@semantic-release/error@4.0.0': {}
 
-  '@semantic-release/git@10.0.1(semantic-release@24.2.8(typescript@5.8.3))':
+  '@semantic-release/git@10.0.1(semantic-release@24.2.8(typescript@5.9.3))':
     dependencies:
       '@semantic-release/error': 3.0.0
       aggregate-error: 3.1.0
@@ -13381,7 +13381,7 @@ snapshots:
 
   '@types/dns-packet@5.6.5':
     dependencies:
-      '@types/node': 22.18.7
+      '@types/node': 22.18.8
 
   '@types/estree@1.0.8': {}
 
@@ -13390,7 +13390,7 @@ snapshots:
   '@types/glob@7.2.0':
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 22.18.7
+      '@types/node': 22.18.8
 
   '@types/hast@3.0.4':
     dependencies:
@@ -13435,17 +13435,17 @@ snapshots:
   '@types/multicast-dns@7.2.4':
     dependencies:
       '@types/dns-packet': 5.6.5
-      '@types/node': 22.18.7
+      '@types/node': 22.18.8
 
   '@types/node-forge@1.3.14':
     dependencies:
-      '@types/node': 22.18.7
+      '@types/node': 22.18.8
 
-  '@types/node@18.19.128':
+  '@types/node@18.19.129':
     dependencies:
       undici-types: 5.26.5
 
-  '@types/node@22.18.7':
+  '@types/node@22.18.8':
     dependencies:
       undici-types: 6.21.0
 
@@ -13473,7 +13473,7 @@ snapshots:
 
   '@types/ws@8.18.1':
     dependencies:
-      '@types/node': 22.18.7
+      '@types/node': 22.18.8
 
   '@types/yargs-parser@21.0.3': {}
 
@@ -13487,7 +13487,7 @@ snapshots:
 
   '@types/yauzl@2.10.3':
     dependencies:
-      '@types/node': 22.18.7
+      '@types/node': 22.18.8
     optional: true
 
   '@typescript-eslint/eslint-plugin@8.45.0(@typescript-eslint/parser@8.45.0(eslint@9.36.0)(typescript@5.9.3))(eslint@9.36.0)(typescript@5.8.3)':
@@ -13845,9 +13845,9 @@ snapshots:
     dependencies:
       '@electron/get': 4.0.2
       '@polka/send-type': 0.5.2
-      '@semantic-release/changelog': 6.0.3(semantic-release@24.2.8(typescript@5.8.3))
+      '@semantic-release/changelog': 6.0.3(semantic-release@24.2.8(typescript@5.9.3))
       '@semantic-release/commit-analyzer': 13.0.1(semantic-release@24.2.8(typescript@5.9.3))
-      '@semantic-release/git': 10.0.1(semantic-release@24.2.8(typescript@5.8.3))
+      '@semantic-release/git': 10.0.1(semantic-release@24.2.8(typescript@5.9.3))
       '@semantic-release/github': 11.0.6(semantic-release@24.2.8(typescript@5.9.3))
       '@semantic-release/npm': 12.0.2(semantic-release@24.2.8(typescript@5.9.3))
       '@semantic-release/release-notes-generator': 14.1.0(semantic-release@24.2.8(typescript@5.9.3))
@@ -13856,7 +13856,7 @@ snapshots:
       '@types/chai-string': 1.4.5
       '@types/chai-subset': 1.3.6(@types/chai@4.3.20)
       '@types/mocha': 10.0.10
-      '@types/node': 22.18.7
+      '@types/node': 22.18.8
       '@typescript-eslint/parser': 8.45.0(eslint@9.36.0)(typescript@5.8.3)
       buffer: 6.0.3
       bytes: 3.1.2
@@ -13920,7 +13920,7 @@ snapshots:
       read-pkg-up: 11.0.0
       rimraf: 6.0.1
       semantic-release: 24.2.8(typescript@5.8.3)
-      semantic-release-monorepo: 8.0.2(semantic-release@24.2.8(typescript@5.8.3))
+      semantic-release-monorepo: 8.0.2(semantic-release@24.2.8(typescript@5.9.3))
       semver: 7.7.2
       source-map-support: 0.5.21
       strip-bom: 5.0.0
@@ -13928,11 +13928,11 @@ snapshots:
       strong-log-transformer: 2.1.0
       tempy: 3.1.0
       typedoc: 0.28.13(typescript@5.8.3)
-      typedoc-plugin-mdn-links: 5.0.9(typedoc@0.28.13(typescript@5.8.3))
-      typedoc-plugin-mermaid: 1.12.0(typedoc@0.28.13(typescript@5.8.3))
-      typedoc-plugin-missing-exports: 4.1.0(typedoc@0.28.13(typescript@5.8.3))
+      typedoc-plugin-mdn-links: 5.0.9(typedoc@0.28.13(typescript@5.9.3))
+      typedoc-plugin-mermaid: 1.12.0(typedoc@0.28.13(typescript@5.9.3))
+      typedoc-plugin-missing-exports: 4.1.0(typedoc@0.28.13(typescript@5.9.3))
       typescript: 5.8.3
-      typescript-docs-verifier: 2.5.3(@types/node@22.18.7)(typescript@5.8.3)
+      typescript-docs-verifier: 2.5.3(@types/node@22.18.8)(typescript@5.8.3)
       wherearewe: 2.0.1
       yargs: 17.7.2
       yargs-parser: 21.1.1
@@ -14667,7 +14667,7 @@ snapshots:
 
   chrome-launcher@0.15.2:
     dependencies:
-      '@types/node': 22.18.7
+      '@types/node': 22.18.8
       escape-string-regexp: 4.0.0
       is-wsl: 2.2.0
       lighthouse-logger: 1.4.2
@@ -17542,7 +17542,7 @@ snapshots:
       '@jest/environment': 29.7.0
       '@jest/fake-timers': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 22.18.7
+      '@types/node': 22.18.8
       jest-mock: 29.7.0
       jest-util: 29.7.0
 
@@ -17563,13 +17563,13 @@ snapshots:
   jest-mock@29.7.0:
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 22.18.7
+      '@types/node': 22.18.8
       jest-util: 29.7.0
 
   jest-util@29.7.0:
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 22.18.7
+      '@types/node': 22.18.8
       chalk: 4.1.2
       ci-info: 3.9.0
       graceful-fs: 4.2.11
@@ -17586,7 +17586,7 @@ snapshots:
 
   jest-worker@29.7.0:
     dependencies:
-      '@types/node': 22.18.7
+      '@types/node': 22.18.8
       jest-util: 29.7.0
       merge-stream: 2.0.0
       supports-color: 8.1.1
@@ -20187,7 +20187,7 @@ snapshots:
       '@types/node-forge': 1.3.14
       node-forge: 1.3.1
 
-  semantic-release-monorepo@8.0.2(semantic-release@24.2.8(typescript@5.8.3)):
+  semantic-release-monorepo@8.0.2(semantic-release@24.2.8(typescript@5.9.3)):
     dependencies:
       debug: 4.4.3(supports-color@8.1.1)
       execa: 5.1.1
@@ -20201,12 +20201,12 @@ snapshots:
       ramda: 0.27.2
       read-pkg: 5.2.0
       semantic-release: 24.2.8(typescript@5.8.3)
-      semantic-release-plugin-decorators: 4.0.0(semantic-release@24.2.8(typescript@5.8.3))
+      semantic-release-plugin-decorators: 4.0.0(semantic-release@24.2.8(typescript@5.9.3))
       tempy: 1.0.1
     transitivePeerDependencies:
       - supports-color
 
-  semantic-release-plugin-decorators@4.0.0(semantic-release@24.2.8(typescript@5.8.3)):
+  semantic-release-plugin-decorators@4.0.0(semantic-release@24.2.8(typescript@5.9.3)):
     dependencies:
       semantic-release: 24.2.8(typescript@5.8.3)
 
@@ -20947,14 +20947,14 @@ snapshots:
       picomatch: 4.0.3
       typescript: 5.9.3
 
-  ts-node@10.9.2(@types/node@22.18.7)(typescript@5.8.3):
+  ts-node@10.9.2(@types/node@22.18.8)(typescript@5.8.3):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.11
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 22.18.7
+      '@types/node': 22.18.8
       acorn: 8.15.0
       acorn-walk: 8.3.4
       arg: 4.1.3
@@ -21083,16 +21083,16 @@ snapshots:
 
   typedarray@0.0.6: {}
 
-  typedoc-plugin-mdn-links@5.0.9(typedoc@0.28.13(typescript@5.8.3)):
+  typedoc-plugin-mdn-links@5.0.9(typedoc@0.28.13(typescript@5.9.3)):
     dependencies:
       typedoc: 0.28.13(typescript@5.8.3)
 
-  typedoc-plugin-mermaid@1.12.0(typedoc@0.28.13(typescript@5.8.3)):
+  typedoc-plugin-mermaid@1.12.0(typedoc@0.28.13(typescript@5.9.3)):
     dependencies:
       html-escaper: 3.0.3
       typedoc: 0.28.13(typescript@5.8.3)
 
-  typedoc-plugin-missing-exports@4.1.0(typedoc@0.28.13(typescript@5.8.3)):
+  typedoc-plugin-missing-exports@4.1.0(typedoc@0.28.13(typescript@5.9.3)):
     dependencies:
       typedoc: 0.28.13(typescript@5.8.3)
 
@@ -21105,13 +21105,13 @@ snapshots:
       typescript: 5.8.3
       yaml: 2.8.1
 
-  typescript-docs-verifier@2.5.3(@types/node@22.18.7)(typescript@5.8.3):
+  typescript-docs-verifier@2.5.3(@types/node@22.18.8)(typescript@5.8.3):
     dependencies:
       chalk: 4.1.2
       fs-extra: 10.1.0
       ora: 5.4.1
       strip-ansi: 7.1.2
-      ts-node: 10.9.2(@types/node@22.18.7)(typescript@5.8.3)
+      ts-node: 10.9.2(@types/node@22.18.8)(typescript@5.8.3)
       tsconfig: 7.0.0
       typescript: 5.8.3
       yargs: 17.7.2
