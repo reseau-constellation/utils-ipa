@@ -65,7 +65,7 @@ importers:
         version: 9.36.0
       '@libp2p/interface':
         specifier: ^3.0.0
-        version: 3.0.0
+        version: 3.0.1
       '@types/crypto-js':
         specifier: ^4.2.2
         version: 4.2.2
@@ -1849,8 +1849,8 @@ packages:
   '@libp2p/interface@2.11.0':
     resolution: {integrity: sha512-0MUFKoXWHTQW3oWIgSHApmYMUKWO/Y02+7Hpyp+n3z+geD4Xo2Rku2gYWmxcq+Pyjkz6Q9YjDWz3Yb2SoV2E8Q==}
 
-  '@libp2p/interface@3.0.0':
-    resolution: {integrity: sha512-fiHoXGUDiaZeksSm+Chf4/tuUynQuDWtadrbqDFxq0nJ5Q7aHPgsmJba7xSfELcqfQCTp00a31FQvXWSk7Oigg==}
+  '@libp2p/interface@3.0.1':
+    resolution: {integrity: sha512-Fc502I77E+vLiADk7PyydM3NwW6F1HCQGhhtbzi9jLb+X8KgVBL3wlPqWXVM8fyQ++4CpOcAyMel8UYhIXr26w==}
 
   '@libp2p/interfaces@3.3.2':
     resolution: {integrity: sha512-p/M7plbrxLzuQchvNwww1Was7ZeGE2NaOFulMaZBYIihU8z3fhaV+a033OqnC/0NTX/yhfdNOG7znhYq3XoR/g==}
@@ -1978,8 +1978,8 @@ packages:
     resolution: {integrity: sha512-bPHp6Ji8b41szTOcaP63VlnbbO5Ny6dwAATtY6JTjh5N2OLrb5Qk/Th5cRkRQhkWCt+EJsYrNB0MiL+Gpn6e3g==}
     engines: {node: '>=4'}
 
-  '@multiformats/dns@1.0.6':
-    resolution: {integrity: sha512-nt/5UqjMPtyvkG9BQYdJ4GfLK3nMqGpFZOzf4hAmIa0sJh2LlS9YKXZ4FgwBDsaHvzZqR/rUFIywIc7pkHNNuw==}
+  '@multiformats/dns@1.0.9':
+    resolution: {integrity: sha512-Ja4hevWI9p96ICx11K3suFvFirnMmXILzS7FpsR2KG3FoKF/XJijm8ylf3vY6kRFGr98yfZYM+zIn18KaINs3A==}
 
   '@multiformats/mafmt@12.1.6':
     resolution: {integrity: sha512-tlJRfL21X+AKn9b5i5VnaTD6bNttpSpcqwKVmDmSHLwxoz97fAHaepqFOk/l1fIu94nImIXneNbhsJx/RQNIww==}
@@ -3980,6 +3980,7 @@ packages:
 
   deepcopy@2.1.0:
     resolution: {integrity: sha512-8cZeTb1ZKC3bdSCP6XOM1IsTczIO73fdqtwa2B0N15eAz7gmyhQo+mc5gnFuulsgN3vIQYmTgbmQVKalH1dKvQ==}
+    deprecated: No longer maintained. Use structuredClone instead.
 
   deepmerge@4.3.1:
     resolution: {integrity: sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==}
@@ -11195,7 +11196,7 @@ snapshots:
   '@helia/interface@5.3.2':
     dependencies:
       '@libp2p/interface': 2.11.0
-      '@multiformats/dns': 1.0.6
+      '@multiformats/dns': 1.0.9
       '@multiformats/multiaddr': 12.5.1
       interface-blockstore: 5.3.2
       interface-datastore: 8.3.2
@@ -11206,7 +11207,7 @@ snapshots:
   '@helia/interface@5.4.0':
     dependencies:
       '@libp2p/interface': 2.11.0
-      '@multiformats/dns': 1.0.6
+      '@multiformats/dns': 1.0.9
       '@multiformats/multiaddr': 12.5.1
       interface-blockstore: 5.3.2
       interface-datastore: 8.3.2
@@ -11275,7 +11276,7 @@ snapshots:
       '@libp2p/interface': 2.11.0
       '@libp2p/logger': 5.1.21
       '@libp2p/utils': 6.6.6
-      '@multiformats/dns': 1.0.6
+      '@multiformats/dns': 1.0.9
       '@multiformats/multiaddr': 12.5.1
       any-signal: 4.1.1
       blockstore-core: 5.0.4
@@ -11303,7 +11304,7 @@ snapshots:
       '@libp2p/keychain': 5.2.8
       '@libp2p/logger': 5.1.21
       '@libp2p/utils': 6.7.1
-      '@multiformats/dns': 1.0.6
+      '@multiformats/dns': 1.0.9
       '@multiformats/multiaddr': 12.5.1
       any-signal: 4.1.1
       blockstore-core: 5.0.4
@@ -11737,7 +11738,7 @@ snapshots:
 
   '@libp2p/interface@2.11.0':
     dependencies:
-      '@multiformats/dns': 1.0.6
+      '@multiformats/dns': 1.0.9
       '@multiformats/multiaddr': 12.5.1
       it-pushable: 3.2.3
       it-stream-types: 2.0.2
@@ -11746,9 +11747,9 @@ snapshots:
       progress-events: 1.0.1
       uint8arraylist: 2.4.8
 
-  '@libp2p/interface@3.0.0':
+  '@libp2p/interface@3.0.1':
     dependencies:
-      '@multiformats/dns': 1.0.6
+      '@multiformats/dns': 1.0.9
       '@multiformats/multiaddr': 13.0.1
       main-event: 1.0.1
       multiformats: 13.4.1
@@ -12363,9 +12364,8 @@ snapshots:
       call-me-maybe: 1.0.2
       glob-to-regexp: 0.3.0
 
-  '@multiformats/dns@1.0.6':
+  '@multiformats/dns@1.0.9':
     dependencies:
-      '@types/dns-packet': 5.6.5
       buffer: 6.0.3
       dns-packet: 5.6.1
       hashlru: 2.3.0
@@ -12405,7 +12405,7 @@ snapshots:
     dependencies:
       '@chainsafe/is-ip': 2.1.0
       '@chainsafe/netmask': 2.0.0
-      '@multiformats/dns': 1.0.6
+      '@multiformats/dns': 1.0.9
       abort-error: 1.0.1
       multiformats: 13.4.1
       uint8-varint: 2.0.4
@@ -16727,7 +16727,7 @@ snapshots:
       '@libp2p/upnp-nat': 3.1.17
       '@libp2p/webrtc': 5.2.16(react-native@0.74.2(@babel/core@7.28.4)(@babel/preset-env@7.24.7(@babel/core@7.28.4))(react@18.2.0))
       '@libp2p/websockets': 9.2.14
-      '@multiformats/dns': 1.0.6
+      '@multiformats/dns': 1.0.9
       blockstore-core: 5.0.4
       datastore-core: 10.0.4
       interface-blockstore: 5.3.2
@@ -16768,7 +16768,7 @@ snapshots:
       '@libp2p/upnp-nat': 3.1.21
       '@libp2p/webrtc': 5.2.23(react-native@0.74.2(@babel/core@7.28.4)(@babel/preset-env@7.24.7(@babel/core@7.28.4))(react@18.2.0))
       '@libp2p/websockets': 9.2.18
-      '@multiformats/dns': 1.0.6
+      '@multiformats/dns': 1.0.9
       blockstore-core: 5.0.4
       datastore-core: 10.0.4
       interface-datastore: 8.3.2
@@ -17813,7 +17813,7 @@ snapshots:
       '@libp2p/peer-id': 5.1.6
       '@libp2p/peer-store': 11.2.3
       '@libp2p/utils': 6.6.6
-      '@multiformats/dns': 1.0.6
+      '@multiformats/dns': 1.0.9
       '@multiformats/multiaddr': 12.5.1
       '@multiformats/multiaddr-matcher': 1.7.2
       any-signal: 4.1.1
@@ -17844,7 +17844,7 @@ snapshots:
       '@libp2p/peer-id': 5.1.8
       '@libp2p/peer-store': 11.2.6
       '@libp2p/utils': 6.7.1
-      '@multiformats/dns': 1.0.6
+      '@multiformats/dns': 1.0.9
       '@multiformats/multiaddr': 12.5.1
       '@multiformats/multiaddr-matcher': 2.0.2
       any-signal: 4.1.1
