@@ -65,7 +65,7 @@ importers:
         version: 9.36.0
       '@libp2p/interface':
         specifier: ^3.0.0
-        version: 3.0.1
+        version: 3.0.2
       '@types/crypto-js':
         specifier: ^4.2.2
         version: 4.2.2
@@ -1849,8 +1849,8 @@ packages:
   '@libp2p/interface@2.11.0':
     resolution: {integrity: sha512-0MUFKoXWHTQW3oWIgSHApmYMUKWO/Y02+7Hpyp+n3z+geD4Xo2Rku2gYWmxcq+Pyjkz6Q9YjDWz3Yb2SoV2E8Q==}
 
-  '@libp2p/interface@3.0.1':
-    resolution: {integrity: sha512-Fc502I77E+vLiADk7PyydM3NwW6F1HCQGhhtbzi9jLb+X8KgVBL3wlPqWXVM8fyQ++4CpOcAyMel8UYhIXr26w==}
+  '@libp2p/interface@3.0.2':
+    resolution: {integrity: sha512-nb3H0eu9RPCBjwWUCafSL3TpFmt1Jhe4zgWlV98VrrWhtxg8xaunbEWzfVnU+R2TvV8IAljGw80OcqSst3gBlw==}
 
   '@libp2p/interfaces@3.3.2':
     resolution: {integrity: sha512-p/M7plbrxLzuQchvNwww1Was7ZeGE2NaOFulMaZBYIihU8z3fhaV+a033OqnC/0NTX/yhfdNOG7znhYq3XoR/g==}
@@ -11747,7 +11747,7 @@ snapshots:
       progress-events: 1.0.1
       uint8arraylist: 2.4.8
 
-  '@libp2p/interface@3.0.1':
+  '@libp2p/interface@3.0.2':
     dependencies:
       '@multiformats/dns': 1.0.9
       '@multiformats/multiaddr': 13.0.1
