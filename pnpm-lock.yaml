@@ -58,8 +58,8 @@ importers:
         specifier: ^1.5.16
         version: 1.6.24(react-native@0.74.2(@babel/core@7.28.4)(@babel/preset-env@7.24.7(@babel/core@7.28.4))(react@18.2.0))
       '@constl/utils-tests':
-        specifier: ^1.6.13
-        version: 1.7.0(react-native@0.74.2(@babel/core@7.28.4)(@babel/preset-env@7.24.7(@babel/core@7.28.4))(react@18.2.0))
+        specifier: ^2.0.0
+        version: 2.0.1(react-native@0.74.2(@babel/core@7.28.4)(@babel/preset-env@7.24.7(@babel/core@7.28.4))(react@18.2.0))
       '@eslint/js':
         specifier: ^9.21.0
         version: 9.37.0
@@ -1016,8 +1016,8 @@ packages:
     resolution: {integrity: sha512-ypThNw7fa47lu5HSRkEL12nqKz1CjCFeY9ticpOaEBMbqXvpTVNw9044+fvgIaI/KsXWrDf8RQZvTwOU1zz5yw==}
     engines: {node: '>=20'}
 
-  '@constl/utils-tests@1.7.0':
-    resolution: {integrity: sha512-U4gHC2Qg9L+/R4QM2ZXL6qd08HJEqy3k6qdDyLkIuERRMRibIh+qI3MfcvYMHCiAA9KKX0lYndHqZEIp33em0A==}
+  '@constl/utils-tests@2.0.1':
+    resolution: {integrity: sha512-dQuc9lkBUcLp48RMmOQprRtvt0I/WZmFXLuMol3wNXSl3DdIS1E7CdOKNFa7D+/co5UngbxYPQl0Pi1oN4Wi6g==}
     engines: {node: '>=20'}
 
   '@cspell/cspell-bundled-dicts@9.2.1':
@@ -10614,7 +10614,7 @@ snapshots:
       uint8arrays: 5.1.0
       wherearewe: 2.0.1
 
-  '@constl/utils-tests@1.7.0(react-native@0.74.2(@babel/core@7.28.4)(@babel/preset-env@7.24.7(@babel/core@7.28.4))(react@18.2.0))':
+  '@constl/utils-tests@2.0.1(react-native@0.74.2(@babel/core@7.28.4)(@babel/preset-env@7.24.7(@babel/core@7.28.4))(react@18.2.0))':
     dependencies:
       '@chainsafe/libp2p-gossipsub': 14.1.1
       '@helia/block-brokers': 4.2.4
@@ -11246,9 +11246,9 @@ snapshots:
   '@helia/routers@3.1.2':
     dependencies:
       '@helia/delegated-routing-v1-http-api-client': 4.2.5
-      '@helia/interface': 5.3.2
+      '@helia/interface': 5.4.0
       '@libp2p/interface': 2.11.0
-      '@libp2p/peer-id': 5.1.6
+      '@libp2p/peer-id': 5.1.8
       '@multiformats/uri-to-multiaddr': 9.0.1
       ipns: 10.0.2
       it-first: 3.0.9
@@ -11606,7 +11606,7 @@ snapshots:
     dependencies:
       '@libp2p/crypto': 5.1.7
       '@libp2p/interface': 2.11.0
-      '@libp2p/keychain': 5.2.5
+      '@libp2p/keychain': 5.2.8
       '@libp2p/logger': 5.1.21
       interface-datastore: 8.3.2
 
@@ -11856,9 +11856,9 @@ snapshots:
 
   '@libp2p/keychain@5.2.5':
     dependencies:
-      '@libp2p/crypto': 5.1.5
+      '@libp2p/crypto': 5.1.7
       '@libp2p/interface': 2.11.0
-      '@libp2p/utils': 6.6.6
+      '@libp2p/utils': 6.7.1
       '@noble/hashes': 1.8.0
       asn1js: 3.0.6
       interface-datastore: 8.3.2
@@ -11977,7 +11977,7 @@ snapshots:
   '@libp2p/peer-collections@6.0.31':
     dependencies:
       '@libp2p/interface': 2.11.0
-      '@libp2p/peer-id': 5.1.6
+      '@libp2p/peer-id': 5.1.8
       '@libp2p/utils': 6.6.6
       multiformats: 13.4.1
 
@@ -12006,7 +12006,7 @@ snapshots:
     dependencies:
       '@libp2p/crypto': 5.1.5
       '@libp2p/interface': 2.11.0
-      '@libp2p/peer-id': 5.1.6
+      '@libp2p/peer-id': 5.1.8
       '@libp2p/utils': 6.6.6
       '@multiformats/multiaddr': 12.5.1
       multiformats: 13.4.1
@@ -12030,10 +12030,10 @@ snapshots:
 
   '@libp2p/peer-store@11.2.3':
     dependencies:
-      '@libp2p/crypto': 5.1.5
+      '@libp2p/crypto': 5.1.7
       '@libp2p/interface': 2.11.0
       '@libp2p/peer-collections': 6.0.31
-      '@libp2p/peer-id': 5.1.6
+      '@libp2p/peer-id': 5.1.8
       '@libp2p/peer-record': 8.0.31
       '@multiformats/multiaddr': 12.5.1
       interface-datastore: 8.3.2
@@ -12148,7 +12148,7 @@ snapshots:
     dependencies:
       '@libp2p/crypto': 5.1.7
       '@libp2p/interface': 2.11.0
-      '@libp2p/peer-id': 5.1.6
+      '@libp2p/peer-id': 5.1.8
       '@peculiar/asn1-schema': 2.3.15
       '@peculiar/asn1-x509': 2.3.15
       '@peculiar/webcrypto': 1.5.0
@@ -12718,10 +12718,10 @@ snapshots:
 
   '@peculiar/asn1-pfx@2.3.15':
     dependencies:
-      '@peculiar/asn1-cms': 2.3.15
+      '@peculiar/asn1-cms': 2.4.0
       '@peculiar/asn1-pkcs8': 2.3.15
-      '@peculiar/asn1-rsa': 2.3.15
-      '@peculiar/asn1-schema': 2.3.15
+      '@peculiar/asn1-rsa': 2.4.0
+      '@peculiar/asn1-schema': 2.4.0
       asn1js: 3.0.6
       tslib: 2.8.1
 
@@ -12736,8 +12736,8 @@ snapshots:
 
   '@peculiar/asn1-pkcs8@2.3.15':
     dependencies:
-      '@peculiar/asn1-schema': 2.3.15
-      '@peculiar/asn1-x509': 2.3.15
+      '@peculiar/asn1-schema': 2.4.0
+      '@peculiar/asn1-x509': 2.4.0
       asn1js: 3.0.6
       tslib: 2.8.1
 
@@ -12798,8 +12798,8 @@ snapshots:
 
   '@peculiar/asn1-x509-attr@2.3.15':
     dependencies:
-      '@peculiar/asn1-schema': 2.3.15
-      '@peculiar/asn1-x509': 2.3.15
+      '@peculiar/asn1-schema': 2.4.0
+      '@peculiar/asn1-x509': 2.4.0
       asn1js: 3.0.6
       tslib: 2.8.1
 
@@ -15006,7 +15006,7 @@ snapshots:
     dependencies:
       cipher-base: 1.0.6
       inherits: 2.0.4
-      ripemd160: 2.0.1
+      ripemd160: 2.0.2
       sha.js: 2.4.12
 
   create-hash@1.2.0:
@@ -17129,7 +17129,7 @@ snapshots:
 
   is-bun-module@2.0.0:
     dependencies:
-      semver: 7.7.2
+      semver: 7.7.3
 
   is-callable@1.2.7: {}
 
@@ -18094,7 +18094,7 @@ snapshots:
 
   make-dir@4.0.0:
     dependencies:
-      semver: 7.7.2
+      semver: 7.7.3
 
   make-error@1.3.6: {}
 
@@ -18956,7 +18956,7 @@ snapshots:
 
   node-abi@3.75.0:
     dependencies:
-      semver: 7.7.2
+      semver: 7.7.3
 
   node-abort-controller@3.1.1: {}
 
@@ -19002,13 +19002,13 @@ snapshots:
     dependencies:
       hosted-git-info: 4.1.0
       is-core-module: 2.16.1
-      semver: 7.7.2
+      semver: 7.7.3
       validate-npm-package-license: 3.0.4
 
   normalize-package-data@6.0.2:
     dependencies:
       hosted-git-info: 7.0.2
-      semver: 7.7.2
+      semver: 7.7.3
       validate-npm-package-license: 3.0.4
 
   normalize-path@3.0.0: {}
