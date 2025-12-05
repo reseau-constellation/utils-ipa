@@ -2,7 +2,7 @@ import path from "path";
 
 import { traduire, zipper } from "@/données.js";
 
-import { dossiers, attente } from "@constl/utils-tests";
+import { dossierTempo, attendreFichierExiste } from "@constl/utils-tests";
 import JSZip from "jszip";
 import { isElectronMain, isNode } from "wherearewe";
 
@@ -30,23 +30,20 @@ describe("Utils : données", function () {
   if (isElectronMain || isNode) {
     describe("zipper", function () {
       let dossier: string;
-      let fEffacer: () => void;
+      let effacer: () => void;
       let nomFichier: string;
       let zip: JSZip;
 
-      let attendreFichier: attente.AttendreFichierExiste;
-
       before(async () => {
-        ({ dossier, fEffacer } = await dossiers.dossierTempo());
+        ({ dossier, effacer } = await dossierTempo());
         nomFichier = path.join(dossier, "testZip.zip");
-        attendreFichier = new attente.AttendreFichierExiste(nomFichier);
-        const fichiersDocs = [
+        const fichiersDocus = [
           {
             nom: "fichier1.txt",
             octets: Buffer.from("Je ne suis que du texte."),
           },
         ];
-        const fichiersSFIP = [
+        const fichiersMédias = [
           {
             nom: "fichierSFIP1.txt",
             octets: Buffer.from("Je le fichier SFIP no. 1."),
@@ -57,17 +54,16 @@ describe("Utils : données", function () {
           },
         ];
 
-        await zipper(fichiersDocs, fichiersSFIP, nomFichier);
+        await zipper({ fichiersDocus, fichiersMédias, nomFichier });
       });
 
       after(() => {
-        if (attendreFichier) attendreFichier.annuler();
-        if (fEffacer) fEffacer();
+        if (effacer) effacer();
       });
 
       it("Le fichier zip est créé", async () => {
         const fs = await import("fs");
-        await attendreFichier.attendre();
+        await attendreFichierExiste({fichier: nomFichier});;
 
         zip = await JSZip.loadAsync(fs.readFileSync(nomFichier));
       });

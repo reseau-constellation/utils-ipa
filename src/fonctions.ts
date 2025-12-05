@@ -183,7 +183,7 @@ export const suivreFonctionImbriquée = async <T>({
   f: schémaFonctionSuivi<T | undefined>;
   fSuivre: (args: {
     id: string;
-    fSuivreBd: schémaFonctionSuivi<T | undefined>;
+    fSuivre: schémaFonctionSuivi<T | undefined>;
   }) => Promise<schémaFonctionOublier>;
   journal?: Journal;
 }): Promise<schémaFonctionOublier> => {
@@ -214,7 +214,7 @@ export const suivreFonctionImbriquée = async <T>({
         const idImbriquéExiste = idImbriqué;
         pOublier = fSuivreEnveloppée({
           id: idImbriquéExiste,
-          fSuivreBd: fEnveloppée,
+          fSuivre: fEnveloppée,
         });
       } else {
         pOublier = fEnveloppée(undefined);
@@ -293,7 +293,7 @@ export const attendreStabilité = <T>(
 };
 
 export const suivreDeFonctionListe = async <
-  T extends élémentsBd,
+  T,
   U extends PasNondéfini,
   V,
   W extends

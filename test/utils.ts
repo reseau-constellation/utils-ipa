@@ -93,7 +93,7 @@ export interface InterfaceContrôlleurSuivi {
 export interface InterfaceSuivi {
   fonction: (args: {
     id: string;
-    fSuivreBd: schémaFonctionSuivi<string | undefined>;
+    fSuivre: schémaFonctionSuivi<string | undefined>;
   }) => Promise<schémaFonctionOublier>;
   appeléeAvec: string[];
 }
@@ -211,17 +211,17 @@ export const générerFsTestImbriquées = (): {
   const fSuivre: InterfaceSuivi = {
     fonction: async ({
       id,
-      fSuivreBd,
+      fSuivre,
     }: {
       id: string;
-      fSuivreBd: schémaFonctionSuivi<string | undefined>;
+      fSuivre: schémaFonctionSuivi<string | undefined>;
     }): Promise<schémaFonctionOublier> => {
       fSuivreAppeléeAvec.push(id);
       statutSuivi.résoudre({ id });
-      événementsSuivi.on(id, fSuivreBd);
+      événementsSuivi.on(id, fSuivre);
       return async () => {
         await sémaphoreSuivi.acquire(id);
-        événementsSuivi.off(id, fSuivreBd);
+        événementsSuivi.off(id, fSuivre);
         sémaphoreSuivi.release(id);
       };
     },

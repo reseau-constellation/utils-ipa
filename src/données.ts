@@ -13,21 +13,27 @@ export function traduire(
   return trad;
 }
 
-export async function zipper(
-  fichiersDocs: { nom: string; octets: Uint8Array }[],
-  fichiersSFIP: { nom: string; octets: Uint8Array }[],
+export async function zipper({
+  fichiersDocus,
+  fichiersMédias,
+  nomFichier,
+  dossierMédias = "médias",
+}: {
+  fichiersDocus: { nom: string; octets: Uint8Array }[],
+  fichiersMédias: { nom: string; octets: Uint8Array }[],
   nomFichier: string,
-): Promise<void> {
+  dossierMédias?: string;
+}): Promise<void> {
   if (!nomFichier.endsWith(".zip")) nomFichier = `${nomFichier}.zip`;
 
   const fichierZip = new JSZip();
-  for (const doc of fichiersDocs) {
+  for (const doc of fichiersDocus) {
     fichierZip.file(doc.nom, doc.octets);
   }
 
-  const dossierFichiersSFIP = fichierZip.folder("sfip")!;
-  for (const fichier of fichiersSFIP) {
-    dossierFichiersSFIP.file(fichier.nom, fichier.octets);
+  const dossierFichiersMédias = fichierZip.folder(dossierMédias)!;
+  for (const fichier of fichiersMédias) {
+    dossierFichiersMédias.file(fichier.nom, fichier.octets);
   }
   await sauvegarderFichierZip({ fichierZip, nomFichier });
 }

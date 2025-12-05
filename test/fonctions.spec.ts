@@ -264,8 +264,8 @@ describe("Fonctions", function () {
             await fSuivreRacine("abc");
             return faisRien;
           },
-          async fSuivre({ fSuivreBd }) {
-            await fSuivreBd("def");
+          async fSuivre({ fSuivre }) {
+            await fSuivre("def");
             return faisRien;
           },
           async f() {
@@ -280,8 +280,8 @@ describe("Fonctions", function () {
             await fSuivreRacine(undefined);
             return faisRien;
           },
-          async fSuivre({ fSuivreBd }) {
-            await fSuivreBd("def");
+          async fSuivre({ fSuivre }) {
+            await fSuivre("def");
             return faisRien;
           },
           async f() {

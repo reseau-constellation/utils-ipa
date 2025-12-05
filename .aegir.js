@@ -1,3 +1,3 @@
-import { config } from "@constl/utils-tests";
+import { générerConfigÆgir } from "@constl/utils-tests";
 
-export default config.générerConfigÆgir();
+export default générerConfigÆgir();
