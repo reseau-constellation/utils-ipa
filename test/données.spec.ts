@@ -74,15 +74,15 @@ describe("Utils : données", function () {
       });
 
       it("Les fichiers SFIP sont inclus", async () => {
-        expect(zip.files["sfip/"].dir).to.be.true();
+        expect(zip.files["médias/"]?.dir).to.be.true();
         const contenuFichierSFIP1 =
-          await zip.files[path.join("sfip", "fichierSFIP1.txt")].async(
+          await zip.files[path.join("médias", "fichierSFIP1.txt")].async(
             "string",
           );
         expect(contenuFichierSFIP1).to.equal("Je le fichier SFIP no. 1.");
 
         const contenuFichierSFIP2 =
-          await zip.files[path.join("sfip", "fichierSFIP2.txt")].async(
+          await zip.files[path.join("médias", "fichierSFIP2.txt")].async(
             "string",
           );
         expect(contenuFichierSFIP2).to.equal("Je le fichier SFIP no. 2.");
