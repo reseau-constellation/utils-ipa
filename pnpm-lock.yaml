@@ -95,7 +95,7 @@ importers:
         version: 47.0.25(@babel/core@7.28.5)(@typescript-eslint/utils@8.53.1(eslint@9.39.2)(typescript@5.9.3))(eslint-import-resolver-node@0.3.9)
       core-js:
         specifier: ^3.40.0
-        version: 3.47.0
+        version: 3.48.0
       eslint:
         specifier: ^9.21.0
         version: 9.39.2
@@ -3871,8 +3871,8 @@ packages:
   core-js-compat@3.48.0:
     resolution: {integrity: sha512-OM4cAF3D6VtH/WkLtWvyNC56EZVXsZdU3iqaMG2B4WvYrlqU831pc4UtG5yp0sE9z8Y02wVN7PjW5Zf9Gt0f1Q==}
 
-  core-js@3.47.0:
-    resolution: {integrity: sha512-c3Q2VVkGAUyupsjRnaNX6u8Dq2vAdzm9iuPj5FW0fRxzlxgq9Q39MDq10IvmQSpLgHQNyQzQmOo6bgGHmH3NNg==}
+  core-js@3.48.0:
+    resolution: {integrity: sha512-zpEHTy1fjTMZCKLHUZoVeylt9XrzaIN2rbPXEt0k+q7JE5CkCZdo6bNq55bn24a69CH7ErAVLKijxJja4fw+UQ==}
 
   core-util-is@1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
@@ -15185,7 +15185,7 @@ snapshots:
     dependencies:
       browserslist: 4.28.1
 
-  core-js@3.47.0: {}
+  core-js@3.48.0: {}
 
   core-util-is@1.0.3: {}
 
