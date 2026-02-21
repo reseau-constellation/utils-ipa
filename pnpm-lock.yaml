@@ -52,8 +52,8 @@ importers:
         version: 2.0.1
     devDependencies:
       '@chriscdn/promise-semaphore':
-        specifier: ^3.0.1
-        version: 3.1.3
+        specifier: ^4.0.0
+        version: 4.0.0
       '@constl/ipa':
         specifier: ^1.5.16
         version: 1.6.24(react-native@0.74.2(@babel/core@7.28.6)(@babel/preset-env@7.24.7(@babel/core@7.28.6))(react@18.2.0))
@@ -1051,6 +1051,9 @@ packages:
 
   '@chriscdn/promise-semaphore@3.1.3':
     resolution: {integrity: sha512-EAmwIbH1L2CNsJWloXBG4Kv89H7IUsjYFQnGnmus3OX70LcD5Uu5A7sohPx3O0Ks9UQWEgcr5n2IfxBSuYvOeg==}
+
+  '@chriscdn/promise-semaphore@4.0.0':
+    resolution: {integrity: sha512-vMFXvksQF3zy3e0r5hL8FUMhajcbSd7HJOcGI4CLYQgjd5znoqHIfzYCYVlw0mCYUjzqk5NTIp7mY7m+IB3+uQ==}
 
   '@colors/colors@1.5.0':
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
@@ -10694,6 +10697,8 @@ snapshots:
       '@chainsafe/is-ip': 2.1.0
 
   '@chriscdn/promise-semaphore@3.1.3': {}
+
+  '@chriscdn/promise-semaphore@4.0.0': {}
 
   '@colors/colors@1.5.0': {}
 
