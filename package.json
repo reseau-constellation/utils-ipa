@@ -35,7 +35,7 @@
   "devDependencies": {
     "@chriscdn/promise-semaphore": "^4.0.0",
     "@constl/ipa": "^1.5.16",
-    "@constl/utils-tests": "^1.6.13",
+    "@constl/utils-tests": "^2.0.0",
     "@eslint/js": "^10.0.0",
     "@libp2p/interface": "^3.0.0",
     "@types/crypto-js": "^4.2.2",
