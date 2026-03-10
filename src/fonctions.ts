@@ -462,7 +462,7 @@ export const effacerPropriétésNonDéfinies = <
       .map(([clef, val]): [string, élémentsBd] => {
         return [
           clef,
-          // @ts-expect-error Bizarre d'erreur récursion infinie
+          // @ts-expect-error Bizarre d'erreur de récursion infinie
           typeof val === "object" && !Array.isArray(val)
             ? effacerPropriétésNonDéfinies(val)
             : val!,
