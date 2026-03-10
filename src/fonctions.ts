@@ -8,7 +8,6 @@ import type {
   élémentsBd,
 } from "@/types.js";
 import { isNull } from "lodash-es";
-import { AbortError } from "p-retry";
 import { TypedEmitter } from "tiny-typed-emitter";
 
 import type { Journal } from "./types.js";
@@ -127,7 +126,7 @@ const ignorerErreurAvorté = <T, A>(
     try {
       return await f(args);
     } catch (e) {
-      if (!(e instanceof AbortError)) {
+      if (!(e.name.includes("AbortError"))) {
         throw e;
       }
       return undefined;
