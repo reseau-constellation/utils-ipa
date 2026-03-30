@@ -152,7 +152,6 @@ export const validerCatégorieBase = ({
       if (val.length !== 2) return false;
       return val.every((d) => estUnHoroDatage(d));
     case "chaîne":
-      return typeof val === "string" && adresseOrbiteValide(val);
     case "chaîneNonTraductible":
       return typeof val === "string";
     case "booléen":
