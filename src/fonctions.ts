@@ -106,7 +106,7 @@ class ÉmetteurUneFois<T> extends TypedEmitter<{
         if (this.résultatPrêt) return;
         this.résultat = résultat;
         this.résultatPrêt = true;
-        if (this.fOublier) this.lorsquePrêt();
+        if (this.fOublier) await this.lorsquePrêt();
       }
     };
 
@@ -120,10 +120,10 @@ class ÉmetteurUneFois<T> extends TypedEmitter<{
     }
   }
 
-  lorsquePrêt() {
+  async lorsquePrêt() {
     if (this.résultatPrêt) {
       if (!this.fOublier) return;
-      if (this.fOublier) this.fOublier();
+      if (this.fOublier) await this.fOublier();
       this.emit("fini", this.résultat!);
       this.fOublier = undefined;
     }
