@@ -5,6 +5,7 @@ import {
   ignorerNonDéfinis,
   suivreDeFonctionListe,
   suivreFonctionImbriquée,
+  uneFois,
 } from "@/fonctions.js";
 import { schémaFonctionOublier } from "@/types";
 
@@ -15,7 +16,13 @@ import type {
   InterfaceSuivi,
   Espion,
 } from "./utils.js";
-import { attendre, générerEspion, générerFsTestImbriquées, journalTest, vérifierErreur } from "./utils.js";
+import {
+  attendre,
+  générerEspion,
+  générerFsTestImbriquées,
+  journalTest,
+  vérifierErreur,
+} from "./utils.js";
 import { AbortError } from "p-retry";
 
 describe("Fonctions", function () {
@@ -159,7 +166,7 @@ describe("Fonctions", function () {
               return faisRien;
             },
             async f() {},
-          })
+          }),
         ).to.be.rejectedWith("On a une erreur");
       });
       it("Avorter opération dans fRacine", async () => {
@@ -176,30 +183,30 @@ describe("Fonctions", function () {
       });
       it("Erreur dans oublier fRacine", async () => {
         const fOublier = await suivreFonctionImbriquée({
-            async fRacine() {
-              return async () => {
-                throw new Error("On a une erreur")
-              };
-            },
-            async fSuivre() {
-              return faisRien;
-            },
-            async f() {},
-          })
+          async fRacine() {
+            return async () => {
+              throw new Error("On a une erreur");
+            };
+          },
+          async fSuivre() {
+            return faisRien;
+          },
+          async f() {},
+        });
         expect(fOublier()).to.be.rejectedWith("On a une erreur");
       });
       it("Avorter opération dans oublier fRacine", async () => {
         const fOublier = await suivreFonctionImbriquée({
-            async fRacine() {
-              return async () => {
-                throw new AbortError(Error("Opération avortée"))
-              };
-            },
-            async fSuivre() {
-              return faisRien;
-            },
-            async f() {},
-          })
+          async fRacine() {
+            return async () => {
+              throw new AbortError(Error("Opération avortée"));
+            };
+          },
+          async fSuivre() {
+            return faisRien;
+          },
+          async f() {},
+        });
         await fOublier();
       });
       it("Erreur dans fSuivi", async () => {
@@ -237,7 +244,7 @@ describe("Fonctions", function () {
           async fSuivre() {
             return async () => {
               throw new Error("On a une erreur");
-            }
+            };
           },
           async f() {},
         });
@@ -252,7 +259,7 @@ describe("Fonctions", function () {
           async fSuivre() {
             return async () => {
               throw new AbortError(Error("Opération avortée"));
-            }
+            };
           },
           async f() {},
         });
@@ -309,7 +316,7 @@ describe("Fonctions", function () {
           journal,
         });
         await fOublier();
-        vérifierErreur(journal.erreurs[0], 'On a une erreur');
+        vérifierErreur(journal.erreurs[0], "On a une erreur");
       });
       it("Avorter opération dans fBranche", async () => {
         const journal = journalTest();
@@ -325,7 +332,7 @@ describe("Fonctions", function () {
           journal,
         });
         await fOublier();
-        expect(journal.erreurs).to.be.empty()
+        expect(journal.erreurs).to.be.empty();
       });
       it("Erreur dans fBranche - async de fListe", async () => {
         const journal = journalTest();
@@ -334,15 +341,15 @@ describe("Fonctions", function () {
             fSuivreRacine(["a", "b"]);
             return faisRien;
           },
-          async fBranche({id}) {
+          async fBranche({ id }) {
             throw new Error(`Erreur ${id}`);
           },
           async f() {},
-          journal
+          journal,
         });
         await fOublier();
-        vérifierErreur(journal.erreurs[0], 'Erreur a');
-        vérifierErreur(journal.erreurs[1], 'Erreur b');
+        vérifierErreur(journal.erreurs[0], "Erreur a");
+        vérifierErreur(journal.erreurs[1], "Erreur b");
       });
       it("Avorter opération dans fBranche - async de fListe", async () => {
         const journal = journalTest();
@@ -355,7 +362,7 @@ describe("Fonctions", function () {
             throw new AbortError(Error("Opération avortée"));
           },
           async f() {},
-          journal
+          journal,
         });
         await fOublier();
         expect(journal.erreurs).to.be.empty();
@@ -367,18 +374,18 @@ describe("Fonctions", function () {
             await fSuivreRacine(["abc"]);
             return faisRien;
           },
-          async fBranche({fSuivreBranche}) {
+          async fBranche({ fSuivreBranche }) {
             await fSuivreBranche("a");
             return faisRien;
           },
           async f() {
             throw new Error("On a une erreur");
           },
-          journal
+          journal,
         });
 
         await fOublier();
-        vérifierErreur(journal.erreurs[0], 'On a une erreur');
+        vérifierErreur(journal.erreurs[0], "On a une erreur");
       });
       it("Erreur dans f - lorsqu'appelé de fBranche", async () => {
         const journal = journalTest();
@@ -387,18 +394,17 @@ describe("Fonctions", function () {
             await fSuivreRacine(["abc"]);
             return faisRien;
           },
-          async fBranche({fSuivreBranche}) {
+          async fBranche({ fSuivreBranche }) {
             await fSuivreBranche("a");
             return faisRien;
           },
           async f(val) {
-            if(val)
-              throw new Error("On a une erreur");
+            if (val) throw new Error("On a une erreur");
           },
           journal,
         });
         await fOublier();
-        vérifierErreur(journal.erreurs[0], 'On a une erreur');
+        vérifierErreur(journal.erreurs[0], "On a une erreur");
       });
       it("Avorter opération dans f - lorsqu'appelé de fBranche", async () => {
         const journal = journalTest();
@@ -407,13 +413,12 @@ describe("Fonctions", function () {
             await fSuivreRacine(["abc"]);
             return faisRien;
           },
-          async fBranche({id, fSuivreBranche}) {
+          async fBranche({ id, fSuivreBranche }) {
             await fSuivreBranche(id);
             return faisRien;
           },
           async f(val) {
-            if (val)
-              throw new AbortError(Error("Opération avortée"));
+            if (val) throw new AbortError(Error("Opération avortée"));
           },
           journal,
         });
@@ -427,18 +432,17 @@ describe("Fonctions", function () {
             await fSuivreRacine(["abc"]);
             return faisRien;
           },
-          async fBranche({fSuivreBranche}) {
+          async fBranche({ fSuivreBranche }) {
             fSuivreBranche("a");
             return faisRien;
           },
           async f(val) {
-            if(val)
-              throw new Error("On a une erreur");
+            if (val) throw new Error("On a une erreur");
           },
           journal,
         });
         await fOublier();
-        vérifierErreur(journal.erreurs[0], 'On a une erreur');
+        vérifierErreur(journal.erreurs[0], "On a une erreur");
       });
       it("Avorter opération dans f - lorsqu'appelé de fBranche async", async () => {
         const journal = journalTest();
@@ -447,13 +451,12 @@ describe("Fonctions", function () {
             fSuivreRacine(["abc"]);
             return faisRien;
           },
-          async fBranche({id, fSuivreBranche}) {
+          async fBranche({ id, fSuivreBranche }) {
             await fSuivreBranche(id);
             return faisRien;
           },
           async f(val) {
-            if (val)
-              throw new AbortError(Error("Opération avortée"));
+            if (val) throw new AbortError(Error("Opération avortée"));
           },
           journal,
         });
@@ -476,7 +479,7 @@ describe("Fonctions", function () {
           journal,
         });
         await fOublier();
-        vérifierErreur(journal.erreurs[0], 'On a une erreur');
+        vérifierErreur(journal.erreurs[0], "On a une erreur");
       });
       it("Avorter opération dans f si fListe vide", async () => {
         const journal = journalTest();
@@ -512,7 +515,7 @@ describe("Fonctions", function () {
           journal,
         });
         await fOublier();
-        vérifierErreur(journal.erreurs[0], 'On a une erreur');
+        vérifierErreur(journal.erreurs[0], "On a une erreur");
       });
       it("Avorter opération dans f si fListe vide - async", async () => {
         const journal = journalTest();
@@ -584,6 +587,37 @@ describe("Fonctions", function () {
     });
   });
 
+  describe("Une fois", function () {
+    it("retourne le premier résultat", async () => {
+      const résultat = await uneFois<number>(async (fSuivi) => {
+        await fSuivi(1);
+        await fSuivi(2);
+        return faisRien;
+      });
+      expect(résultat).to.equal(1);
+    });
+
+    it("avec condition", async () => {
+      const résultat = await uneFois<number>(
+        async (fSuivi) => {
+          fSuivi(1);
+          fSuivi(2);
+          return faisRien;
+        },
+        (x) => x !== undefined && x > 1,
+      );
+      expect(résultat).to.equal(2);
+    });
+
+    it("erreur", async () => {
+      await expect(
+        uneFois<number>(async () => {
+          throw new Error("On a eu un pépin.");
+        }),
+      ).to.eventually.be.rejectedWith("On a eu un pépin.");
+    });
+  });
+
   describe("Attendre stabilité", function () {
     it("Première valeur stable rendue", async () => {
       const f = attendreStabilité(10);
@@ -600,7 +634,7 @@ describe("Fonctions", function () {
       const f = attendreStabilité(10);
       const pStable1 = f(1);
       const pStable2 = f(2);
-      await attendre(12)
+      await attendre(12);
       const pStable3 = f(3);
 
       expect(await pStable1).to.be.false();
@@ -611,9 +645,9 @@ describe("Fonctions", function () {
     it("Ajustement dynamique", async () => {
       const f = attendreStabilité(10);
       const pStable1 = f(1);
-      await attendre(8)
+      await attendre(8);
       const pStable2 = f(2);
-      await attendre(12)
+      await attendre(12);
       const pStable3 = f(3);
 
       expect(await pStable1).to.be.false();
