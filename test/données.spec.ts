@@ -63,7 +63,7 @@ describe("Utils : données", function () {
 
       it("Le fichier zip est créé", async () => {
         const fs = await import("fs");
-        await attendreFichierExiste({fichier: nomFichier});;
+        await attendreFichierExiste({ fichier: nomFichier });
 
         zip = await JSZip.loadAsync(fs.readFileSync(nomFichier));
       });

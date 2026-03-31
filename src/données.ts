@@ -19,9 +19,9 @@ export async function zipper({
   nomFichier,
   dossierMédias = "médias",
 }: {
-  fichiersDocus: { nom: string; octets: Uint8Array }[],
-  fichiersMédias: { nom: string; octets: Uint8Array }[],
-  nomFichier: string,
+  fichiersDocus: { nom: string; octets: Uint8Array }[];
+  fichiersMédias: { nom: string; octets: Uint8Array }[];
+  nomFichier: string;
   dossierMédias?: string;
 }): Promise<void> {
   if (!nomFichier.endsWith(".zip")) nomFichier = `${nomFichier}.zip`;

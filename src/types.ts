@@ -13,4 +13,4 @@ export type élémentsBd =
   | { [clef: string]: élémentsBd }
   | Array<élémentsBd>;
 
-export type Journal = ((e: Error)=>(Promise<void>|void));
+export type Journal = (e: Error) => Promise<void> | void;

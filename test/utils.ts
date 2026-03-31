@@ -1,4 +1,8 @@
-import { type Journal, schémaFonctionOublier, schémaFonctionSuivi } from "@/types";
+import {
+  type Journal,
+  schémaFonctionOublier,
+  schémaFonctionSuivi,
+} from "@/types";
 import { TypedEmitter } from "tiny-typed-emitter";
 import { Semaphore } from "@chriscdn/promise-semaphore";
 import { expect } from "aegir/chai";
@@ -250,27 +254,35 @@ export const générerFsTestImbriquées = (): {
   };
 };
 
-export const journalTest = (): Journal  & {erreurs: Error[]; attendre: ()=>Promise<Error[]>}=> {
+export const journalTest = (): Journal & {
+  erreurs: Error[];
+  attendre: () => Promise<Error[]>;
+} => {
   const erreurs: Error[] = [];
-  const événements = new TypedEmitter<{erreur: (e: Error[])=>void}>();
+  const événements = new TypedEmitter<{ erreur: (e: Error[]) => void }>();
   const attendre = async () => {
     if (erreurs.length) return erreurs;
-    return new Promise<Error[]>(résoudre => événements.once('erreur', résoudre))
-  }
-  return Object.assign(async (e: Error)=>{
-    erreurs.push(e);
-    événements.emit('erreur', erreurs)
-  }, {
-    erreurs, attendre
-  })
-}
+    return new Promise<Error[]>((résoudre) =>
+      événements.once("erreur", résoudre),
+    );
+  };
+  return Object.assign(
+    async (e: Error) => {
+      erreurs.push(e);
+      événements.emit("erreur", erreurs);
+    },
+    {
+      erreurs,
+      attendre,
+    },
+  );
+};
 
 export const vérifierErreur = (val: Error, message?: string) => {
   expect(val).to.be.instanceOf(Error);
-  if (message)
-    expect(val.message).to.include(message)
-}
+  if (message) expect(val.message).to.include(message);
+};
 
 export const attendre = (n: number): Promise<void> => {
-  return new Promise<void>(résoudre => setTimeout(résoudre, n))
-}
+  return new Promise<void>((résoudre) => setTimeout(résoudre, n));
+};
