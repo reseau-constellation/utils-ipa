@@ -28,7 +28,7 @@ importers:
         version: 3.10.1
       lodash-es:
         specifier: ^4.17.21
-        version: 4.17.23
+        version: 4.18.1
       multiformats:
         specifier: 13.4.2
         version: 13.4.2
@@ -4234,8 +4234,8 @@ packages:
   electron-to-chromium@1.5.277:
     resolution: {integrity: sha512-wKXFZw4erWmmOz5N/grBoJ2XrNJGDFMu2+W5ACHza5rHtvsqrK4gb6rnLC7XxKB9WlJ+RmyQatuEXmtm86xbnw==}
 
-  electron-to-chromium@1.5.330:
-    resolution: {integrity: sha512-jFNydB5kFtYUobh4IkWUnXeyDbjf/r9gcUEXe1xcrcUxIGfTdzPXA+ld6zBRbwvgIGVzDll/LTIiDztEtckSnA==}
+  electron-to-chromium@1.5.331:
+    resolution: {integrity: sha512-IbxXrsTlD3hRodkLnbxAPP4OuJYdWCeM3IOdT+CpcMoIwIoDfCmRpEtSPfwBXxVkg9xmBeY7Lz2Eo2TDn/HC3Q==}
 
   electron-window@0.8.1:
     resolution: {integrity: sha512-W1i9LfnZJozk3MXE8VgsL2E5wOUHSgyCvcg1H2vQQjj+gqhO9lVudgY3z3SF7LJAmi+0vy3CJkbMqsynWB49EA==}
@@ -6246,8 +6246,8 @@ packages:
     resolution: {integrity: sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==}
     engines: {node: '>=10'}
 
-  lodash-es@4.17.23:
-    resolution: {integrity: sha512-kVI48u3PZr38HdYz98UmfPnXl2DXrpdctLrFLCd3kOx1xUkOmpFPx7gCWWM5MPkL/fD8zb+Ph0QzjGFs4+hHWg==}
+  lodash-es@4.18.1:
+    resolution: {integrity: sha512-J8xewKD/Gk22OZbhpOVSwcs60zhd95ESDwezOFuA3/099925PdHJ7OFHNTGtajL3AlZkykD32HykiMo+BIBI8A==}
 
   lodash.capitalize@4.2.1:
     resolution: {integrity: sha512-kZzYOKspf8XVX5AvmQF94gQW0lejFVgb80G85bU4ZWzoJ6C03PQg3coYAUpSTpQWelrZELd3XWgHzw4Ck5kaIw==}
@@ -10842,7 +10842,7 @@ snapshots:
       it-to-buffer: 4.0.10
       jszip: 3.10.1
       libp2p: 2.8.9
-      lodash-es: 4.17.23
+      lodash-es: 4.18.1
       merge-options: 3.0.4
       multiformats: 13.4.2
       p-queue: 8.1.1
@@ -10879,7 +10879,7 @@ snapshots:
       genversion: 3.2.0
       geojson-validation: 1.0.2
       jszip: 3.10.1
-      lodash-es: 4.17.23
+      lodash-es: 4.18.1
       multiformats: 13.3.6
       p-queue: 8.1.1
       p-retry: 6.2.1
@@ -13470,7 +13470,7 @@ snapshots:
       conventional-commits-parser: 6.2.1
       debug: 4.4.3(supports-color@8.1.1)
       import-from-esm: 2.0.0
-      lodash-es: 4.17.23
+      lodash-es: 4.18.1
       micromatch: 4.0.8
       semantic-release: 25.0.2(typescript@5.8.3)
     transitivePeerDependencies:
@@ -13507,7 +13507,7 @@ snapshots:
       http-proxy-agent: 7.0.2
       https-proxy-agent: 7.0.6
       issue-parser: 7.0.1
-      lodash-es: 4.17.23
+      lodash-es: 4.18.1
       mime: 4.1.0
       p-filter: 4.1.0
       semantic-release: 25.0.2(typescript@5.8.3)
@@ -13525,7 +13525,7 @@ snapshots:
       env-ci: 11.2.0
       execa: 9.6.1
       fs-extra: 11.3.3
-      lodash-es: 4.17.23
+      lodash-es: 4.18.1
       nerf-dart: 1.0.0
       normalize-url: 8.1.1
       npm: 11.8.0
@@ -13546,7 +13546,7 @@ snapshots:
       get-stream: 7.0.1
       import-from-esm: 2.0.0
       into-stream: 7.0.0
-      lodash-es: 4.17.23
+      lodash-es: 4.18.1
       read-package-up: 11.0.0
       semantic-release: 25.0.2(typescript@5.8.3)
     transitivePeerDependencies:
@@ -14750,7 +14750,7 @@ snapshots:
     dependencies:
       baseline-browser-mapping: 2.10.13
       caniuse-lite: 1.0.30001784
-      electron-to-chromium: 1.5.330
+      electron-to-chromium: 1.5.331
       node-releases: 2.0.36
       update-browserslist-db: 1.2.3(browserslist@4.28.2)
 
@@ -15715,7 +15715,7 @@ snapshots:
 
   electron-to-chromium@1.5.277: {}
 
-  electron-to-chromium@1.5.330: {}
+  electron-to-chromium@1.5.331: {}
 
   electron-window@0.8.1:
     dependencies:
@@ -18418,7 +18418,7 @@ snapshots:
     dependencies:
       p-locate: 5.0.0
 
-  lodash-es@4.17.23: {}
+  lodash-es@4.18.1: {}
 
   lodash.capitalize@4.2.1: {}
 
@@ -20749,7 +20749,7 @@ snapshots:
       hook-std: 4.0.0
       hosted-git-info: 9.0.2
       import-from-esm: 2.0.0
-      lodash-es: 4.17.23
+      lodash-es: 4.18.1
       marked: 15.0.12
       marked-terminal: 7.3.0(marked@15.0.12)
       micromatch: 4.0.8
