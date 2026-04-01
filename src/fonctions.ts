@@ -79,57 +79,6 @@ export const obtenir = async <T>(
   return promesse;
 };
 
-class ÉmetteurUneFois<T> extends TypedEmitter<{
-  fini: (args: T) => void;
-  erreur: (args: Error) => void;
-}> {
-  condition: (x: T) => boolean | Promise<boolean>;
-  résultatPrêt: boolean;
-  fOublier?: schémaFonctionOublier;
-  résultat?: T;
-  f: (fSuivi: schémaFonctionSuivi<T>) => Promise<schémaFonctionOublier>;
-
-  constructor(
-    f: (fSuivi: schémaFonctionSuivi<T>) => Promise<schémaFonctionOublier>,
-    condition?: (x?: T) => boolean | Promise<boolean>,
-  ) {
-    super();
-    this.condition = condition || (() => true);
-    this.résultatPrêt = false;
-    this.f = f;
-    this.initialiser();
-  }
-
-  async initialiser() {
-    const fSuivre = async (résultat: T) => {
-      if (await this.condition(résultat)) {
-        if (this.résultatPrêt) return;
-        this.résultat = résultat;
-        this.résultatPrêt = true;
-        if (this.fOublier) await this.lorsquePrêt();
-      }
-    };
-
-    try {
-      this.fOublier = await this.f(fSuivre);
-    } catch (e) {
-      this.fOublier = faisRien;
-      this.emit("erreur", e);
-    } finally {
-      this.lorsquePrêt();
-    }
-  }
-
-  async lorsquePrêt() {
-    if (this.résultatPrêt) {
-      if (!this.fOublier) return;
-      if (this.fOublier) await this.fOublier();
-      this.emit("fini", this.résultat!);
-      this.fOublier = undefined;
-    }
-  }
-}
-
 const ignorerErreurAvorté = <T, A>(
   f: (args: A) => Promise<T>,
 ): ((args: A) => Promise<T | undefined>) => {
@@ -249,13 +198,33 @@ export const suivreFonctionImbriquée = async <T>({
 
 export const uneFois = async function <T>(
   f: (fSuivi: schémaFonctionSuivi<T>) => Promise<schémaFonctionOublier>,
-  condition?: (x?: T) => boolean | Promise<boolean>,
+  condition: (x?: T) => boolean | Promise<boolean> = () => true,
 ): Promise<T> {
-  const émetteur = new ÉmetteurUneFois(f, condition);
 
-  return new Promise((résoudre, rejeter) => {
-    émetteur.once("erreur", rejeter);
-    émetteur.once("fini", résoudre);
+  let val: T;
+  let évaluée = false;
+
+  const événements = new TypedEmitter<{fini: (val: T) => void}>();
+
+  const fSuivi = async (x: T) => {
+    if (!évaluée && await condition(x)) {
+      val = x;
+      évaluée = true;
+      événements.emit("fini", val)
+    }
+  }
+  
+  const oublier = await f(fSuivi);
+
+  return new Promise(async (résoudre) => {
+    événements.on("fini", async (val) => {
+      await oublier();
+      résoudre(val);
+    })
+    if (évaluée) {
+      await oublier();
+      résoudre(val);
+    }
   });
 };
 
