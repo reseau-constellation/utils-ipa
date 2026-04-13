@@ -46,7 +46,7 @@ importers:
         version: 2.1.0
       uint8arrays:
         specifier: ^5.1.0
-        version: 5.1.0
+        version: 5.1.1
       wherearewe:
         specifier: ^2.0.1
         version: 2.0.1
@@ -8970,8 +8970,8 @@ packages:
   uint8arraylist@2.4.8:
     resolution: {integrity: sha512-vc1PlGOzglLF0eae1M8mLRTBivsvrGsdmJ5RbK3e+QRvRLOZfZhQROTwH/OfyF3+ZVUg9/8hE8bmKP2CvP9quQ==}
 
-  uint8arrays@5.1.0:
-    resolution: {integrity: sha512-vA6nFepEmlSKkMBnLBaUMVvAC4G3CTmO58C12y4sq6WPDOR7mOFYOi7GlrQ4djeSbP6JG9Pv9tJDM97PedRSww==}
+  uint8arrays@5.1.1:
+    resolution: {integrity: sha512-9muQwa4wZG4dKi9gMAIBtnk2Pw87SRpvWTH6lOGm19V2Uqxr4uomUf2PGqPnWc+qs06sN8owUU4jfcoWOcfwVQ==}
 
   unbox-primitive@1.1.0:
     resolution: {integrity: sha512-nWJ91DjeOkej/TA8pXQ3myruKpKEYgqvpw9lz4OPHj/NWFNluYrjbz9j01CJ8yKQd2g4jFoOkINCTW2I5LEEyw==}
@@ -9458,7 +9458,7 @@ snapshots:
 
   '@achingbrain/http-parser-js@0.5.9':
     dependencies:
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@achingbrain/nat-port-mapper@4.0.2':
     dependencies:
@@ -10625,7 +10625,7 @@ snapshots:
       multiformats: 13.4.2
       protons-runtime: 5.6.0
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@chainsafe/libp2p-gossipsub@14.1.2':
     dependencies:
@@ -10642,7 +10642,7 @@ snapshots:
       multiformats: 13.4.2
       protons-runtime: 5.6.0
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@chainsafe/libp2p-noise@16.1.3':
     dependencies:
@@ -10661,7 +10661,7 @@ snapshots:
       it-stream-types: 2.0.2
       protons-runtime: 5.6.0
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
       wherearewe: 2.0.1
 
   '@chainsafe/libp2p-noise@16.1.5':
@@ -10681,7 +10681,7 @@ snapshots:
       it-stream-types: 2.0.2
       protons-runtime: 5.6.0
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
       wherearewe: 2.0.1
 
   '@chainsafe/libp2p-yamux@7.0.1':
@@ -10810,7 +10810,7 @@ snapshots:
       timeout-abort-controller: 3.0.0
       tiny-typed-emitter: 2.1.0
       tslib: 2.8.1
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
       uuid: 11.1.0
       wherearewe: 2.0.1
       xlsx: https://cdn.sheetjs.com/xlsx-0.19.1/xlsx-0.19.1.tgz
@@ -10842,7 +10842,7 @@ snapshots:
       p-retry: 6.2.1
       rimraf: 6.1.3
       tiny-typed-emitter: 2.1.0
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
       wherearewe: 2.0.1
 
   '@constl/utils-tests@2.0.7(react-native@0.74.2(@babel/core@7.29.0)(@babel/preset-env@7.24.7(@babel/core@7.29.0))(react@18.2.0))':
@@ -10867,7 +10867,7 @@ snapshots:
       read-package-up: 11.0.0
       rimraf: 6.1.3
       stream-browserify: 3.0.0
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
       url-polyfill: 1.1.14
       uuid: 11.1.0
       wherearewe: 2.0.1
@@ -11428,7 +11428,7 @@ snapshots:
       race-event: 1.6.1
       uint8-varint: 2.0.4
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@helia/bitswap@2.2.0':
     dependencies:
@@ -11454,7 +11454,7 @@ snapshots:
       race-event: 1.6.1
       uint8-varint: 2.0.4
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@helia/block-brokers@4.2.2':
     dependencies:
@@ -11502,7 +11502,7 @@ snapshots:
       multiformats: 13.4.2
       p-defer: 4.0.1
       p-queue: 8.1.1
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@helia/interface@5.3.2':
     dependencies:
@@ -11537,7 +11537,7 @@ snapshots:
       it-first: 3.0.9
       it-map: 3.1.4
       multiformats: 13.4.2
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@helia/routers@3.1.3':
     dependencies:
@@ -11550,7 +11550,7 @@ snapshots:
       it-first: 3.0.9
       it-map: 3.1.4
       multiformats: 13.4.2
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@helia/unixfs@5.0.3':
     dependencies:
@@ -11573,7 +11573,7 @@ snapshots:
       multiformats: 13.4.2
       progress-events: 1.1.0
       sparse-array: 1.3.2
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -11603,7 +11603,7 @@ snapshots:
       multiformats: 13.4.2
       p-defer: 4.0.1
       progress-events: 1.1.0
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@helia/utils@1.4.0':
     dependencies:
@@ -11632,7 +11632,7 @@ snapshots:
       multiformats: 13.4.2
       p-defer: 4.0.1
       progress-events: 1.1.0
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@humanfs/core@0.19.1': {}
 
@@ -11683,7 +11683,7 @@ snapshots:
       delay: 6.0.0
       interface-datastore: 8.3.2
       multiformats: 13.4.2
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
     transitivePeerDependencies:
       - supports-color
 
@@ -11856,7 +11856,7 @@ snapshots:
       protons-runtime: 5.6.0
       retimeable-signal: 1.0.1
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@libp2p/circuit-relay-v2@3.2.24':
     dependencies:
@@ -11879,7 +11879,7 @@ snapshots:
       protons-runtime: 5.6.0
       retimeable-signal: 1.0.1
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@libp2p/config@1.1.10':
     dependencies:
@@ -11905,7 +11905,7 @@ snapshots:
       multiformats: 13.4.2
       protons-runtime: 5.6.0
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@libp2p/dcutr@2.0.33':
     dependencies:
@@ -11945,7 +11945,7 @@ snapshots:
       tough-cookie: 5.1.2
       uint8-varint: 2.0.4
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
       undici: 6.24.1
 
   '@libp2p/identify@3.0.33':
@@ -11964,7 +11964,7 @@ snapshots:
       main-event: 1.0.1
       protons-runtime: 5.6.0
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@libp2p/identify@3.0.39':
     dependencies:
@@ -11982,7 +11982,7 @@ snapshots:
       main-event: 1.0.1
       protons-runtime: 5.6.0
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@libp2p/interface-connection@5.1.1':
     dependencies:
@@ -12080,7 +12080,7 @@ snapshots:
       race-signal: 1.1.3
       uint8-varint: 2.0.4
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@libp2p/kad-dht@15.1.3':
     dependencies:
@@ -12114,7 +12114,7 @@ snapshots:
       race-signal: 1.1.3
       uint8-varint: 2.0.4
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@libp2p/keychain@5.2.5':
     dependencies:
@@ -12126,7 +12126,7 @@ snapshots:
       interface-datastore: 8.3.2
       multiformats: 13.4.2
       sanitize-filename: 1.6.3
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@libp2p/keychain@5.2.9':
     dependencies:
@@ -12138,7 +12138,7 @@ snapshots:
       interface-datastore: 8.3.2
       multiformats: 13.4.2
       sanitize-filename: 1.6.3
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@libp2p/keychain@6.0.9':
     dependencies:
@@ -12149,7 +12149,7 @@ snapshots:
       interface-datastore: 9.0.2
       multiformats: 13.4.2
       sanitize-filename: 1.6.3
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@libp2p/logger@2.1.1':
     dependencies:
@@ -12226,7 +12226,7 @@ snapshots:
       it-stream-types: 2.0.2
       uint8-varint: 2.0.4
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@libp2p/mplex@11.0.47':
     dependencies:
@@ -12237,7 +12237,7 @@ snapshots:
       it-stream-types: 2.0.2
       uint8-varint: 2.0.4
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@libp2p/multistream-select@6.0.26':
     dependencies:
@@ -12249,7 +12249,7 @@ snapshots:
       race-signal: 1.1.3
       uint8-varint: 2.0.4
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@libp2p/multistream-select@6.0.29':
     dependencies:
@@ -12261,7 +12261,7 @@ snapshots:
       race-signal: 1.1.3
       uint8-varint: 2.0.4
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@libp2p/peer-collections@6.0.31':
     dependencies:
@@ -12282,14 +12282,14 @@ snapshots:
       '@libp2p/crypto': 5.1.13
       '@libp2p/interface': 2.11.0
       multiformats: 13.4.2
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@libp2p/peer-id@5.1.9':
     dependencies:
       '@libp2p/crypto': 5.1.13
       '@libp2p/interface': 2.11.0
       multiformats: 13.4.2
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@libp2p/peer-record@8.0.31':
     dependencies:
@@ -12302,7 +12302,7 @@ snapshots:
       protons-runtime: 5.6.0
       uint8-varint: 2.0.4
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@libp2p/peer-record@8.0.35':
     dependencies:
@@ -12315,7 +12315,7 @@ snapshots:
       protons-runtime: 5.6.0
       uint8-varint: 2.0.4
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@libp2p/peer-store@11.2.3':
     dependencies:
@@ -12332,7 +12332,7 @@ snapshots:
       multiformats: 13.4.2
       protons-runtime: 5.6.0
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@libp2p/peer-store@11.2.7':
     dependencies:
@@ -12349,7 +12349,7 @@ snapshots:
       multiformats: 13.4.2
       protons-runtime: 5.6.0
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@libp2p/ping@2.0.33':
     dependencies:
@@ -12359,7 +12359,7 @@ snapshots:
       '@multiformats/multiaddr': 12.5.1
       it-byte-stream: 2.0.3
       main-event: 1.0.1
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@libp2p/ping@2.0.37':
     dependencies:
@@ -12369,7 +12369,7 @@ snapshots:
       '@multiformats/multiaddr': 12.5.1
       it-byte-stream: 2.0.3
       main-event: 1.0.1
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@libp2p/pubsub-peer-discovery@11.0.1':
     dependencies:
@@ -12380,7 +12380,7 @@ snapshots:
       '@multiformats/multiaddr': 12.5.1
       protons-runtime: 5.6.0
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@libp2p/pubsub@10.1.18':
     dependencies:
@@ -12397,19 +12397,19 @@ snapshots:
       multiformats: 13.4.2
       p-queue: 8.1.1
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@libp2p/record@4.0.7':
     dependencies:
       protons-runtime: 5.6.0
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@libp2p/record@4.0.8':
     dependencies:
       protons-runtime: 5.6.0
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@libp2p/tcp@10.1.14':
     dependencies:
@@ -12453,7 +12453,7 @@ snapshots:
       it-stream-types: 2.0.2
       protons-runtime: 5.6.0
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@libp2p/tls@2.2.7':
     dependencies:
@@ -12469,7 +12469,7 @@ snapshots:
       it-stream-types: 2.0.2
       protons-runtime: 5.6.0
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@libp2p/upnp-nat@3.1.17':
     dependencies:
@@ -12521,7 +12521,7 @@ snapshots:
       race-event: 1.6.1
       race-signal: 1.1.3
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@libp2p/utils@6.7.2':
     dependencies:
@@ -12547,7 +12547,7 @@ snapshots:
       race-event: 1.6.1
       race-signal: 1.1.3
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@libp2p/webrtc@5.2.16(react-native@0.74.2(@babel/core@7.29.0)(@babel/preset-env@7.24.7(@babel/core@7.29.0))(react@18.2.0))':
     dependencies:
@@ -12584,7 +12584,7 @@ snapshots:
       react-native-webrtc: 124.0.5(react-native@0.74.2(@babel/core@7.29.0)(@babel/preset-env@7.24.7(@babel/core@7.29.0))(react@18.2.0))
       uint8-varint: 2.0.4
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
     transitivePeerDependencies:
       - react-native
       - supports-color
@@ -12624,7 +12624,7 @@ snapshots:
       react-native-webrtc: 124.0.7(react-native@0.74.2(@babel/core@7.29.0)(@babel/preset-env@7.24.7(@babel/core@7.29.0))(react@18.2.0))
       uint8-varint: 2.0.4
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
     transitivePeerDependencies:
       - react-native
       - supports-color
@@ -12680,7 +12680,7 @@ snapshots:
       progress-events: 1.1.0
       race-signal: 1.1.3
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@mrmlnc/readdir-enhanced@2.2.1':
     dependencies:
@@ -12694,7 +12694,7 @@ snapshots:
       hashlru: 2.3.0
       p-queue: 9.1.2
       progress-events: 1.1.0
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@multiformats/mafmt@12.1.6':
     dependencies:
@@ -12726,14 +12726,14 @@ snapshots:
       abort-error: 1.0.1
       multiformats: 13.4.2
       uint8-varint: 2.0.4
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@multiformats/multiaddr@13.0.1':
     dependencies:
       '@chainsafe/is-ip': 2.1.0
       multiformats: 13.4.2
       uint8-varint: 2.0.4
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@multiformats/murmur3@2.1.8':
     dependencies:
@@ -12918,7 +12918,7 @@ snapshots:
       multiformats: 12.1.3
       p-queue: 8.1.1
       timeout-abort-controller: 3.0.0
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@orbitdb/core@3.0.2':
     dependencies:
@@ -12930,7 +12930,7 @@ snapshots:
       multiformats: 12.1.3
       p-queue: 8.1.1
       timeout-abort-controller: 3.0.0
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   '@orbitdb/feed-db@1.1.2(react-native@0.74.2(@babel/core@7.29.0)(@babel/preset-env@7.24.7(@babel/core@7.29.0))(react@18.2.0))':
     dependencies:
@@ -13429,7 +13429,7 @@ snapshots:
 
   '@sec-ant/readable-stream@0.4.1': {}
 
-  '@semantic-release/changelog@6.0.3(semantic-release@25.0.3(typescript@5.8.3))':
+  '@semantic-release/changelog@6.0.3(semantic-release@25.0.3(typescript@5.9.3))':
     dependencies:
       '@semantic-release/error': 3.0.0
       aggregate-error: 3.1.0
@@ -13455,7 +13455,7 @@ snapshots:
 
   '@semantic-release/error@4.0.0': {}
 
-  '@semantic-release/git@10.0.1(semantic-release@25.0.3(typescript@5.8.3))':
+  '@semantic-release/git@10.0.1(semantic-release@25.0.3(typescript@5.9.3))':
     dependencies:
       '@semantic-release/error': 3.0.0
       aggregate-error: 3.1.0
@@ -14076,9 +14076,9 @@ snapshots:
     dependencies:
       '@electron/get': 4.0.3
       '@polka/send-type': 0.5.2
-      '@semantic-release/changelog': 6.0.3(semantic-release@25.0.3(typescript@5.8.3))
+      '@semantic-release/changelog': 6.0.3(semantic-release@25.0.3(typescript@5.9.3))
       '@semantic-release/commit-analyzer': 13.0.1(semantic-release@25.0.3(typescript@5.9.3))
-      '@semantic-release/git': 10.0.1(semantic-release@25.0.3(typescript@5.8.3))
+      '@semantic-release/git': 10.0.1(semantic-release@25.0.3(typescript@5.9.3))
       '@semantic-release/github': 12.0.6(semantic-release@25.0.3(typescript@5.9.3))
       '@semantic-release/npm': 13.1.5(semantic-release@25.0.3(typescript@5.9.3))
       '@semantic-release/release-notes-generator': 14.1.0(semantic-release@25.0.3(typescript@5.9.3))
@@ -14151,7 +14151,7 @@ snapshots:
       read-pkg-up: 11.0.0
       rimraf: 6.1.3
       semantic-release: 25.0.3(typescript@5.8.3)
-      semantic-release-monorepo: 8.0.2(semantic-release@25.0.3(typescript@5.8.3))
+      semantic-release-monorepo: 8.0.2(semantic-release@25.0.3(typescript@5.9.3))
       semver: 7.7.4
       source-map-support: 0.5.21
       strip-bom: 5.0.0
@@ -17079,7 +17079,7 @@ snapshots:
   hamt-sharding@3.0.6:
     dependencies:
       sparse-array: 1.3.2
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   handlebars@4.7.9:
     dependencies:
@@ -17418,12 +17418,12 @@ snapshots:
   interface-datastore@8.3.2:
     dependencies:
       interface-store: 6.0.3
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   interface-datastore@9.0.2:
     dependencies:
       interface-store: 7.0.1
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   interface-store@6.0.3: {}
 
@@ -17481,7 +17481,7 @@ snapshots:
       progress-events: 1.1.0
       rabin-wasm: 0.1.5
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -17502,7 +17502,7 @@ snapshots:
       protons-runtime: 5.6.0
       timestamp-nano: 1.0.1
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   ipns@10.1.3:
     dependencies:
@@ -17515,7 +17515,7 @@ snapshots:
       protons-runtime: 5.6.0
       timestamp-nano: 1.0.1
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   irregular-plurals@3.5.0: {}
 
@@ -17890,7 +17890,7 @@ snapshots:
       it-stream-types: 2.0.2
       uint8-varint: 2.0.4
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   it-length-prefixed@9.1.1:
     dependencies:
@@ -17898,7 +17898,7 @@ snapshots:
       it-stream-types: 2.0.2
       uint8-varint: 2.0.4
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   it-length@3.0.9: {}
 
@@ -17975,14 +17975,14 @@ snapshots:
 
   it-to-buffer@4.0.10:
     dependencies:
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   it-ws@6.1.5:
     dependencies:
       '@types/ws': 8.18.1
       event-iterator: 2.0.0
       it-stream-types: 2.0.2
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
       ws: 8.18.2
     transitivePeerDependencies:
       - bufferutil
@@ -18312,7 +18312,7 @@ snapshots:
       progress-events: 1.1.0
       race-event: 1.6.1
       race-signal: 1.1.3
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   libp2p@2.8.9:
     dependencies:
@@ -18343,7 +18343,7 @@ snapshots:
       progress-events: 1.1.0
       race-event: 1.3.0
       race-signal: 1.1.3
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   lie@3.3.0:
     dependencies:
@@ -20177,7 +20177,7 @@ snapshots:
     dependencies:
       uint8-varint: 2.0.4
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   proxy-from-env@1.1.0: {}
 
@@ -20729,7 +20729,7 @@ snapshots:
       '@types/node-forge': 1.3.14
       node-forge: 1.4.0
 
-  semantic-release-monorepo@8.0.2(semantic-release@25.0.3(typescript@5.8.3)):
+  semantic-release-monorepo@8.0.2(semantic-release@25.0.3(typescript@5.9.3)):
     dependencies:
       debug: 4.4.3(supports-color@8.1.1)
       execa: 5.1.1
@@ -20743,12 +20743,12 @@ snapshots:
       ramda: 0.27.2
       read-pkg: 5.2.0
       semantic-release: 25.0.3(typescript@5.8.3)
-      semantic-release-plugin-decorators: 4.0.0(semantic-release@25.0.3(typescript@5.8.3))
+      semantic-release-plugin-decorators: 4.0.0(semantic-release@25.0.3(typescript@5.9.3))
       tempy: 1.0.1
     transitivePeerDependencies:
       - supports-color
 
-  semantic-release-plugin-decorators@4.0.0(semantic-release@25.0.3(typescript@5.8.3)):
+  semantic-release-plugin-decorators@4.0.0(semantic-release@25.0.3(typescript@5.9.3)):
     dependencies:
       semantic-release: 25.0.3(typescript@5.8.3)
 
@@ -21691,13 +21691,13 @@ snapshots:
   uint8-varint@2.0.4:
     dependencies:
       uint8arraylist: 2.4.8
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
   uint8arraylist@2.4.8:
     dependencies:
-      uint8arrays: 5.1.0
+      uint8arrays: 5.1.1
 
-  uint8arrays@5.1.0:
+  uint8arrays@5.1.1:
     dependencies:
       multiformats: 13.4.2
 
