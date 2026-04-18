@@ -1,6 +1,5 @@
-import { EventEmitter, once } from "events";
 import PQueue from "p-queue";
-import deepEqual from "deep-equal";
+import deepEqual from "fast-deep-equal";
 import type {
   schémaFonctionSuivi,
   schémaFonctionOublier,
