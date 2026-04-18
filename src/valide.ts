@@ -85,7 +85,7 @@ export const devinerCatégorie = (
     } catch {
       // Rien à faire
     }
-    return adresseOrbiteValide(val) ? "chaîne" : "chaîneNonTraductible";
+    return adresseOrbiteValide(val) ? "chaîneNonTraductible" : "chaîne";
   } else if (typeof val === "number") {
     if (val > 100000000000) {
       return "horoDatage";
