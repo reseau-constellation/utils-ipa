@@ -43,7 +43,7 @@ jobs:
         run: pnpm test:node
 
       - name: Envoyer couverure à Codecov
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v6
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
   
@@ -76,7 +76,7 @@ jobs:
         run: pnpm test:navig
 
       - name: Envoyer couverure à Codecov
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v6
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
@@ -111,6 +111,6 @@ jobs:
         run: xvfb-run --auto-servernum --server-args="-screen 0 1280x960x24" -- pnpm run test:électron-principal
 
       - name: Envoyer couverure à Codecov
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v6
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
