@@ -246,19 +246,19 @@ export const attendreStabilité = <T>(
 ): ((v: T) => Promise<boolean>) => {
   let déjàAppellé = false;
   let dernierT = 0;
-  let val: string | undefined = undefined;
+  let val: T | undefined = undefined;
   let annulerRebours: () => void = faisRien;
 
   return (v: T) =>
     new Promise<boolean>((résoudre) => {
-      if (déjàAppellé && JSON.stringify(v) === val) {
+      if (déjàAppellé && deepEqual(v, val)) {
         résoudre(false);
         return;
       }
 
       déjàAppellé = true;
       annulerRebours();
-      val = JSON.stringify(v);
+      val = v;
       dernierT = Date.now();
 
       const crono = setTimeout(() => résoudre(true), n);
