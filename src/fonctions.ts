@@ -110,13 +110,13 @@ const avecJournal = <T, A>(
 const dédoubler = <T, A>(
   f: (args: A) => Promise<T>,
 ): ((args: A) => Promise<T | undefined>) => {
-  let valAntérieur: string | undefined = undefined;
+  let valAntérieur: A | undefined = undefined;
   let premièreFois = true;
 
   return async (args): Promise<T | undefined> => {
-    if (premièreFois || valAntérieur !== JSON.stringify(args)) {
+    if (premièreFois || !deepEqual(valAntérieur, args)) {
       premièreFois = false;
-      valAntérieur = JSON.stringify(args);
+      valAntérieur = args;
       return await f(args);
     }
     return undefined;
