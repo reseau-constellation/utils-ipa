@@ -58,7 +58,7 @@
     "playwright": "^1.59.1",
     "prettier": "^3.8.3",
     "source-map-support": "^0.5.21",
-    "ts-patch": "^3.3.0",
+    "ts-patch": "^4.0.0",
     "tsconfig-paths": "^4.2.0",
     "tscpaths": "^0.0.9",
     "typescript": "5.9.3",
