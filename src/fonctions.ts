@@ -107,7 +107,7 @@ const avecJournal = <T, A>(
   };
 };
 
-const dédoubler = <T, A>(
+const dédupliquer = <T, A>(
   f: (args: A) => Promise<T>,
 ): ((args: A) => Promise<T | undefined>) => {
   let valAntérieur: A | undefined = undefined;
@@ -405,7 +405,7 @@ export const suivreDeFonctionListe = async <
   };
 
   const retourRacine = await fListe({
-    fSuivreRacine: dédoubler(fSuivreRacine),
+    fSuivreRacine: dédupliquer(fSuivreRacine),
   });
 
   let oublierRacine: schémaFonctionOublier;
