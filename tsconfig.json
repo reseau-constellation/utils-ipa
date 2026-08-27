@@ -28,6 +28,7 @@
     "skipLibCheck": true,
     "experimentalDecorators": true,
     "importsNotUsedAsValues": "remove",
+    "types": ["mocha"],
 
     "plugins": [
       { "transform": "typescript-transform-paths" },

@@ -1,8 +1,8 @@
-import {
-  type Journal,
+import type {
+  Journal,
   schémaFonctionOublier,
   schémaFonctionSuivi,
-} from "@/types";
+} from "@/types.js";
 import { TypedEmitter } from "tiny-typed-emitter";
 import { Semaphore } from "@chriscdn/promise-semaphore";
 import { expect } from "aegir/chai";

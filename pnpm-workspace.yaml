@@ -1,6 +1,7 @@
 allowBuilds:
   '@ipshipyard/node-datachannel': true
   aws-sdk: false
+  bun: set this to true or false
   classic-level: true
   core-js: true
   deno: true
@@ -11,3 +12,5 @@ allowBuilds:
 
 overrides:
   xlsx: "@e965/xlsx"
+
+blockExoticSubdeps: false
