@@ -6,7 +6,6 @@ import type {
   PasNondéfini,
   élémentsBd,
 } from "@/types.js";
-import { isNull } from "lodash-es";
 import { TypedEmitter } from "tiny-typed-emitter";
 
 import type { Journal } from "./types.js";
