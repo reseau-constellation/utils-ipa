@@ -7,7 +7,7 @@ import {
   suivreFonctionImbriquée,
   uneFois,
 } from "@/fonctions.js";
-import { schémaFonctionOublier } from "@/types";
+import type { schémaFonctionOublier } from "@/types.js";
 
 import { expect } from "aegir/chai";
 import type {
