@@ -80,20 +80,5 @@
     "tiny-typed-emitter": "^2.1.0",
     "uint8arrays": "^5.1.1",
     "wherearewe": "^2.0.1"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@ipshipyard/node-datachannel",
-      "@localfirst/auth",
-      "@localfirst/crdx",
-      "@localfirst/crypto",
-      "@localfirst/shared",
-      "classic-level",
-      "core-js",
-      "esbuild",
-      "iso-constants",
-      "msgpackr-extract",
-      "node-datachannel"
-    ]
   }
 }
