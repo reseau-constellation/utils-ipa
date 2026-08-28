@@ -65,7 +65,7 @@ export const suivreFonctionImbriquée = async <T>({
   fRacine,
   f,
   fSuivre,
-  journal,
+  // journal,
 }: {
   fRacine: (args: {
     fSuivreRacine: (nouvelIdImbriqué?: string) => Promise<void>;
