@@ -30,8 +30,8 @@ importers:
         specifier: ^3.10.1
         version: 3.10.1
       multiformats:
-        specifier: 13.4.2
-        version: 13.4.2
+        specifier: 14.0.5
+        version: 14.0.5
       p-queue:
         specifier: ^8.1.1
         version: 8.1.1
