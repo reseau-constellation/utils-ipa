@@ -53,7 +53,7 @@ importers:
     devDependencies:
       '@chriscdn/promise-semaphore':
         specifier: ^4.0.0
-        version: 4.0.0
+        version: 4.0.1
       '@constl/ipa':
         specifier: ^1.6.24
         version: 1.6.24(debug@4.4.3(supports-color@8.1.1))(react-native@0.74.2(@babel/core@7.29.7(supports-color@8.1.1))(@babel/preset-env@7.24.7(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(react@18.2.0)(supports-color@8.1.1))(supports-color@8.1.1)
@@ -1006,8 +1006,8 @@ packages:
   '@chriscdn/promise-semaphore@3.1.3':
     resolution: {integrity: sha512-EAmwIbH1L2CNsJWloXBG4Kv89H7IUsjYFQnGnmus3OX70LcD5Uu5A7sohPx3O0Ks9UQWEgcr5n2IfxBSuYvOeg==}
 
-  '@chriscdn/promise-semaphore@4.0.0':
-    resolution: {integrity: sha512-vMFXvksQF3zy3e0r5hL8FUMhajcbSd7HJOcGI4CLYQgjd5znoqHIfzYCYVlw0mCYUjzqk5NTIp7mY7m+IB3+uQ==}
+  '@chriscdn/promise-semaphore@4.0.1':
+    resolution: {integrity: sha512-QSVngs1DChAGX2/qtIREPvhSo1kltI/PWgEGBg+7Rw9S8iemVqW6okaStKsBDwOdVmRxp2UfsVWfePi5M8yARg==}
 
   '@colors/colors@1.5.0':
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
@@ -10652,7 +10652,7 @@ snapshots:
 
   '@chriscdn/promise-semaphore@3.1.3': {}
 
-  '@chriscdn/promise-semaphore@4.0.0': {}
+  '@chriscdn/promise-semaphore@4.0.1': {}
 
   '@colors/colors@1.5.0': {}
 
