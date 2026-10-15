@@ -19,7 +19,7 @@
     "test:électron-rendu": "pnpm compiler && pnpm aegir test -t electron-renderer -f \"dist/test/**/*.spec.js\" --cov",
     "test": "pnpm test:node && pnpm test:navig",
     "formatter": "pnpm prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\" && pnpm eslint --ext .js,.ts src",
-    "publier": "pnpm test && pnpm compiler:prod && (git commit -a -m 'version' || true) && pnpm publish",
+    "publier": "pnpm test && pnpm compiler:prod && (git commit -a -m 'version' || true) && pnpm stage publish",
     "versioner": "pnpm genversion  --es6 --semi src/version.ts"
   },
   "watch": {
