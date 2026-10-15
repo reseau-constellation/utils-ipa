@@ -604,9 +604,40 @@ describe("Fonctions", function () {
           fSuivi(2);
           return faisRien;
         },
-        (x) => x !== undefined && x > 1,
+        { condition: (x) => x !== undefined && x > 1 },
       );
       expect(résultat).to.equal(2);
+    });
+
+    it("signal", async () => {
+      const contrôleur = new AbortController();
+      const attenteErreur = expect(
+        uneFois<number>(
+          async (fSuivi) => {
+            fSuivi(1);
+            fSuivi(2);
+            return faisRien;
+          },
+          { signal: contrôleur.signal },
+        ),
+      ).to.eventually.be.rejectedWith("Signal avorté");
+      contrôleur.abort();
+      await attenteErreur;
+    });
+
+    it("signal déjà avorté", async () => {
+      const contrôleur = new AbortController();
+      contrôleur.abort();
+      await expect(
+        uneFois<number>(
+          async (fSuivi) => {
+            fSuivi(1);
+            fSuivi(2);
+            return faisRien;
+          },
+          { signal: contrôleur.signal },
+        ),
+      ).to.eventually.be.rejectedWith("Signal avorté");
     });
 
     it("erreur", async () => {

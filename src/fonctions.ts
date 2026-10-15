@@ -9,6 +9,7 @@ import type {
 import { TypedEmitter } from "tiny-typed-emitter";
 
 import type { Journal } from "./types.js";
+import { AbortError } from "p-retry";
 
 const ignorerErreurAvorté = <T, A>(
   f: (args: A) => Promise<T>,
@@ -129,31 +130,46 @@ export const suivreFonctionImbriquée = async <T>({
 
 export const uneFois = async function <T>(
   f: (fSuivi: schémaFonctionSuivi<T>) => Promise<schémaFonctionOublier>,
-  condition: (x?: T) => boolean | Promise<boolean> = () => true,
+  opts: {
+    condition?: (x?: T) => boolean | Promise<boolean>;
+    signal?: AbortSignal;
+  } = {},
 ): Promise<T> {
+  const { condition, signal } = opts;
 
   let val: T;
   let évaluée = false;
 
-  const événements = new TypedEmitter<{fini: (val: T) => void}>();
+  const événements = new TypedEmitter<{ fini: (val: T) => void }>();
 
   const fSuivi = async (x: T) => {
-    if (!évaluée && await condition(x)) {
+    if (!évaluée && (!condition || (await condition(x)))) {
       val = x;
       évaluée = true;
-      événements.emit("fini", val)
+      événements.emit("fini", val);
     }
-  }
-  
+  };
+
   const oublier = await f(fSuivi);
 
-  return new Promise(async (résoudre) => {
-    événements.on("fini", async (val) => {
+  return new Promise(async (résoudre, rejeter) => {
+    const avorter = async () => {
+      signal?.removeEventListener("abort", avorter);
       await oublier();
+      rejeter(new AbortError("Signal avorté"));
+    };
+    signal?.addEventListener("abort", avorter);
+    if (signal?.aborted) await avorter();
+
+    événements.on("fini", async (val) => {
+      if (signal?.aborted) return;
+      await oublier();
+      signal?.removeEventListener("abort", avorter);
       résoudre(val);
-    })
+    });
     if (évaluée) {
       await oublier();
+      signal?.removeEventListener("abort", avorter);
       résoudre(val);
     }
   });
