@@ -59,7 +59,7 @@ importers:
         version: 1.6.24(debug@4.4.3(supports-color@8.1.1))(react-native@0.87.1(@babel/core@7.29.7(supports-color@8.1.1))(react@19.3.0)(supports-color@8.1.1))(supports-color@8.1.1)
       '@constl/utils-tests':
         specifier: ^2.2.2
-        version: 2.2.2(react-native@0.87.1(@babel/core@7.29.7(supports-color@8.1.1))(react@19.3.0)(supports-color@8.1.1))(supports-color@8.1.1)
+        version: 2.2.8(react-native@0.87.1(@babel/core@7.29.7(supports-color@8.1.1))(react@19.3.0)(supports-color@8.1.1))(supports-color@8.1.1)
       '@eslint/js':
         specifier: ^10.0.1
         version: 10.0.1(eslint@10.12.0(supports-color@8.1.1))
@@ -705,8 +705,8 @@ packages:
     resolution: {integrity: sha512-ypThNw7fa47lu5HSRkEL12nqKz1CjCFeY9ticpOaEBMbqXvpTVNw9044+fvgIaI/KsXWrDf8RQZvTwOU1zz5yw==}
     engines: {node: '>=20'}
 
-  '@constl/utils-tests@2.2.2':
-    resolution: {integrity: sha512-dqhjUoh46AVrMoTpWD7BrBztzxwiBk2xEcyxTZaVBZwO8PK1KHTTTQGlhOhtnq+0ZRfbjTBJIBcECy1eJWyBeQ==}
+  '@constl/utils-tests@2.2.8':
+    resolution: {integrity: sha512-/gwfiG7P/IV0+JeNXwusIDPIuE8aDL8wFWqb35RgbreBqlrSR0vgYO/Hhmh67n9GlYtkpspQiw2p8/JFxKTORw==}
     engines: {node: '>=20'}
 
   '@cspell/cspell-bundled-dicts@10.3.6':
@@ -3592,8 +3592,14 @@ packages:
   datastore-fs@10.0.6:
     resolution: {integrity: sha512-809BIs3wxJMg8/BYDwm734c06oKfrP5svD5CahPPHOIOOk9fSJc3j0OyP1yrb+oUk1OU/V5m1kmeO+eU0tHNCQ==}
 
+  datastore-fs@12.0.1:
+    resolution: {integrity: sha512-e9Hp6h/STYxaUFIbJHTavXze2kMGeKHHVqfdqqjzolB0K7CspBsgqZ9ePEGSyghWzeZMlLSqmSCLUokkVj9p0A==}
+
   datastore-idb@3.0.4:
     resolution: {integrity: sha512-A+c/4G/GGqSSmFrZPr0GC2iUQ58wRinPb8M9yhM/rBvLVpqjddOBkI1ZTCfzBLfj26/zbcHMqJa/jxRHp8O7nA==}
+
+  datastore-idb@5.0.1:
+    resolution: {integrity: sha512-HyipOcFzltZVhdGRmihsmhflQn0uHb46RgnzB5rB9MHfn5PiyBZTJvvucClHFVaMRClvw6HlYcwQ21fz3duoug==}
 
   date-fns@1.30.1:
     resolution: {integrity: sha512-hBSVCvSmWC+QypYObzwGOd9wqdDpOt+0wl0KbU+R+uuZBS1jN8VsD1ss3irQDknRj5NvxiTF6oj/nDRnN/UQNw==}
@@ -9702,9 +9708,12 @@ snapshots:
       uint8arrays: 5.1.1
       wherearewe: 2.0.1
 
-  '@constl/utils-tests@2.2.2(react-native@0.87.1(@babel/core@7.29.7(supports-color@8.1.1))(react@19.3.0)(supports-color@8.1.1))(supports-color@8.1.1)':
+  '@constl/utils-tests@2.2.8(react-native@0.87.1(@babel/core@7.29.7(supports-color@8.1.1))(react@19.3.0)(supports-color@8.1.1))(supports-color@8.1.1)':
     dependencies:
+      '@helia/bitswap': 4.0.20(react-native@0.87.1(@babel/core@7.29.7(supports-color@8.1.1))(react@19.3.0)(supports-color@8.1.1))(supports-color@8.1.1)
       '@helia/libp2p': 2.1.5(react-native@0.87.1(@babel/core@7.29.7(supports-color@8.1.1))(react@19.3.0)(supports-color@8.1.1))(supports-color@8.1.1)
+      '@ipld/dag-cbor': 10.0.2
+      '@ipld/dag-json': 11.0.1
       '@libp2p/gossipsub': 17.1.2
       '@libp2p/peer-id': 6.0.15
       '@libp2p/ping': 3.1.13
@@ -9716,10 +9725,16 @@ snapshots:
       browserify-fs: 1.0.0
       chokidar: 5.0.0
       crypto-browserify: 3.12.1
+      datastore-core: 12.0.1
+      datastore-fs: 12.0.1
+      datastore-idb: 5.0.1
       events: 3.3.0
       genversion: 3.2.0
       helia: 7.1.16(react-native@0.87.1(@babel/core@7.29.7(supports-color@8.1.1))(react@19.3.0)(supports-color@8.1.1))(supports-color@8.1.1)
+      interface-blockstore: 7.0.1
+      interface-datastore: 10.0.1
       libp2p: 3.3.11
+      multiformats: 14.0.5
       os-browserify: 0.3.0
       process: 0.11.10
       rimraf: 6.1.3
@@ -14275,12 +14290,35 @@ snapshots:
       race-signal: 2.0.2
       steno: 4.0.2
 
+  datastore-fs@12.0.1:
+    dependencies:
+      abort-error: 1.0.2
+      datastore-core: 12.0.1
+      interface-datastore: 10.0.1
+      interface-store: 8.0.0
+      it-glob: 3.0.6
+      it-map: 3.1.6
+      it-parallel-batch: 3.0.11
+      race-signal: 2.0.2
+      steno: 4.0.2
+
   datastore-idb@3.0.4:
     dependencies:
       datastore-core: 10.0.4
       idb: 8.0.3
       interface-datastore: 8.3.2
       interface-store: 6.0.3
+      it-filter: 3.1.6
+      it-sort: 3.0.11
+      race-signal: 2.0.2
+
+  datastore-idb@5.0.1:
+    dependencies:
+      abort-error: 1.0.2
+      datastore-core: 12.0.1
+      idb: 8.0.3
+      interface-datastore: 10.0.1
+      interface-store: 8.0.0
       it-filter: 3.1.6
       it-sort: 3.0.11
       race-signal: 2.0.2
