@@ -30,7 +30,7 @@ jobs:
       - name: Préparation de Node.js
         uses: actions/setup-node@v7
         with:
-          node-version: 24
+          node-version: 26
           cache: 'pnpm'
 
       - name: Installer
@@ -63,7 +63,7 @@ jobs:
       - name: Préparation de Node.js
         uses: actions/setup-node@v7
         with:
-          node-version: 24
+          node-version: 26
           cache: 'pnpm'
 
       - name: Installer
@@ -97,7 +97,7 @@ jobs:
       - name: Préparation de Node.js
         uses: actions/setup-node@v7
         with:
-          node-version: 24
+          node-version: 26
           cache: 'pnpm'
 
       - name: Installer
