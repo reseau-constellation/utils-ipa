@@ -5,7 +5,7 @@ import { base58btc } from "multiformats/bases/base58";
 import gjv from "geojson-validation";
 
 import { idcValide } from "./sfip.js";
-import { élémentsBd } from "./types.js";
+import { ÉlémentsBd } from "./types.js";
 import { cholqij } from "./cholqij.js";
 
 export const adresseOrbiteValide = (address: string) => {
@@ -69,7 +69,7 @@ export const idcEtExt = (val: string) => {
 };
 
 export const devinerCatégorie = (
-  val: élémentsBd,
+  val: ÉlémentsBd,
 ): variables.catégorieBaseVariables | undefined => {
   if (typeof val === "boolean") return "booléen";
   else if (typeof val === "string") {

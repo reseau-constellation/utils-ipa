@@ -7,7 +7,7 @@ import {
   suivreFonctionImbriquée,
   uneFois,
 } from "@/fonctions.js";
-import type { schémaFonctionOublier } from "@/types.js";
+import type { Oublier } from "@/types.js";
 
 import { expect } from "aegir/chai";
 import type {
@@ -32,7 +32,7 @@ describe("Fonctions", function () {
       let fSuivre: InterfaceSuivi;
       let f: InterfaceFonction;
 
-      let fOublier: schémaFonctionOublier;
+      let fOublier: Oublier;
 
       beforeEach(async function () {
         ({ fRacine, fSuivre, f } = générerFsTestImbriquées());

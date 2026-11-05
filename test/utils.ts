@@ -1,8 +1,4 @@
-import type {
-  Journal,
-  schémaFonctionOublier,
-  schémaFonctionSuivi,
-} from "@/types.js";
+import type { Journal, Oublier, Suivi } from "@/types.js";
 import { TypedEmitter } from "tiny-typed-emitter";
 import { Semaphore } from "@chriscdn/promise-semaphore";
 import { expect } from "aegir/chai";
@@ -83,7 +79,7 @@ export interface InterfaceContrôlleurRacine {
   (id: string | undefined): Promise<InterfaceContrôlleurSuivi>;
   fonction: (args: {
     fSuivreRacine: (id?: string | undefined) => Promise<void>;
-  }) => Promise<schémaFonctionOublier>;
+  }) => Promise<Oublier>;
   bloquerOublier: () => Promise<void>;
   conclureOublier: () => void;
 }
@@ -97,8 +93,8 @@ export interface InterfaceContrôlleurSuivi {
 export interface InterfaceSuivi {
   fonction: (args: {
     id: string;
-    fSuivre: schémaFonctionSuivi<string | undefined>;
-  }) => Promise<schémaFonctionOublier>;
+    fSuivre: Suivi<string | undefined>;
+  }) => Promise<Oublier>;
   appeléeAvec: string[];
 }
 
@@ -190,7 +186,7 @@ export const générerFsTestImbriquées = (): {
         fSuivreRacine,
       }: {
         fSuivreRacine: (id?: string | undefined) => Promise<void>;
-      }): Promise<schémaFonctionOublier> => {
+      }): Promise<Oublier> => {
         événementsRacine.on("val", fSuivreRacine);
         const fOublier = async () => {
           await sémaphoreRacine.acquire();
@@ -218,8 +214,8 @@ export const générerFsTestImbriquées = (): {
       fSuivre,
     }: {
       id: string;
-      fSuivre: schémaFonctionSuivi<string | undefined>;
-    }): Promise<schémaFonctionOublier> => {
+      fSuivre: Suivi<string | undefined>;
+    }): Promise<Oublier> => {
       fSuivreAppeléeAvec.push(id);
       statutSuivi.résoudre({ id });
       événementsSuivi.on(id, fSuivre);

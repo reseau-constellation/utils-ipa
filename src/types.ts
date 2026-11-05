@@ -1,15 +1,14 @@
-export type schémaFonctionSuivi<T> =
-  ((x: T) => void) | ((x: T) => Promise<void>);
+export type Suivi<T> = ((x: T) => void) | ((x: T) => Promise<void>);
 
-export type schémaFonctionOublier = () => Promise<void>;
+export type Oublier = () => Promise<void>;
 
 export type PasNondéfini<T = unknown> = T extends undefined ? never : T;
 
-export type élémentsBd =
+export type ÉlémentsBd =
   | number
   | boolean
   | string
-  | { [clef: string]: élémentsBd }
-  | Array<élémentsBd>;
+  | { [clef: string]: ÉlémentsBd }
+  | Array<ÉlémentsBd>;
 
 export type Journal = (e: Error) => Promise<void> | void;
