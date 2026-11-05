@@ -1,15 +1,16 @@
 import PQueue from "p-queue";
 import deepEqual from "fast-deep-equal";
-import type {
-  schémaFonctionSuivi,
-  schémaFonctionOublier,
-  PasNondéfini,
-  élémentsBd,
-} from "@/types.js";
+import type { Suivi, Oublier, PasNondéfini, ÉlémentsBd } from "@/types.js";
 import { TypedEmitter } from "tiny-typed-emitter";
 
 import type { Journal } from "./types.js";
 import { AbortError } from "p-retry";
+
+export const estUnePromesse = (x: unknown): x is Promise<unknown> => {
+  return (
+    !!x && !!(x as Promise<unknown>).then && !!(x as Promise<unknown>).finally
+  );
+};
 
 const ignorerErreurAvorté = <T, A>(
   f: (args: A) => Promise<T>,
@@ -70,15 +71,15 @@ export const suivreFonctionImbriquée = async <T>({
 }: {
   fRacine: (args: {
     fSuivreRacine: (nouvelIdImbriqué?: string) => Promise<void>;
-  }) => Promise<schémaFonctionOublier>;
-  f: schémaFonctionSuivi<T | undefined>;
+  }) => Promise<Oublier>;
+  f: Suivi<T | undefined>;
   fSuivre: (args: {
     id: string;
-    fSuivre: schémaFonctionSuivi<T | undefined>;
-  }) => Promise<schémaFonctionOublier>;
+    fSuivre: Suivi<T | undefined>;
+  }) => Promise<Oublier>;
   journal?: Journal;
-}): Promise<schémaFonctionOublier> => {
-  let pOublier: Promise<schémaFonctionOublier | void> | undefined;
+}): Promise<Oublier> => {
+  let pOublier: Promise<Oublier | void> | undefined;
   let idImbriqué: string | undefined = undefined;
   let premièreFois = true;
 
@@ -129,7 +130,7 @@ export const suivreFonctionImbriquée = async <T>({
 };
 
 export const uneFois = async function <T>(
-  f: (fSuivi: schémaFonctionSuivi<T>) => Promise<schémaFonctionOublier>,
+  f: (fSuivi: Suivi<T>) => Promise<Oublier>,
   opts: {
     condition?: (x?: T) => boolean | Promise<boolean>;
     signal?: AbortSignal;
@@ -179,9 +180,7 @@ export const faisRien = async (): Promise<void> => {
   // Rien à faire
 };
 
-export const ignorerNonDéfinis = <T>(
-  f: schémaFonctionSuivi<T>,
-): schémaFonctionSuivi<T | undefined> => {
+export const ignorerNonDéfinis = <T>(f: Suivi<T>): Suivi<T | undefined> => {
   return async (x: T | undefined) => {
     if (x !== undefined) {
       return await f(x);
@@ -225,9 +224,7 @@ export const suivreDeFonctionListe = async <
   T,
   U extends PasNondéfini,
   V,
-  W extends
-    | schémaFonctionOublier
-    | ({ fOublier: schémaFonctionOublier } & { [key: string]: unknown }),
+  W extends Oublier | ({ fOublier: Oublier } & { [key: string]: unknown }),
 >({
   fListe,
   f,
@@ -239,12 +236,12 @@ export const suivreDeFonctionListe = async <
   fListe: (args: {
     fSuivreRacine: (éléments: T[]) => Promise<void>;
   }) => Promise<W>;
-  f: schémaFonctionSuivi<V[]>;
+  f: Suivi<V[]>;
   fBranche: (args: {
     id: string;
-    fSuivreBranche: schémaFonctionSuivi<U>;
+    fSuivreBranche: Suivi<U>;
     branche: T;
-  }) => Promise<schémaFonctionOublier | undefined>;
+  }) => Promise<Oublier | undefined>;
   fIdDeBranche?: (b: T) => string;
   fRéduction?: (branches: U[]) => V[];
   journal?: Journal;
@@ -258,7 +255,7 @@ export const suivreDeFonctionListe = async <
   interface InterfaceBranches {
     données?: U;
     déjàÉvaluée: boolean;
-    fOublier?: schémaFonctionOublier;
+    oublier: Oublier | Promise<void>;
   }
   const arbre: { [key: string]: InterfaceBranches } = {};
   const dictBranches: { [key: string]: T } = {};
@@ -279,6 +276,10 @@ export const suivreDeFonctionListe = async <
     await fEnveloppée(réduits);
   };
   const queue = new PQueue({ concurrency: 1 });
+
+  const oublierOuAttendreOublie = async (x: Oublier | Promise<void>) => {
+    return await (estUnePromesse(x) ? x : x());
+  };
 
   const fSuivreRacine = async (éléments: Array<T>) => {
     const tâche = async () => {
@@ -306,43 +307,48 @@ export const suivreDeFonctionListe = async <
       nouveaux = [...new Set(nouveaux)];
 
       await Promise.allSettled(
-        changés.map(async (c) => {
-          if (arbre[c]) {
-            await arbre[c].fOublier?.();
-            delete arbre[c];
-          }
-        }),
+        changés.map(
+          async (c) => await oublierOuAttendreOublie(arbre[c].oublier),
+        ),
       );
 
       await Promise.allSettled(
-        disparus.map(async (d) => {
-          await arbre[d].fOublier?.();
-          delete arbre[d];
-        }),
+        disparus.map(
+          async (d) => await oublierOuAttendreOublie(arbre[d].oublier),
+        ),
       );
 
-      await Promise.all(
+      await Promise.allSettled(
         nouveaux.map(async (n: string) => {
           arbre[n] = {
             déjàÉvaluée: false,
+            oublier: async () => {
+              const pOublier = new Promise<void>(résoudre => {
+                pOublierBranche.then(oublier=>oublier?.()).then(()=>{
+                  delete arbre[n]
+                  résoudre()
+                })
+              })
+              arbre[n].oublier = pOublier
+              await pOublier
+            }
           };
-          const élément = dictÉléments[n];
-          dictBranches[n] = élément;
 
-          const idBranche = fIdDeBranche(élément);
+          dictBranches[n] = dictÉléments[n];
+
           const fSuivreBranche = async (données: U) => {
             arbre[n].données = données;
             arbre[n].déjàÉvaluée = true;
             await fFinale();
           };
           // Ignorer les erreurs d'avortement avant de passer au journal
-          arbre[n].fOublier = await avecJournal(
+          const pOublierBranche = avecJournal(
             ignorerErreurAvorté(fBranche),
             journal,
           )({
-            id: idBranche,
+            id: n,
             fSuivreBranche,
-            branche: élément,
+            branche: dictÉléments[n],
           });
         }),
       );
@@ -356,14 +362,16 @@ export const suivreDeFonctionListe = async <
     fSuivreRacine: dédupliquer(fSuivreRacine),
   });
 
-  let oublierRacine: schémaFonctionOublier;
+  let oublierRacine: Oublier;
 
   const fOublier = async () => {
     await oublierRacine();
     await queue.onIdle();
+    await pFinaleIntiale;
     await Promise.allSettled([
-      pFinaleIntiale,
-      ...Object.values(arbre).map(async (x) => await x.fOublier?.()),
+      ...Object.values(arbre).map(
+        async ({ oublier }) => await oublierOuAttendreOublie(oublier),
+      ),
     ]);
   };
 
@@ -385,7 +393,7 @@ type élémentsBdOuNonDéfini =
   | boolean
   | string
   | { [clef: string]: élémentsBdOuNonDéfini }
-  | Array<élémentsBd>
+  | Array<ÉlémentsBd>
   | undefined;
 
 export const effacerPropriétésNonDéfinies = <
@@ -396,14 +404,14 @@ export const effacerPropriétésNonDéfinies = <
   return Object.fromEntries(
     Object.entries(objet)
       .filter(([_clef, val]) => val !== undefined)
-      .map(([clef, val]): [string, élémentsBd] => {
+      .map(([clef, val]): [string, ÉlémentsBd] => {
         return [
           clef,
           // @ts-expect-error Bizarre d'erreur de récursion infinie
           typeof val === "object" && !Array.isArray(val)
             ? effacerPropriétésNonDéfinies(val)
             : val!,
-        ] as [string, élémentsBd];
+        ] as [string, ÉlémentsBd];
       }),
   ) as NoUndefinedField<T>;
 };
