@@ -59,7 +59,7 @@ importers:
         version: 1.6.24(debug@4.4.3(supports-color@8.1.1))(react-native@0.87.1(@babel/core@7.29.7(supports-color@8.1.1))(react@19.3.0)(supports-color@8.1.1))(supports-color@8.1.1)
       '@constl/utils-tests':
         specifier: ^2.2.2
-        version: 2.2.8(react-native@0.87.1(@babel/core@7.29.7(supports-color@8.1.1))(react@19.3.0)(supports-color@8.1.1))(supports-color@8.1.1)
+        version: 2.2.11(react-native@0.87.1(@babel/core@7.29.7(supports-color@8.1.1))(react@19.3.0)(supports-color@8.1.1))(supports-color@8.1.1)
       '@eslint/js':
         specifier: ^10.0.1
         version: 10.0.1(eslint@10.14.0(supports-color@8.1.1))
@@ -705,8 +705,8 @@ packages:
     resolution: {integrity: sha512-ypThNw7fa47lu5HSRkEL12nqKz1CjCFeY9ticpOaEBMbqXvpTVNw9044+fvgIaI/KsXWrDf8RQZvTwOU1zz5yw==}
     engines: {node: '>=20'}
 
-  '@constl/utils-tests@2.2.8':
-    resolution: {integrity: sha512-/gwfiG7P/IV0+JeNXwusIDPIuE8aDL8wFWqb35RgbreBqlrSR0vgYO/Hhmh67n9GlYtkpspQiw2p8/JFxKTORw==}
+  '@constl/utils-tests@2.2.11':
+    resolution: {integrity: sha512-19y0uG0KRJln7/L2HdFfRSQ90KCqgFrXMBn7/PeeRATYa+eLLpbXcAaksXZEmy8UuK39HKNAJ32/UXJY8RQbdw==}
     engines: {node: '>=20'}
 
   '@cspell/cspell-bundled-dicts@10.3.6':
@@ -9760,7 +9760,7 @@ snapshots:
       uint8arrays: 5.1.1
       wherearewe: 2.0.1
 
-  '@constl/utils-tests@2.2.8(react-native@0.87.1(@babel/core@7.29.7(supports-color@8.1.1))(react@19.3.0)(supports-color@8.1.1))(supports-color@8.1.1)':
+  '@constl/utils-tests@2.2.11(react-native@0.87.1(@babel/core@7.29.7(supports-color@8.1.1))(react@19.3.0)(supports-color@8.1.1))(supports-color@8.1.1)':
     dependencies:
       '@helia/bitswap': 4.0.20(react-native@0.87.1(@babel/core@7.29.7(supports-color@8.1.1))(react@19.3.0)(supports-color@8.1.1))(supports-color@8.1.1)
       '@helia/libp2p': 2.1.5(react-native@0.87.1(@babel/core@7.29.7(supports-color@8.1.1))(react@19.3.0)(supports-color@8.1.1))(supports-color@8.1.1)
