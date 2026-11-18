@@ -4,7 +4,6 @@ import type { Suivi, Oublier, PasNondéfini, ÉlémentsBd } from "@/types.js";
 import { TypedEmitter } from "tiny-typed-emitter";
 
 import type { Journal } from "./types.js";
-import { AbortError } from "p-retry";
 
 export const estUnePromesse = (x: unknown): x is Promise<unknown> => {
   return (
@@ -157,7 +156,7 @@ export const uneFois = async function <T>(
     const avorter = async () => {
       signal?.removeEventListener("abort", avorter);
       await oublier();
-      rejeter(new AbortError("Signal avorté"));
+      rejeter("Signal avorté");
     };
     signal?.addEventListener("abort", avorter);
     if (signal?.aborted) await avorter();
