@@ -128,6 +128,16 @@ export const suivreFonctionImbriquée = async <T>({
   };
 };
 
+const oublierOuAttendreOublie = (oublier: Oublier): Oublier => {
+  let pOublie: Promise<void> | undefined = undefined;
+  return () => {
+    return new Promise(résoudre => {
+      if (!pOublie) pOublie = oublier();
+      pOublie.then(résoudre);
+    })
+  }
+}
+
 export const uneFois = async function <T>(
   f: (fSuivi: Suivi<T>) => Promise<Oublier>,
   opts: {
@@ -150,28 +160,29 @@ export const uneFois = async function <T>(
     }
   };
 
-  const oublier = await f(fSuivi);
+  const oublier = oublierOuAttendreOublie(await f(fSuivi));
 
   return new Promise(async (résoudre, rejeter) => {
+    const rendreValeur = async () => {
+      signal?.removeEventListener("abort", avorter);
+      await oublier();
+      résoudre(val);
+    }
     const avorter = async () => {
       signal?.removeEventListener("abort", avorter);
       await oublier();
       rejeter("Signal avorté");
     };
+
     signal?.addEventListener("abort", avorter);
     if (signal?.aborted) await avorter();
 
-    événements.on("fini", async (val) => {
+    événements.once("fini", async () => {
       if (signal?.aborted) return;
-      await oublier();
-      signal?.removeEventListener("abort", avorter);
-      résoudre(val);
+      await rendreValeur();
     });
-    if (évaluée) {
-      await oublier();
-      signal?.removeEventListener("abort", avorter);
-      résoudre(val);
-    }
+
+    if (évaluée) await rendreValeur()
   });
 };
 
