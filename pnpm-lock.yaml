@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       browser-fs-access:
-        specifier: ^0.38.0
-        version: 0.38.0
+        specifier: ^0.39.0
+        version: 0.39.0
       events:
         specifier: ^3.3.0
         version: 3.3.0
@@ -2526,8 +2526,8 @@ packages:
   brorand@1.1.0:
     resolution: {integrity: sha512-cKV8tMCEpQs4hK/ik71d6LrPOnpkpGBR0wzxqr68g2m/LB2GxVYQroAjMJZRVM1Y4BCjCKc3vAamxSzOY2RP+w==}
 
-  browser-fs-access@0.38.0:
-    resolution: {integrity: sha512-JveqW2w6pEZqFEEfMgCszXzYpE89dG+nPsmOdcs741mFFAROeL+iqjGEpR07RI+s0YY0EFr+4KnOoACprJTpOw==}
+  browser-fs-access@0.39.0:
+    resolution: {integrity: sha512-YAU4731mBk3CyUP7pXOFRKr2PyxBQN5cIdg2QHKX1v0573O5HpIUTFobOYCthzTGS5aRXeMVad7pNGSIASjuQQ==}
 
   browser-level@3.0.0:
     resolution: {integrity: sha512-kGXtLh29jMwqKaskz5xeDLtCtN1KBz/DbQSqmvH7QdJiyGRC7RAM8PPg6gvUiNMa+wVnaxS9eSmEtP/f5ajOVw==}
@@ -11200,7 +11200,7 @@ snapshots:
 
   brorand@1.1.0: {}
 
-  browser-fs-access@0.38.0: {}
+  browser-fs-access@0.39.0: {}
 
   browser-level@3.0.0:
     dependencies:
