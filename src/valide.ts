@@ -1,11 +1,9 @@
-import type { variables } from "@constl/ipa";
-
 import { CID } from "multiformats/cid";
 import { base58btc } from "multiformats/bases/base58";
 import gjv from "geojson-validation";
 
 import { idcValide } from "./sfip.js";
-import { ÉlémentsBd } from "./types.js";
+import { CatégorieBaseVariables, CatégorieVariable, ÉlémentsBd } from "./types.js";
 import { cholqij } from "./cholqij.js";
 
 export const adresseOrbiteValide = (address: string) => {
@@ -70,7 +68,7 @@ export const idcEtExt = (val: string) => {
 
 export const devinerCatégorie = (
   val: ÉlémentsBd,
-): variables.catégorieBaseVariables | undefined => {
+): CatégorieBaseVariables | undefined => {
   if (typeof val === "boolean") return "booléen";
   else if (typeof val === "string") {
     try {
@@ -138,7 +136,7 @@ export const validerCatégorieBase = ({
   catégorie,
   val,
 }: {
-  catégorie: variables.catégorieBaseVariables;
+  catégorie: CatégorieBaseVariables;
   val: unknown;
 }) => {
   switch (catégorie) {
@@ -177,7 +175,7 @@ export function validerCatégorieVal({
   catégorie,
 }: {
   val: unknown;
-  catégorie: variables.catégorieVariables;
+  catégorie: CatégorieVariable;
 }): boolean {
   if (val === undefined) return true; // Permettre les valeurs manquantes
 

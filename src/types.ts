@@ -12,3 +12,26 @@ export type ÉlémentsBd =
   | Array<ÉlémentsBd>;
 
 export type Journal = (e: Error) => Promise<void> | void;
+
+export type CatégorieBaseVariables =
+  | "numérique"
+  | "horoDatage"
+  | "intervaleTemps"
+  | "chaîne"
+  | "chaîneNonTraductible"
+  | "booléen"
+  | "géojson"
+  | "vidéo"
+  | "audio"
+  | "image"
+  | "fichier";
+
+  export type CatégorieVariable =
+  | {
+      type: "simple";
+      catégorie: CatégorieBaseVariables;
+    }
+  | {
+      type: "liste";
+      catégorie: CatégorieBaseVariables;
+    };

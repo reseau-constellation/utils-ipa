@@ -1,6 +1,4 @@
 allowBuilds:
-  '@ipshipyard/node-datachannel': true
-  aws-sdk: false
   bun: true
   classic-level: true
   core-js: true
@@ -9,8 +7,5 @@ allowBuilds:
   iso-constants@https://codeload.github.com/inverted-capital/iso-constants/tar.gz/2af6fdfb2cacaa03ebd58543703918783e62649f: true
   node-datachannel: true
   unrs-resolver: true
-
-overrides:
-  xlsx: "@e965/xlsx"
-
-blockExoticSubdeps: false
+minimumReleaseAgeExclude:
+  - '@constl/utils-tests@2.3.0'
