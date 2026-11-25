@@ -251,7 +251,7 @@ export const suivreDeFonctionListe = async <
     id: string;
     fSuivreBranche: Suivi<U>;
     branche: T;
-  }) => Promise<Oublier | undefined>;
+  }) => Promise<Oublier>;
   fIdDeBranche?: (b: T) => string;
   fRéduction?: (branches: U[]) => V[];
   journal?: Journal;
