@@ -3,7 +3,11 @@ import { base58btc } from "multiformats/bases/base58";
 import gjv from "geojson-validation";
 
 import { idcValide } from "./sfip.js";
-import { CatégorieBaseVariables, CatégorieVariable, ÉlémentsBd } from "./types.js";
+import {
+  CatégorieBaseVariables,
+  CatégorieVariable,
+  ÉlémentsBd,
+} from "./types.js";
 import { cholqij } from "./cholqij.js";
 
 export const adresseOrbiteValide = (address: string) => {

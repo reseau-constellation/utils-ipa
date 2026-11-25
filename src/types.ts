@@ -26,7 +26,7 @@ export type CatégorieBaseVariables =
   | "image"
   | "fichier";
 
-  export type CatégorieVariable =
+export type CatégorieVariable =
   | {
       type: "simple";
       catégorie: CatégorieBaseVariables;

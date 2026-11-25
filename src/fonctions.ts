@@ -131,12 +131,12 @@ export const suivreFonctionImbriquée = async <T>({
 const oublierOuAttendreOublie = (oublier: Oublier): Oublier => {
   let pOublie: Promise<void> | undefined = undefined;
   return () => {
-    return new Promise(résoudre => {
+    return new Promise((résoudre) => {
       if (!pOublie) pOublie = oublier();
       pOublie.then(résoudre);
-    })
-  }
-}
+    });
+  };
+};
 
 export const uneFois = async function <T>(
   f: (fSuivi: Suivi<T>) => Promise<Oublier>,
@@ -167,7 +167,7 @@ export const uneFois = async function <T>(
       signal?.removeEventListener("abort", avorter);
       await oublier();
       résoudre(val);
-    }
+    };
     const avorter = async () => {
       signal?.removeEventListener("abort", avorter);
       await oublier();
@@ -182,7 +182,7 @@ export const uneFois = async function <T>(
       await rendreValeur();
     });
 
-    if (évaluée) await rendreValeur()
+    if (évaluée) await rendreValeur();
   });
 };
 
@@ -333,15 +333,17 @@ export const suivreDeFonctionListe = async <
           arbre[n] = {
             déjàÉvaluée: false,
             oublier: async () => {
-              const pOublier = new Promise<void>(résoudre => {
-                pOublierBranche.then(oublier=>oublier?.()).then(()=>{
-                  delete arbre[n]
-                  résoudre()
-                })
-              })
-              arbre[n].oublier = pOublier
-              await pOublier
-            }
+              const pOublier = new Promise<void>((résoudre) => {
+                pOublierBranche
+                  .then((oublier) => oublier?.())
+                  .then(() => {
+                    delete arbre[n];
+                    résoudre();
+                  });
+              });
+              arbre[n].oublier = pOublier;
+              await pOublier;
+            },
           };
 
           dictBranches[n] = dictÉléments[n];
