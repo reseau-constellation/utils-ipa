@@ -53,7 +53,7 @@ importers:
         version: 4.0.1
       '@constl/utils-tests':
         specifier: ^2.3.0
-        version: 2.3.0(react-native@0.88.1(@babel/core@7.29.13(supports-color@10.2.2))(react@19.3.1)(supports-color@10.2.2))(supports-color@10.2.2)
+        version: 2.3.4(react-native@0.88.1(@babel/core@7.29.13(supports-color@10.2.2))(react@19.3.1)(supports-color@10.2.2))(supports-color@10.2.2)
       '@eslint/js':
         specifier: ^10.0.1
         version: 10.0.1(eslint@10.15.0(supports-color@10.2.2))
@@ -578,8 +578,8 @@ packages:
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
     engines: {node: '>=0.1.90'}
 
-  '@constl/utils-tests@2.3.0':
-    resolution: {integrity: sha512-YXE6oQDTlP+3lyAiEgTgWRWnv47Rzbf757CoWjj6GltXIer1A3TodDyGcp9cdP3392Mt1DQf1Ekf8lLZHAvlvw==}
+  '@constl/utils-tests@2.3.4':
+    resolution: {integrity: sha512-x7jzqVLW1IiHUbwO1JUaRgUoQP3lyc1h2HAFEwfrBNhhChqQNeMaYC/mOa7zF550GfF5ZUqHHkr5xLKyTg7vfA==}
     engines: {node: '>=20'}
 
   '@cspell/cspell-bundled-dicts@10.5.2':
@@ -8448,7 +8448,7 @@ snapshots:
 
   '@colors/colors@1.5.0': {}
 
-  '@constl/utils-tests@2.3.0(react-native@0.88.1(@babel/core@7.29.13(supports-color@10.2.2))(react@19.3.1)(supports-color@10.2.2))(supports-color@10.2.2)':
+  '@constl/utils-tests@2.3.4(react-native@0.88.1(@babel/core@7.29.13(supports-color@10.2.2))(react@19.3.1)(supports-color@10.2.2))(supports-color@10.2.2)':
     dependencies:
       '@chainsafe/libp2p-noise': 17.0.0
       '@chainsafe/libp2p-yamux': 8.0.1
@@ -8463,6 +8463,7 @@ snapshots:
       '@libp2p/interface': 3.4.0
       '@libp2p/peer-id': 6.0.18
       '@libp2p/ping': 3.1.18
+      '@libp2p/utils': 7.4.6
       '@libp2p/webrtc': 7.0.3
       '@libp2p/websockets': 10.1.26
       '@multiformats/multiaddr': 13.0.3
@@ -8483,11 +8484,13 @@ snapshots:
       interface-blockstore: 7.0.1
       interface-datastore: 10.0.1
       libp2p: 3.5.2
+      lodash-es: 4.18.1
       multiformats: 14.0.7
       os-browserify: 0.3.0
       process: 0.11.10
       rimraf: 6.1.4
       stream-browserify: 3.0.0
+      tiny-typed-emitter: 2.1.0
       uint8arrays: 6.1.1
       url-polyfill: 1.1.14
       uuid: 14.0.3
